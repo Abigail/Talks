@@ -84,11 +84,6 @@ END {
 }
 
 
-#       margin_left    =>  5,
-#       margin_top     =>  5,
-#       margin_bottom  => 10,
-#       margin_right   => 20,
-
 sub make_route ($piece, %args) {
     my $svg = Chess::Infinite::Grapher:: -> route (
         piece          => $piece,

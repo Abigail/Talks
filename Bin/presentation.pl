@@ -94,8 +94,11 @@ sub make_route ($piece, %args) {
         show_visited   =>  1,
         %args,
     );
-    $svg -> style -> CDATA (<<~ '--');
-        svg  {background-color: rgb(232,235,239);}
+    my $finish_color = $piece -> trapped ? "red" : "blue";
+    $svg -> style -> CDATA (<<~ "--");
+        svg                     {background-color: rgb(232,235,239);}
+        circle.terminal-finish  {fill: $finish_color;}
+        circle.terminal-start   {fill: green;}
     --
     $svg;
 }

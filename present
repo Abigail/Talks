@@ -1,0 +1,423 @@
+#!/opt/perl/bin/perl
+
+use 5.010;
+
+use strict;
+use warnings;
+no warnings 'syntax';
+
+use POSIX qw 'ceil';
+use Term::ProgressBar::Simple;
+
+sub create_index;
+sub process_files;
+sub process_file;
+sub make_title;
+sub process_text;
+sub transform;
+sub create_navigation_script;
+
+if (@ARGV) {
+    my $dir = shift;
+    chdir $dir or die "chdir $dir: $!\n";
+}
+my $index = "Src/index";
+
+die "Did not find an index file.\n" unless -f $index;
+
+open my $fh => $index or die "open '$index': $!\n";
+my @files = map {/^([^:\\]*(?:\\.[^:\\]*)*):(.*)/
+                    ? do {my ($a, $b) = ($1, $2); $a =~ s/\\(.)/$1/g; [$a, $b]}
+                    : [$_, $_]}
+            grep {/\S/ && !/^\s*#/} map {chomp; $_} <$fh>;
+close $fh;
+
+create_index  @files;
+process_files @files;
+
+sub _ ($) {
+    local $_ = lc shift;
+    s/\s+/_/g;
+    $_
+}
+
+
+sub create_navigation_script {
+    my %arg     = @_;
+
+    my $next    = $arg {next} || "";
+    my $prev    = $arg {prev} || "";
+
+    my $script  = <<"--";
+<script type="text/javascript">
+var counter = 0;
+function toggle_div () {
+    counter ++;
+    var div_name = "paused_" + counter;
+    var element  =  document.getElementById (div_name);
+    if (element) {
+        element.className = 'visible';
+        return (1);
+    }
+    else {
+        return (0);
+    }
+}
+function do_keypress (e) {
+    var eventobj  = window.event ? event : e
+    var unicode   = eventobj.charCode ? eventobj.charCode : eventojb.keyCode
+    var actualkey = String.fromCharCode (unicode)
+    var toggled   = 0;
+    if (actualkey == " ") {
+        toggled = toggle_div ();
+    }
+        
+--
+
+    $script .= <<"--" if $next;
+    if ((actualkey == " " && !toggled) || actualkey == "n") {
+        location.href = "$next.html"
+    }
+--
+
+    $script .= <<"--" if $prev;
+    if (actualkey == "p") {
+        location.href = "$prev.html"
+    }
+--
+
+    $script .= <<"--";
+    if (actualkey == "i") {
+        location.href = "index.html"
+    }
+}
+document.onkeypress=do_keypress
+</script>
+--
+
+    $script;
+}
+
+
+sub create_navigation_bar {
+    my %arg   = @_;
+
+    my $l     = length $arg {total};
+    my $count = sprintf "%0${l}d/%d" => $arg {count} + 1, $arg {total};
+    my $title = $arg {title};
+    my $file  = $arg {file};
+
+    my $prev  = $arg {prev}
+                ? qq {<a href = "$arg{prev}.html" accesskey = 'p'>Prev</a>}
+                : qq {Prev};
+    my $indx  =   qq {<a href = "index.html" accesskey = 'i'>} .
+                  qq {<h3 class = "nav">$title</h3></a>};
+    my $next  = $arg {next}
+                ? qq {<a href = "$arg{next}.html" accesskey = ' '>Next</a>}
+                : qq {Next};
+    $prev = "<span class = 'prev'>$prev</span>";
+    $next = "<span class = 'next'>$next</span>";
+
+    <<"--";
+<table class = "nav" width = "100%">
+<tr><td align = "left" width = "15%">$prev
+    <td align = "center" width = "60%">$indx
+    <td align = "right" width = "15%">$next
+</table>
+--
+}
+
+sub create_index {
+    my $index;
+
+    my $nav_bar = create_navigation_bar count => -1,
+                                        total => scalar @_,
+                                        next  => 'title',
+                                        file  => 'index',
+                                        title => 'Index',
+                  ;
+    my $script  = create_navigation_script next => 'title';
+
+    my @entry = grep {length $$_ [0]} @_;
+
+    my $text = "<table width = '90%'>";
+    my $rows = ceil @entry / 2;
+
+    foreach my $r (0 .. $rows - 1) {
+        $text .= "<tr>";
+        foreach my $c (0 .. 1) {
+            next if $r + $c * $rows >= @entry;
+            $text .= sprintf qq {<td width = '45%'>} .
+                             qq {<a href = "%s.html">%s</a></td>\n} =>
+                                _ $entry [$r + $c * $rows] [1],
+                                  $entry [$r + $c * $rows] [0];
+        }
+        $text .= "</tr>";
+    }
+    $text .= "</table>";
+
+
+    open my $fh => "> HTML/index.html" or die "HTML/index.html: $!\n";
+    print $fh <<"--";
+<html><head>
+<link rel = "stylesheet" href = "../Styles/default.css" type = "text/css">
+<link rel = "stylesheet" href = "../Styles/index.css" type = "text/css">
+<title>Index</title>
+$script
+</head>
+<body>
+$nav_bar
+<div class = "content">
+<div align = 'center'>
+$text
+</div>
+</div>
+</body></html>
+--
+    close $fh or die "close: $!\n";
+    chmod 0644, "HTML/index.html" or die "chmod: $!\n";
+    -f "HTML/index.public.html"
+        or link "HTML/index.html" => "HTML/index.public.html" or die "link: $!";
+}
+
+
+sub process_files {
+    my @files = map {_ $$_ [1]} @_;
+    my $progress = Term::ProgressBar::Simple -> new ({
+        name  => "Slides",
+        count => scalar @files,
+    });
+
+    my %seen;
+    my @files2;
+    foreach my $file (@files) {
+        my $copy = $file;
+        if ($seen {$copy}) {
+            $copy .= "_a";
+            $copy ++ while $seen {$copy};
+        }
+        $seen {$copy} ++;
+        push @files2 => [$file => $copy];
+    }
+
+    foreach my $i (keys @files2) {
+        process_file file   =>      $files2 [$i]     [0],
+                     prev   => $i ? $files2 [$i - 1] [1] : undef,
+                     next   =>      $files2 [$i + 1] [1],
+                     target =>      $files2 [$i]     [1],
+                     count  =>      $i,
+                     total  =>      @files2 + 0,
+        ;
+        $progress ++;
+    }
+}
+
+
+
+sub process_file {
+    my %arg = @_;
+
+    my $file = $arg {file};
+    my $target = $arg {target};
+    my $no_navbar;
+    my $title   = "";
+    my $nav_bar = "";
+
+    my @text;
+    if (!-f "Src/$file" && -f "Images/$file.svg") {
+        @text = `cat Images/$file.svg`;
+        $no_navbar = 1;
+    }
+    else {
+        @text = `cat Src/$file`;
+    }
+
+    # Special case the title page.
+    if ($file =~ /^title(?:-[0-9]+)?$/) {
+        @text = make_title @text;
+    }
+
+    # First line is the title.
+    unless ($no_navbar) {
+        $title   = transform shift @text;
+        $nav_bar = create_navigation_bar    %arg, title => $title;
+    }
+    my $script  = create_navigation_script %arg;
+
+    my $text    = process_text @text;
+
+    my $style   = -f "Images/$file.jpg" 
+                   ? "body {background-image: url('../Images/$file.jpg');\n" .
+                           "background-repeat: no-repeat;\n" .
+                           "background-attachment: fixed;\n" .
+                           "background-position: center;}"
+                   : "";
+    $style .= `cat Styles/$file.css` if -f "Styles/$file.css";
+    my $normalized_file = $file =~ s/-[0-9].*$//r;
+    my $styles = "";
+    my %seen;
+    foreach my $name ("default", $file, $normalized_file) {
+        next if $seen {$name} ++;
+        $styles .= "<link rel = 'stylesheet' href = '../Styles/$name.css' " .
+                   "type = 'text/css'>\n" if -f "Styles/$name.css";
+    }
+    open my $fh => ">", "HTML/$target.html" or
+                        die "open HTML/$target.html: $!\n";
+    print $fh <<"--";
+<html><head>
+$styles
+<style>
+$style
+</style>
+<title>$title</title>
+$script
+</head>
+<body>
+$nav_bar
+<div class = "content">
+$text
+</div>
+</body></html>
+--
+    close $fh or die "close HTML/$target.html: $!\n";
+    chmod 0644, "HTML/$target.html" or die "chmod: $!\n";
+}
+
+
+sub make_title {
+    my ($title, @lines) = @_;
+
+    my $name = "Abigail";
+
+    my $table = "";
+    my $url   = "";
+    foreach my $line (@lines) {
+        if ($line =~ /http:/) {
+            # $url = "<tt class = 'title-name white'>$line</tt>";
+            $url = "<tt class = 'title-url'>$line</tt>";
+            next;
+        }
+        if ($line =~ /^Name:\s*(.*)/) {
+            $name = $1;
+            next;
+        }
+        next unless $line =~ /-.*-/;
+        $table .= sprintf "<tr>" .
+                  "<td align = 'left'><span class = 'title-where'>%s</span>"   .
+                  "<td align = 'center'><span class = 'title-where'>%s</span>" .
+                  "<td align = 'right'><span class = 'title-where'>%s</span>" =>
+                  split /\s*-\s*/ => $line, 3;
+    }
+
+    my $text = <<"--";
+<h1 align = 'center' class = 'title-title'>$title</h1>
+<p>
+<h3 align = 'center' class = "white">$name</h3>
+<p><p><p><div align = 'center'><table cellspacing = 10>
+$table
+</table>
+$url
+</div>
+--
+
+    ("Title", $text)
+}
+
+my %class;
+my $class;
+
+BEGIN {
+    $class {X} = [tt      => "compiler-error"];
+    $class {O} = [tt      => "output"];
+    $class {E} = [span    => "emphasis"];
+    $class {B} = [span    => "bold"];
+    $class {C} = [tt      => "code"];
+    $class {R} = [tt      => "runtime-error"];
+    $class {W} = [tt      => "warning"];
+    $class     = join '|' => sort {length $a <=> length $b} keys %class;
+}
+
+sub transform {
+    local $_ = shift or return "";
+
+    #
+    # Transforms X<< foo >> according to table above;
+    #            /foo/      to  <em>foo</em>, and
+    #            *foo*      to  <strong>foo</strong>.
+    #
+    s{(?:(?<class>$class)<<\s+(?<content>[^>]*(?:>[^>]+)*)\s+>>)  |
+      (?:''(?<em>[^<>']+)''(?!'))                                 |
+      (?:\*(?<strong>[^<>*]+)\*)}
+     {$+ {class}
+        ? qq {<$class{$+{class}}[0] class = "$class{$+{class}}[1]">} .
+          qq {$+{content}</$class{$+{class}}[0]>}
+    : $+ {em}
+        ? qq {<em>$+{em}</em>}
+    : $+ {strong}
+        ? qq {<strong>$+{strong}</strong>}
+    :     qq {???}
+      }gex;
+
+    $_;
+}
+
+sub codify {
+    local $_ = shift;
+
+    s/^\n+//;
+    s/\s+$//;
+    s{^(__END__) *\n+(\s*\S.*)}{$1\n</div><div class = 'output'>$2}sm;
+    "<div class = 'code'><div class = 'perl'>$_</div></div>";
+}
+
+sub process_text {
+    my @lines = @_;
+
+    local $_ = join "" => @lines;
+
+    my $no_bullets   = s/<!-- \s* No \s+ bullets   \s* -->\s*//gix;
+    my $no_transform = s/<!-- \s* No \s+ transform \s* -->\s*//gix;
+
+    #
+    # Deal with bulleted lists.
+    #
+    unless ($no_bullets) {
+        s{((?:^[*+][^\n]+(?:\n [^\n]*)*\n)+)}{<ul>\n$1</ul>\n}mg;
+        s{((?:^[#][^\n]+(?:\n [^\n]*)*\n)+)}{<ol>\n$1</ol>\n}mg;
+        s{^[+]}{<li id = 'paused_###' class = 'hidden'>}mg;
+        s{^[*#]}{<li>}mg;
+    }
+
+    #
+    # Markup.
+    #
+    $_ = transform $_ unless $no_transform;
+
+    #
+    # Links
+    #
+    s{\[\[<([^>]+)>\]\]}{<div align = 'center'><img src = "../Images/$1"></div>}g;
+    s{\[\[([^]\s]+)\s+([^]]+)\]\]}{<a href = "$1">$2</a>}g;
+    s{\[\[([^]]+)\]\]}{<a href = "$1">$1</a>}g;
+
+    #
+    # Code blocks.
+    #
+    s{\n+=perl\s*\n([^\n]*(?:\n(?!=cut)[^\n]*)*)(?:\n=cut *)?}
+                                                {codify $1}emg    ||
+    s{(\npackage\s+[\w:]+; *\n.*)}              {codify $1}egs    ||
+    s{(\nuse\s+[\w: /]+; *\n.*)}                {codify $1}egs;
+
+    #
+    # Pauses
+    #
+    while (/=pause/) {
+        s/=pause *\n*/<div id = 'paused_###' class = 'hidden'>/;
+        $_ .= "</div>";
+    }
+
+    my $pause_count = 0;
+    s/paused_###/$pause_count ++; "paused_$pause_count"/eg;
+
+    $_;
+}

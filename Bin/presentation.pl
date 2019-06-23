@@ -335,37 +335,10 @@ handle_piece  piece_name =>  "Queen",
 #
 # BISHOP
 #
-{
-    my $piece = Piece:: -> new -> init (piece => "Bishop")
-                               -> set_piece ($BISHOP);
-
-    $piece   -> set_piece ($NE_ARROW,  1, -1);
-    $piece   -> set_piece ($SE_ARROW,  1,  1);
-    $piece   -> set_piece ($SW_ARROW, -1,  1);
-    $piece   -> set_piece ($NW_ARROW, -1, -1);
-    
-    $piece   -> save ("bishop");
-
-
-    my $board_bishop = Board:: -> new -> init;
-    $board_bishop -> label ($_) for 1 .. 169;
-    $board_bishop -> clear_text ("text-1");
-    $board_bishop -> label (1, $BISHOP);
-    $board_bishop -> save ("board-bishop");
-
-    my $bishop = piece "bishop";
-       $bishop -> run (max_moves => 2000);
-    my $value_list = $bishop -> value_list;
-    foreach my $val (1 .. 49) {
-        my $from = $$value_list [$val - 1];
-        my $to   = $$value_list [$val];
-        last if $to > 169;
-        $board_bishop -> move ($BISHOP, $from, $to);
-        $board_bishop -> save ("board-bishop");
-    }
-
-    route $bishop, "bishop", show_visited => 1;
-}
+handle_piece  piece_name => "Bishop",
+              character  => $BISHOP,
+              arrows     => \@bishop_arrows,
+              max_moves  => 2000;
 
 #
 # PAWN

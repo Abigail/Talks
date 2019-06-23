@@ -527,5 +527,3 @@ handle_piece  piece_name => "Hunter",
 
 
 __END__
-
-__END__

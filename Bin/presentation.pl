@@ -304,9 +304,7 @@ sub handle_piece (%args) {
 #
 handle_piece  piece_name =>  "King",
               character  =>  $KING,
-              targets    =>  [[ 1, 1], [ 1, 0], [ 1, -1],
-                              [ 0, 1],          [ 0, -1],
-                              [-1, 1], [-1, 0], [-1, -1]],
+              targets    =>  [@wazir_targets, @ferz_targets],
               max_steps  =>  50,
               max_moves  =>  4000,
 ;
@@ -316,8 +314,7 @@ handle_piece  piece_name =>  "King",
 #
 handle_piece  piece_name =>  "Rook",
               character  =>  $ROOK,
-              arrows     =>  [[$N_ARROW, 0, -1], [$E_ARROW,  1, 0],
-                              [$S_ARROW, 0,  1], [$W_ARROW, -1, 0]],
+              arrows     =>  [@rook_arrows],
               no_run     =>  1;
 
 #
@@ -325,10 +322,7 @@ handle_piece  piece_name =>  "Rook",
 #
 handle_piece  piece_name =>  "Queen",
               character  =>  $QUEEN,
-              arrows     =>  [[$N_ARROW,   0, -1], [$E_ARROW,   1,  0],
-                              [$S_ARROW,   0,  1], [$W_ARROW,  -1,  0],
-                              [$NE_ARROW,  1, -1], [$SE_ARROW,  1,  1],
-                              [$SW_ARROW, -1,  1], [$NW_ARROW, -1, -1]],
+              arrows     =>  [@rook_arrows, @bishop_arrows],
               no_run     =>  1;
 
 
@@ -337,7 +331,7 @@ handle_piece  piece_name =>  "Queen",
 #
 handle_piece  piece_name => "Bishop",
               character  => $BISHOP,
-              arrows     => \@bishop_arrows,
+              arrows     => [@bishop_arrows],
               max_moves  => 2000;
 
 #
@@ -389,16 +383,14 @@ handle_piece  piece_name =>  "Lance",
 
 handle_piece  piece_name =>  "Dragon Horse",
               character  =>  $BLACK_SHOGI,
-              arrows     =>  [[$NE_ARROW,  1, -1], [$SE_ARROW,  1,  1],
-                              [$SW_ARROW, -1,  1], [$NW_ARROW, -1, -1]],
-              targets    =>  [[1, 0], [-1, 0], [0, 1], [0, -1]],
+              arrows     =>  [@bishop_arrows],
+              targets    =>  [@wazir_targets],
               no_run     =>  1;
 
 handle_piece  piece_name =>  "Dragon King",
               character  =>  $BLACK_SHOGI,
-              arrows     =>  [[$N_ARROW, 0, -1], [$E_ARROW,  1, 0],
-                              [$S_ARROW, 0,  1], [$W_ARROW, -1, 0]],
-              targets    =>  [[1, 1], [-1, 1], [-1, -1], [1, -1]],
+              arrows     =>  [@rook_arrows],
+              targets    =>  [@ferz_targets],
               no_run     =>  1;
 
 Common:: -> slide ("xiangqi");
@@ -406,13 +398,12 @@ Common:: -> slide ("xiangqi");
 handle_piece  piece_name =>  "Elephant",
               character  =>  $ELEPHANT,
               targets    =>  [[2, 2], [-2, 2], [-2, -2], [2, -2]],
-              free       =>  [[1, 1], [-1, 1], [-1, -1], [1, -1]],
+              free       =>  [@ferz_targets],
               max_moves  =>  500;
 
 handle_piece  piece_name =>  "Horse",
               character  =>  $HORSE,
-              targets    =>  [[1, 2], [-1, 2], [-1, -2], [1, -2],
-                              [2, 1], [2, -1], [-2, -1], [-2, 1]],
+              targets    =>  [@knight_targets],
               free       =>  [@wazir_targets],
               max_steps  =>  100,
               board_size =>  15;
@@ -420,8 +411,7 @@ handle_piece  piece_name =>  "Horse",
 
 handle_piece  piece_name =>  "Cannon/Chariot",
               character  =>  $ROOK,
-              arrows     =>  [[$N_ARROW, 0, -1], [$E_ARROW,  1, 0],
-                              [$S_ARROW, 0,  1], [$W_ARROW, -1, 0]],
+              arrows     =>  [@rook_arrows],
               no_run     =>  1;
 
 Common:: -> slide ("janggi");
@@ -440,13 +430,13 @@ Common:: -> slide ("combined");
 
 handle_piece  piece_name => "Chancellor",
               character  => $CHANCELLOR,
-              targets    => \@knight_targets,
-              arrows     => \@rook_arrows,
+              targets    => [@knight_targets],
+              arrows     => [@rook_arrows],
               no_run     => 1;
 
 handle_piece  piece_name => "Amazon",
               character  => $AMAZON,
-              targets    => \@knight_targets,
+              targets    => [@knight_targets],
               arrows     => [@rook_arrows, @bishop_arrows],
               no_run     => 1;
 
@@ -457,16 +447,14 @@ handle_piece  piece_name => "Samurai",
 
 handle_piece  piece_name => "Monk",
               character  => $MONK,
-              targets    => [[0, 1], [-1, 0], [1, 0], [0, -1]],
+              targets    => [@wazir_targets],
               arrows     => [@bishop_arrows],
               no_run     => 1;
 
 handle_piece  piece_name => "Archbishop",
               character  => $ARCH_BISHOP,
-              targets    => [[1, 2], [2, 1], [-1, 2], [2, -1],
-                             [1, -2], [-2, 1], [-1, -2], [-2, -1]],
-              arrows     =>  [[$NE_ARROW,  1, -1], [$SE_ARROW,  1,  1],
-                              [$SW_ARROW, -1,  1], [$NW_ARROW, -1, -1]],
+              targets    => [@knight_targets],
+              arrows     => [@bishop_arrows],
               max_steps  =>  200,
               max_moves  => 7000;
 
@@ -475,21 +463,21 @@ Common:: -> slide ("leapers");
 
 handle_piece  piece_name => "Wazir",
               character  => "W",
-              targets    => \@wazir_targets,
+              targets    => [@wazir_targets],
               no_run     => 1;
 
 handle_piece  piece_name => "Ferz",
               character  => "F",
-              targets    => \@ferz_targets;
+              targets    => [@ferz_targets];
 
 handle_piece  piece_name => "Camel",
               character  => $CAMEL,
-              targets    => \@camel_targets,
+              targets    => [@camel_targets],
               max_moves  => 4000;
 
 handle_piece  piece_name => "Zebra",
               character  => $ZEBRA,
-              targets    => \@zebra_targets,
+              targets    => [@zebra_targets],
               max_moves  => 5000;
 
 Common:: -> slide ("other-01");

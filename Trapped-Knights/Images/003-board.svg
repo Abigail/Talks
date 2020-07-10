@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="830" width="830" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<style><![CDATA[    rect.odd      {fill: brown;}
+    rect.even     {fill: rgb(232,235,239);}
+    text          {text-anchor: middle;}
+    text.text     {font-size: 40px;}
+    text.number   {font-size: 20px;}
+    circle.target {fill: black;}
+]]></style>
+	<rect class="even" height="60" width="60" x="50" y="50" />
+	<rect class="odd" height="60" width="60" x="110" y="50" />
+	<rect class="even" height="60" width="60" x="170" y="50" />
+	<rect class="odd" height="60" width="60" x="230" y="50" />
+	<rect class="even" height="60" width="60" x="290" y="50" />
+	<rect class="odd" height="60" width="60" x="350" y="50" />
+	<rect class="even" height="60" width="60" x="410" y="50" />
+	<rect class="odd" height="60" width="60" x="470" y="50" />
+	<rect class="even" height="60" width="60" x="530" y="50" />
+	<rect class="odd" height="60" width="60" x="590" y="50" />
+	<rect class="even" height="60" width="60" x="650" y="50" />
+	<rect class="odd" height="60" width="60" x="710" y="50" />
+	<rect class="even" height="60" width="60" x="770" y="50" />
+	<rect class="odd" height="60" width="60" x="50" y="110" />
+	<rect class="even" height="60" width="60" x="110" y="110" />
+	<rect class="odd" height="60" width="60" x="170" y="110" />
+	<rect class="even" height="60" width="60" x="230" y="110" />
+	<rect class="odd" height="60" width="60" x="290" y="110" />
+	<rect class="even" height="60" width="60" x="350" y="110" />
+	<rect class="odd" height="60" width="60" x="410" y="110" />
+	<rect class="even" height="60" width="60" x="470" y="110" />
+	<rect class="odd" height="60" width="60" x="530" y="110" />
+	<rect class="even" height="60" width="60" x="590" y="110" />
+	<rect class="odd" height="60" width="60" x="650" y="110" />
+	<rect class="even" height="60" width="60" x="710" y="110" />
+	<rect class="odd" height="60" width="60" x="770" y="110" />
+	<rect class="even" height="60" width="60" x="50" y="170" />
+	<rect class="odd" height="60" width="60" x="110" y="170" />
+	<rect class="even" height="60" width="60" x="170" y="170" />
+	<rect class="odd" height="60" width="60" x="230" y="170" />
+	<rect class="even" height="60" width="60" x="290" y="170" />
+	<rect class="odd" height="60" width="60" x="350" y="170" />
+	<rect class="even" height="60" width="60" x="410" y="170" />
+	<rect class="odd" height="60" width="60" x="470" y="170" />
+	<rect class="even" height="60" width="60" x="530" y="170" />
+	<rect class="odd" height="60" width="60" x="590" y="170" />
+	<rect class="even" height="60" width="60" x="650" y="170" />
+	<rect class="odd" height="60" width="60" x="710" y="170" />
+	<rect class="even" height="60" width="60" x="770" y="170" />
+	<rect class="odd" height="60" width="60" x="50" y="230" />
+	<rect class="even" height="60" width="60" x="110" y="230" />
+	<rect class="odd" height="60" width="60" x="170" y="230" />
+	<rect class="even" height="60" width="60" x="230" y="230" />
+	<rect class="odd" height="60" width="60" x="290" y="230" />
+	<rect class="even" height="60" width="60" x="350" y="230" />
+	<rect class="odd" height="60" width="60" x="410" y="230" />
+	<rect class="even" height="60" width="60" x="470" y="230" />
+	<rect class="odd" height="60" width="60" x="530" y="230" />
+	<rect class="even" height="60" width="60" x="590" y="230" />
+	<rect class="odd" height="60" width="60" x="650" y="230" />
+	<rect class="even" height="60" width="60" x="710" y="230" />
+	<rect class="odd" height="60" width="60" x="770" y="230" />
+	<rect class="even" height="60" width="60" x="50" y="290" />
+	<rect class="odd" height="60" width="60" x="110" y="290" />
+	<rect class="even" height="60" width="60" x="170" y="290" />
+	<rect class="odd" height="60" width="60" x="230" y="290" />
+	<rect class="even" height="60" width="60" x="290" y="290" />
+	<rect class="odd" height="60" width="60" x="350" y="290" />
+	<rect class="even" height="60" width="60" x="410" y="290" />
+	<rect class="odd" height="60" width="60" x="470" y="290" />
+	<rect class="even" height="60" width="60" x="530" y="290" />
+	<rect class="odd" height="60" width="60" x="590" y="290" />
+	<rect class="even" height="60" width="60" x="650" y="290" />
+	<rect class="odd" height="60" width="60" x="710" y="290" />
+	<rect class="even" height="60" width="60" x="770" y="290" />
+	<rect class="odd" height="60" width="60" x="50" y="350" />
+	<rect class="even" height="60" width="60" x="110" y="350" />
+	<rect class="odd" height="60" width="60" x="170" y="350" />
+	<rect class="even" height="60" width="60" x="230" y="350" />
+	<rect class="odd" height="60" width="60" x="290" y="350" />
+	<rect class="even" height="60" width="60" x="350" y="350" />
+	<rect class="odd" height="60" width="60" x="410" y="350" />
+	<rect class="even" height="60" width="60" x="470" y="350" />
+	<rect class="odd" height="60" width="60" x="530" y="350" />
+	<rect class="even" height="60" width="60" x="590" y="350" />
+	<rect class="odd" height="60" width="60" x="650" y="350" />
+	<rect class="even" height="60" width="60" x="710" y="350" />
+	<rect class="odd" height="60" width="60" x="770" y="350" />
+	<rect class="even" height="60" width="60" x="50" y="410" />
+	<rect class="odd" height="60" width="60" x="110" y="410" />
+	<rect class="even" height="60" width="60" x="170" y="410" />
+	<rect class="odd" height="60" width="60" x="230" y="410" />
+	<rect class="even" height="60" width="60" x="290" y="410" />
+	<rect class="odd" height="60" width="60" x="350" y="410" />
+	<rect class="even" height="60" width="60" x="410" y="410" />
+	<rect class="odd" height="60" width="60" x="470" y="410" />
+	<rect class="even" height="60" width="60" x="530" y="410" />
+	<rect class="odd" height="60" width="60" x="590" y="410" />
+	<rect class="even" height="60" width="60" x="650" y="410" />
+	<rect class="odd" height="60" width="60" x="710" y="410" />
+	<rect class="even" height="60" width="60" x="770" y="410" />
+	<rect class="odd" height="60" width="60" x="50" y="470" />
+	<rect class="even" height="60" width="60" x="110" y="470" />
+	<rect class="odd" height="60" width="60" x="170" y="470" />
+	<rect class="even" height="60" width="60" x="230" y="470" />
+	<rect class="odd" height="60" width="60" x="290" y="470" />
+	<rect class="even" height="60" width="60" x="350" y="470" />
+	<rect class="odd" height="60" width="60" x="410" y="470" />
+	<rect class="even" height="60" width="60" x="470" y="470" />
+	<rect class="odd" height="60" width="60" x="530" y="470" />
+	<rect class="even" height="60" width="60" x="590" y="470" />
+	<rect class="odd" height="60" width="60" x="650" y="470" />
+	<rect class="even" height="60" width="60" x="710" y="470" />
+	<rect class="odd" height="60" width="60" x="770" y="470" />
+	<rect class="even" height="60" width="60" x="50" y="530" />
+	<rect class="odd" height="60" width="60" x="110" y="530" />
+	<rect class="even" height="60" width="60" x="170" y="530" />
+	<rect class="odd" height="60" width="60" x="230" y="530" />
+	<rect class="even" height="60" width="60" x="290" y="530" />
+	<rect class="odd" height="60" width="60" x="350" y="530" />
+	<rect class="even" height="60" width="60" x="410" y="530" />
+	<rect class="odd" height="60" width="60" x="470" y="530" />
+	<rect class="even" height="60" width="60" x="530" y="530" />
+	<rect class="odd" height="60" width="60" x="590" y="530" />
+	<rect class="even" height="60" width="60" x="650" y="530" />
+	<rect class="odd" height="60" width="60" x="710" y="530" />
+	<rect class="even" height="60" width="60" x="770" y="530" />
+	<rect class="odd" height="60" width="60" x="50" y="590" />
+	<rect class="even" height="60" width="60" x="110" y="590" />
+	<rect class="odd" height="60" width="60" x="170" y="590" />
+	<rect class="even" height="60" width="60" x="230" y="590" />
+	<rect class="odd" height="60" width="60" x="290" y="590" />
+	<rect class="even" height="60" width="60" x="350" y="590" />
+	<rect class="odd" height="60" width="60" x="410" y="590" />
+	<rect class="even" height="60" width="60" x="470" y="590" />
+	<rect class="odd" height="60" width="60" x="530" y="590" />
+	<rect class="even" height="60" width="60" x="590" y="590" />
+	<rect class="odd" height="60" width="60" x="650" y="590" />
+	<rect class="even" height="60" width="60" x="710" y="590" />
+	<rect class="odd" height="60" width="60" x="770" y="590" />
+	<rect class="even" height="60" width="60" x="50" y="650" />
+	<rect class="odd" height="60" width="60" x="110" y="650" />
+	<rect class="even" height="60" width="60" x="170" y="650" />
+	<rect class="odd" height="60" width="60" x="230" y="650" />
+	<rect class="even" height="60" width="60" x="290" y="650" />
+	<rect class="odd" height="60" width="60" x="350" y="650" />
+	<rect class="even" height="60" width="60" x="410" y="650" />
+	<rect class="odd" height="60" width="60" x="470" y="650" />
+	<rect class="even" height="60" width="60" x="530" y="650" />
+	<rect class="odd" height="60" width="60" x="590" y="650" />
+	<rect class="even" height="60" width="60" x="650" y="650" />
+	<rect class="odd" height="60" width="60" x="710" y="650" />
+	<rect class="even" height="60" width="60" x="770" y="650" />
+	<rect class="odd" height="60" width="60" x="50" y="710" />
+	<rect class="even" height="60" width="60" x="110" y="710" />
+	<rect class="odd" height="60" width="60" x="170" y="710" />
+	<rect class="even" height="60" width="60" x="230" y="710" />
+	<rect class="odd" height="60" width="60" x="290" y="710" />
+	<rect class="even" height="60" width="60" x="350" y="710" />
+	<rect class="odd" height="60" width="60" x="410" y="710" />
+	<rect class="even" height="60" width="60" x="470" y="710" />
+	<rect class="odd" height="60" width="60" x="530" y="710" />
+	<rect class="even" height="60" width="60" x="590" y="710" />
+	<rect class="odd" height="60" width="60" x="650" y="710" />
+	<rect class="even" height="60" width="60" x="710" y="710" />
+	<rect class="odd" height="60" width="60" x="770" y="710" />
+	<rect class="even" height="60" width="60" x="50" y="770" />
+	<rect class="odd" height="60" width="60" x="110" y="770" />
+	<rect class="even" height="60" width="60" x="170" y="770" />
+	<rect class="odd" height="60" width="60" x="230" y="770" />
+	<rect class="even" height="60" width="60" x="290" y="770" />
+	<rect class="odd" height="60" width="60" x="350" y="770" />
+	<rect class="even" height="60" width="60" x="410" y="770" />
+	<rect class="odd" height="60" width="60" x="470" y="770" />
+	<rect class="even" height="60" width="60" x="530" y="770" />
+	<rect class="odd" height="60" width="60" x="590" y="770" />
+	<rect class="even" height="60" width="60" x="650" y="770" />
+	<rect class="odd" height="60" width="60" x="710" y="770" />
+	<rect class="even" height="60" width="60" x="770" y="770" />
+	<!--
+	Generated using the Perl SVG Module V2.84
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+	-->
+	<text class="number" id="text-1" x="440" y="445">1</text>
+	<text class="number" id="text-2" x="500" y="445">2</text>
+</svg>

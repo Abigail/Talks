@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="730" width="645" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<style><![CDATA[    rect.odd      {fill: brown;}
+    rect.even     {fill: rgb(232,235,239);}
+    text          {font-size: 68px;
+                   text-anchor: middle;}
+    circle.target {fill: black;}
+    circle.free   {fill: none; stroke: black}
+]]></style>
+	<rect class="even" height="85" width="85" x="50" y="50" />
+	<rect class="odd" height="85" width="85" x="135" y="50" />
+	<rect class="even" height="85" width="85" x="220" y="50" />
+	<rect class="odd" height="85" width="85" x="305" y="50" />
+	<rect class="even" height="85" width="85" x="390" y="50" />
+	<rect class="odd" height="85" width="85" x="475" y="50" />
+	<rect class="even" height="85" width="85" x="560" y="50" />
+	<rect class="odd" height="85" width="85" x="50" y="135" />
+	<rect class="even" height="85" width="85" x="135" y="135" />
+	<rect class="odd" height="85" width="85" x="220" y="135" />
+	<rect class="even" height="85" width="85" x="305" y="135" />
+	<rect class="odd" height="85" width="85" x="390" y="135" />
+	<rect class="even" height="85" width="85" x="475" y="135" />
+	<rect class="odd" height="85" width="85" x="560" y="135" />
+	<rect class="even" height="85" width="85" x="50" y="220" />
+	<rect class="odd" height="85" width="85" x="135" y="220" />
+	<rect class="even" height="85" width="85" x="220" y="220" />
+	<rect class="odd" height="85" width="85" x="305" y="220" />
+	<rect class="even" height="85" width="85" x="390" y="220" />
+	<rect class="odd" height="85" width="85" x="475" y="220" />
+	<rect class="even" height="85" width="85" x="560" y="220" />
+	<rect class="odd" height="85" width="85" x="50" y="305" />
+	<rect class="even" height="85" width="85" x="135" y="305" />
+	<rect class="odd" height="85" width="85" x="220" y="305" />
+	<rect class="even" height="85" width="85" x="305" y="305" />
+	<rect class="odd" height="85" width="85" x="390" y="305" />
+	<rect class="even" height="85" width="85" x="475" y="305" />
+	<rect class="odd" height="85" width="85" x="560" y="305" />
+	<rect class="even" height="85" width="85" x="50" y="390" />
+	<rect class="odd" height="85" width="85" x="135" y="390" />
+	<rect class="even" height="85" width="85" x="220" y="390" />
+	<rect class="odd" height="85" width="85" x="305" y="390" />
+	<rect class="even" height="85" width="85" x="390" y="390" />
+	<rect class="odd" height="85" width="85" x="475" y="390" />
+	<rect class="even" height="85" width="85" x="560" y="390" />
+	<rect class="odd" height="85" width="85" x="50" y="475" />
+	<rect class="even" height="85" width="85" x="135" y="475" />
+	<rect class="odd" height="85" width="85" x="220" y="475" />
+	<rect class="even" height="85" width="85" x="305" y="475" />
+	<rect class="odd" height="85" width="85" x="390" y="475" />
+	<rect class="even" height="85" width="85" x="475" y="475" />
+	<rect class="odd" height="85" width="85" x="560" y="475" />
+	<rect class="even" height="85" width="85" x="50" y="560" />
+	<rect class="odd" height="85" width="85" x="135" y="560" />
+	<rect class="even" height="85" width="85" x="220" y="560" />
+	<rect class="odd" height="85" width="85" x="305" y="560" />
+	<rect class="even" height="85" width="85" x="390" y="560" />
+	<rect class="odd" height="85" width="85" x="475" y="560" />
+	<rect class="even" height="85" width="85" x="560" y="560" />
+	<text class="label" x="365" y="696">Zebra</text>
+	<text x="347.5" y="364.5">🦓</text>
+	<circle class="target" cx="517.5" cy="602.5" r="21.25" />
+	<circle class="target" cx="602.5" cy="517.5" r="21.25" />
+	<circle class="target" cx="177.5" cy="602.5" r="21.25" />
+	<circle class="target" cx="602.5" cy="177.5" r="21.25" />
+	<circle class="target" cx="517.5" cy="92.5" r="21.25" />
+	<circle class="target" cx="92.5" cy="517.5" r="21.25" />
+	<circle class="target" cx="177.5" cy="92.5" r="21.25" />
+	<circle class="target" cx="92.5" cy="177.5" r="21.25" />
+	<!--
+	Generated using the Perl SVG Module V2.84
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+	-->
+</svg>

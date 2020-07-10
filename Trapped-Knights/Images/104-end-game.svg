@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="830" width="830" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<style><![CDATA[    rect.odd      {fill: brown;}
+    rect.even     {fill: rgb(232,235,239);}
+    text          {text-anchor: middle;}
+    text.text     {font-size: 40px;}
+    text.number   {font-size: 20px;}
+    circle.target {fill: black;}
+]]></style>
+	<rect class="even" height="60" width="60" x="50" y="50" />
+	<rect class="odd" height="60" width="60" x="110" y="50" />
+	<rect class="even" height="60" width="60" x="170" y="50" />
+	<rect class="odd" height="60" width="60" x="230" y="50" />
+	<rect class="even" height="60" width="60" x="290" y="50" />
+	<rect class="odd" height="60" width="60" x="350" y="50" />
+	<rect class="even" height="60" width="60" x="410" y="50" />
+	<rect class="odd" height="60" width="60" x="470" y="50" />
+	<rect class="even" height="60" width="60" x="530" y="50" />
+	<rect class="odd" height="60" width="60" x="590" y="50" />
+	<rect class="even" height="60" width="60" x="650" y="50" />
+	<rect class="odd" height="60" width="60" x="710" y="50" />
+	<rect class="even" height="60" width="60" x="770" y="50" />
+	<rect class="odd" height="60" width="60" x="50" y="110" />
+	<rect class="even" height="60" width="60" x="110" y="110" />
+	<rect class="odd" height="60" width="60" x="170" y="110" />
+	<rect class="even" height="60" width="60" x="230" y="110" />
+	<rect class="odd" height="60" width="60" x="290" y="110" />
+	<rect class="even" height="60" width="60" x="350" y="110" />
+	<rect class="odd" height="60" width="60" x="410" y="110" />
+	<rect class="even" height="60" width="60" x="470" y="110" />
+	<rect class="odd" height="60" width="60" x="530" y="110" />
+	<rect class="even" height="60" width="60" x="590" y="110" />
+	<rect class="odd" height="60" width="60" x="650" y="110" />
+	<rect class="even" height="60" width="60" x="710" y="110" />
+	<rect class="odd" height="60" width="60" x="770" y="110" />
+	<rect class="even" height="60" width="60" x="50" y="170" />
+	<rect class="odd" height="60" width="60" x="110" y="170" />
+	<rect class="even" height="60" width="60" x="170" y="170" />
+	<rect class="odd" height="60" width="60" x="230" y="170" />
+	<rect class="even" height="60" width="60" x="290" y="170" />
+	<rect class="odd" height="60" width="60" x="350" y="170" />
+	<rect class="even" height="60" width="60" x="410" y="170" />
+	<rect class="odd" height="60" width="60" x="470" y="170" />
+	<rect class="even" height="60" width="60" x="530" y="170" />
+	<rect class="odd" height="60" width="60" x="590" y="170" />
+	<rect class="even" height="60" width="60" x="650" y="170" />
+	<rect class="odd" height="60" width="60" x="710" y="170" />
+	<rect class="even" height="60" width="60" x="770" y="170" />
+	<rect class="odd" height="60" width="60" x="50" y="230" />
+	<rect class="even" height="60" width="60" x="110" y="230" />
+	<rect class="odd" height="60" width="60" x="170" y="230" />
+	<rect class="even" height="60" width="60" x="230" y="230" />
+	<rect class="odd" height="60" width="60" x="290" y="230" />
+	<rect class="even" height="60" width="60" x="350" y="230" />
+	<rect class="odd" height="60" width="60" x="410" y="230" />
+	<rect class="even" height="60" width="60" x="470" y="230" />
+	<rect class="odd" height="60" width="60" x="530" y="230" />
+	<rect class="even" height="60" width="60" x="590" y="230" />
+	<rect class="odd" height="60" width="60" x="650" y="230" />
+	<rect class="even" height="60" width="60" x="710" y="230" />
+	<rect class="odd" height="60" width="60" x="770" y="230" />
+	<rect class="even" height="60" width="60" x="50" y="290" />
+	<rect class="odd" height="60" width="60" x="110" y="290" />
+	<rect class="even" height="60" width="60" x="170" y="290" />
+	<rect class="odd" height="60" width="60" x="230" y="290" />
+	<rect class="even" height="60" width="60" x="290" y="290" />
+	<rect class="odd" height="60" width="60" x="350" y="290" />
+	<rect class="even" height="60" width="60" x="410" y="290" />
+	<rect class="odd" height="60" width="60" x="470" y="290" />
+	<rect class="even" height="60" width="60" x="530" y="290" />
+	<rect class="odd" height="60" width="60" x="590" y="290" />
+	<rect class="even" height="60" width="60" x="650" y="290" />
+	<rect class="odd" height="60" width="60" x="710" y="290" />
+	<rect class="even" height="60" width="60" x="770" y="290" />
+	<rect class="odd" height="60" width="60" x="50" y="350" />
+	<rect class="even" height="60" width="60" x="110" y="350" />
+	<rect class="odd" height="60" width="60" x="170" y="350" />
+	<rect class="even" height="60" width="60" x="230" y="350" />
+	<rect class="odd" height="60" width="60" x="290" y="350" />
+	<rect class="even" height="60" width="60" x="350" y="350" />
+	<rect class="odd" height="60" width="60" x="410" y="350" />
+	<rect class="even" height="60" width="60" x="470" y="350" />
+	<rect class="odd" height="60" width="60" x="530" y="350" />
+	<rect class="even" height="60" width="60" x="590" y="350" />
+	<rect class="odd" height="60" width="60" x="650" y="350" />
+	<rect class="even" height="60" width="60" x="710" y="350" />
+	<rect class="odd" height="60" width="60" x="770" y="350" />
+	<rect class="even" height="60" width="60" x="50" y="410" />
+	<rect class="odd" height="60" width="60" x="110" y="410" />
+	<rect class="even" height="60" width="60" x="170" y="410" />
+	<rect class="odd" height="60" width="60" x="230" y="410" />
+	<rect class="even" height="60" width="60" x="290" y="410" />
+	<rect class="odd" height="60" width="60" x="350" y="410" />
+	<rect class="even" height="60" width="60" x="410" y="410" />
+	<rect class="odd" height="60" width="60" x="470" y="410" />
+	<rect class="even" height="60" width="60" x="530" y="410" />
+	<rect class="odd" height="60" width="60" x="590" y="410" />
+	<rect class="even" height="60" width="60" x="650" y="410" />
+	<rect class="odd" height="60" width="60" x="710" y="410" />
+	<rect class="even" height="60" width="60" x="770" y="410" />
+	<rect class="odd" height="60" width="60" x="50" y="470" />
+	<rect class="even" height="60" width="60" x="110" y="470" />
+	<rect class="odd" height="60" width="60" x="170" y="470" />
+	<rect class="even" height="60" width="60" x="230" y="470" />
+	<rect class="odd" height="60" width="60" x="290" y="470" />
+	<rect class="even" height="60" width="60" x="350" y="470" />
+	<rect class="odd" height="60" width="60" x="410" y="470" />
+	<rect class="even" height="60" width="60" x="470" y="470" />
+	<rect class="odd" height="60" width="60" x="530" y="470" />
+	<rect class="even" height="60" width="60" x="590" y="470" />
+	<rect class="odd" height="60" width="60" x="650" y="470" />
+	<rect class="even" height="60" width="60" x="710" y="470" />
+	<rect class="odd" height="60" width="60" x="770" y="470" />
+	<rect class="even" height="60" width="60" x="50" y="530" />
+	<rect class="odd" height="60" width="60" x="110" y="530" />
+	<rect class="even" height="60" width="60" x="170" y="530" />
+	<rect class="odd" height="60" width="60" x="230" y="530" />
+	<rect class="even" height="60" width="60" x="290" y="530" />
+	<rect class="odd" height="60" width="60" x="350" y="530" />
+	<rect class="even" height="60" width="60" x="410" y="530" />
+	<rect class="odd" height="60" width="60" x="470" y="530" />
+	<rect class="even" height="60" width="60" x="530" y="530" />
+	<rect class="odd" height="60" width="60" x="590" y="530" />
+	<rect class="even" height="60" width="60" x="650" y="530" />
+	<rect class="odd" height="60" width="60" x="710" y="530" />
+	<rect class="even" height="60" width="60" x="770" y="530" />
+	<rect class="odd" height="60" width="60" x="50" y="590" />
+	<rect class="even" height="60" width="60" x="110" y="590" />
+	<rect class="odd" height="60" width="60" x="170" y="590" />
+	<rect class="even" height="60" width="60" x="230" y="590" />
+	<rect class="odd" height="60" width="60" x="290" y="590" />
+	<rect class="even" height="60" width="60" x="350" y="590" />
+	<rect class="odd" height="60" width="60" x="410" y="590" />
+	<rect class="even" height="60" width="60" x="470" y="590" />
+	<rect class="odd" height="60" width="60" x="530" y="590" />
+	<rect class="even" height="60" width="60" x="590" y="590" />
+	<rect class="odd" height="60" width="60" x="650" y="590" />
+	<rect class="even" height="60" width="60" x="710" y="590" />
+	<rect class="odd" height="60" width="60" x="770" y="590" />
+	<rect class="even" height="60" width="60" x="50" y="650" />
+	<rect class="odd" height="60" width="60" x="110" y="650" />
+	<rect class="even" height="60" width="60" x="170" y="650" />
+	<rect class="odd" height="60" width="60" x="230" y="650" />
+	<rect class="even" height="60" width="60" x="290" y="650" />
+	<rect class="odd" height="60" width="60" x="350" y="650" />
+	<rect class="even" height="60" width="60" x="410" y="650" />
+	<rect class="odd" height="60" width="60" x="470" y="650" />
+	<rect class="even" height="60" width="60" x="530" y="650" />
+	<rect class="odd" height="60" width="60" x="590" y="650" />
+	<rect class="even" height="60" width="60" x="650" y="650" />
+	<rect class="odd" height="60" width="60" x="710" y="650" />
+	<rect class="even" height="60" width="60" x="770" y="650" />
+	<rect class="odd" height="60" width="60" x="50" y="710" />
+	<rect class="even" height="60" width="60" x="110" y="710" />
+	<rect class="odd" height="60" width="60" x="170" y="710" />
+	<rect class="even" height="60" width="60" x="230" y="710" />
+	<rect class="odd" height="60" width="60" x="290" y="710" />
+	<rect class="even" height="60" width="60" x="350" y="710" />
+	<rect class="odd" height="60" width="60" x="410" y="710" />
+	<rect class="even" height="60" width="60" x="470" y="710" />
+	<rect class="odd" height="60" width="60" x="530" y="710" />
+	<rect class="even" height="60" width="60" x="590" y="710" />
+	<rect class="odd" height="60" width="60" x="650" y="710" />
+	<rect class="even" height="60" width="60" x="710" y="710" />
+	<rect class="odd" height="60" width="60" x="770" y="710" />
+	<rect class="even" height="60" width="60" x="50" y="770" />
+	<rect class="odd" height="60" width="60" x="110" y="770" />
+	<rect class="even" height="60" width="60" x="170" y="770" />
+	<rect class="odd" height="60" width="60" x="230" y="770" />
+	<rect class="even" height="60" width="60" x="290" y="770" />
+	<rect class="odd" height="60" width="60" x="350" y="770" />
+	<rect class="even" height="60" width="60" x="410" y="770" />
+	<rect class="odd" height="60" width="60" x="470" y="770" />
+	<rect class="even" height="60" width="60" x="530" y="770" />
+	<rect class="odd" height="60" width="60" x="590" y="770" />
+	<rect class="even" height="60" width="60" x="650" y="770" />
+	<rect class="odd" height="60" width="60" x="710" y="770" />
+	<rect class="even" height="60" width="60" x="770" y="770" />
+	<text class="number" id="text-1899" x="800" y="505">1899</text>
+	<text class="number" id="text-2079" x="740" y="445">2079</text>
+	<text class="number" id="text-2084" x="440" y="445">2084</text>
+	<text class="number" id="text-2265" x="800" y="385">2265</text>
+	<text class="number" id="text-2266" x="740" y="385">2266</text>
+	<text class="number" id="text-2268" x="620" y="385">2268</text>
+	<text class="number" id="text-2460" x="800" y="325">2460</text>
+	<text class="number" id="text-2461" x="740" y="325">2461</text>
+	<text class="number" id="text-2462" x="680" y="325">2462</text>
+	<text class="number" id="text-2463" x="620" y="325">2463</text>
+	<text class="number" id="text-2467" x="380" y="325">2467</text>
+	<text class="number" id="text-2472" x="80" y="325">2472</text>
+	<text class="number" id="text-2663" x="800" y="265">2663</text>
+	<text class="number" id="text-2664" x="740" y="265">2664</text>
+	<text class="number" id="text-2665" x="680" y="265">2665</text>
+	<text class="number" id="text-2666" x="620" y="265">2666</text>
+	<text class="number" id="text-2667" x="560" y="265">2667</text>
+	<text class="number" id="text-2668" x="500" y="265">2668</text>
+	<text class="number" id="text-2669" x="440" y="265">2669</text>
+	<text class="number" id="text-2673" x="200" y="265">2673</text>
+	<text class="number" id="text-2674" x="140" y="265">2674</text>
+	<text class="number" id="text-2675" x="80" y="265">2675</text>
+	<text class="number" id="text-2874" x="800" y="205">2874</text>
+	<text class="number" id="text-2875" x="740" y="205">2875</text>
+	<text class="number" id="text-2876" x="680" y="205">2876</text>
+	<text class="number" id="text-2877" x="620" y="205">2877</text>
+	<text class="number" id="text-2878" x="560" y="205">2878</text>
+	<text class="number" id="text-2879" x="500" y="205">2879</text>
+	<text class="number" id="text-2880" x="440" y="205">2880</text>
+	<text class="number" id="text-2881" x="380" y="205">2881</text>
+	<text class="number" id="text-2882" x="320" y="205">2882</text>
+	<text class="number" id="text-2883" x="260" y="205">2883</text>
+	<text class="number" id="text-2884" x="200" y="205">2884</text>
+	<text class="number" id="text-2885" x="140" y="205">2885</text>
+	<text class="number" id="text-2886" x="80" y="205">2886</text>
+	<text class="number" id="text-3093" x="800" y="145">3093</text>
+	<text class="number" id="text-3094" x="740" y="145">3094</text>
+	<text class="number" id="text-3095" x="680" y="145">3095</text>
+	<text class="number" id="text-3096" x="620" y="145">3096</text>
+	<text class="number" id="text-3097" x="560" y="145">3097</text>
+	<text class="number" id="text-3098" x="500" y="145">3098</text>
+	<text class="number" id="text-3099" x="440" y="145">3099</text>
+	<text class="number" id="text-3100" x="380" y="145">3100</text>
+	<text class="number" id="text-3101" x="320" y="145">3101</text>
+	<text class="number" id="text-3102" x="260" y="145">3102</text>
+	<text class="number" id="text-3103" x="200" y="145">3103</text>
+	<text class="number" id="text-3104" x="140" y="145">3104</text>
+	<text class="number" id="text-3105" x="80" y="145">3105</text>
+	<text class="number" id="text-3320" x="800" y="85">3320</text>
+	<text class="number" id="text-3321" x="740" y="85">3321</text>
+	<text class="number" id="text-3322" x="680" y="85">3322</text>
+	<text class="number" id="text-3323" x="620" y="85">3323</text>
+	<text class="number" id="text-3324" x="560" y="85">3324</text>
+	<text class="number" id="text-3325" x="500" y="85">3325</text>
+	<text class="number" id="text-3326" x="440" y="85">3326</text>
+	<text class="number" id="text-3327" x="380" y="85">3327</text>
+	<text class="number" id="text-3328" x="320" y="85">3328</text>
+	<text class="number" id="text-3329" x="260" y="85">3329</text>
+	<text class="number" id="text-3330" x="200" y="85">3330</text>
+	<text class="number" id="text-3331" x="140" y="85">3331</text>
+	<text class="number" id="text-3332" x="80" y="85">3332</text>
+	<circle class="target" cx="800" cy="800" r="15" />
+	<circle class="target" cx="740" cy="800" r="15" />
+	<circle class="target" cx="680" cy="800" r="15" />
+	<circle class="target" cx="620" cy="800" r="15" />
+	<circle class="target" cx="560" cy="800" r="15" />
+	<circle class="target" cx="500" cy="800" r="15" />
+	<circle class="target" cx="440" cy="800" r="15" />
+	<circle class="target" cx="380" cy="800" r="15" />
+	<circle class="target" cx="320" cy="800" r="15" />
+	<circle class="target" cx="260" cy="800" r="15" />
+	<circle class="target" cx="200" cy="800" r="15" />
+	<circle class="target" cx="140" cy="800" r="15" />
+	<circle class="target" cx="80" cy="800" r="15" />
+	<circle class="target" cx="800" cy="740" r="15" />
+	<circle class="target" cx="740" cy="740" r="15" />
+	<circle class="target" cx="680" cy="740" r="15" />
+	<circle class="target" cx="620" cy="740" r="15" />
+	<circle class="target" cx="560" cy="740" r="15" />
+	<circle class="target" cx="500" cy="740" r="15" />
+	<circle class="target" cx="440" cy="740" r="15" />
+	<circle class="target" cx="380" cy="740" r="15" />
+	<circle class="target" cx="320" cy="740" r="15" />
+	<circle class="target" cx="260" cy="740" r="15" />
+	<circle class="target" cx="200" cy="740" r="15" />
+	<circle class="target" cx="140" cy="740" r="15" />
+	<circle class="target" cx="80" cy="740" r="15" />
+	<circle class="target" cx="800" cy="680" r="15" />
+	<circle class="target" cx="740" cy="680" r="15" />
+	<circle class="target" cx="680" cy="680" r="15" />
+	<circle class="target" cx="620" cy="680" r="15" />
+	<circle class="target" cx="560" cy="680" r="15" />
+	<circle class="target" cx="500" cy="680" r="15" />
+	<circle class="target" cx="440" cy="680" r="15" />
+	<circle class="target" cx="380" cy="680" r="15" />
+	<circle class="target" cx="320" cy="680" r="15" />
+	<circle class="target" cx="260" cy="680" r="15" />
+	<circle class="target" cx="200" cy="680" r="15" />
+	<circle class="target" cx="140" cy="680" r="15" />
+	<circle class="target" cx="80" cy="680" r="15" />
+	<circle class="target" cx="800" cy="620" r="15" />
+	<circle class="target" cx="740" cy="620" r="15" />
+	<circle class="target" cx="680" cy="620" r="15" />
+	<circle class="target" cx="620" cy="620" r="15" />
+	<circle class="target" cx="560" cy="620" r="15" />
+	<circle class="target" cx="500" cy="620" r="15" />
+	<circle class="target" cx="440" cy="620" r="15" />
+	<circle class="target" cx="380" cy="620" r="15" />
+	<circle class="target" cx="320" cy="620" r="15" />
+	<circle class="target" cx="260" cy="620" r="15" />
+	<circle class="target" cx="200" cy="620" r="15" />
+	<circle class="target" cx="140" cy="620" r="15" />
+	<circle class="target" cx="80" cy="620" r="15" />
+	<circle class="target" cx="800" cy="560" r="15" />
+	<circle class="target" cx="740" cy="560" r="15" />
+	<circle class="target" cx="680" cy="560" r="15" />
+	<circle class="target" cx="620" cy="560" r="15" />
+	<circle class="target" cx="560" cy="560" r="15" />
+	<circle class="target" cx="500" cy="560" r="15" />
+	<circle class="target" cx="440" cy="560" r="15" />
+	<circle class="target" cx="380" cy="560" r="15" />
+	<circle class="target" cx="320" cy="560" r="15" />
+	<circle class="target" cx="260" cy="560" r="15" />
+	<circle class="target" cx="200" cy="560" r="15" />
+	<circle class="target" cx="140" cy="560" r="15" />
+	<circle class="target" cx="80" cy="560" r="15" />
+	<circle class="target" cx="740" cy="500" r="15" />
+	<circle class="target" cx="680" cy="500" r="15" />
+	<circle class="target" cx="620" cy="500" r="15" />
+	<circle class="target" cx="560" cy="500" r="15" />
+	<circle class="target" cx="500" cy="500" r="15" />
+	<circle class="target" cx="440" cy="500" r="15" />
+	<circle class="target" cx="380" cy="500" r="15" />
+	<circle class="target" cx="320" cy="500" r="15" />
+	<circle class="target" cx="260" cy="500" r="15" />
+	<circle class="target" cx="200" cy="500" r="15" />
+	<circle class="target" cx="140" cy="500" r="15" />
+	<circle class="target" cx="80" cy="500" r="15" />
+	<circle class="target" cx="800" cy="440" r="15" />
+	<circle class="target" cx="680" cy="440" r="15" />
+	<circle class="target" cx="620" cy="440" r="15" />
+	<circle class="target" cx="560" cy="440" r="15" />
+	<circle class="target" cx="500" cy="440" r="15" />
+	<circle class="target" cx="380" cy="440" r="15" />
+	<circle class="target" cx="320" cy="440" r="15" />
+	<circle class="target" cx="260" cy="440" r="15" />
+	<circle class="target" cx="200" cy="440" r="15" />
+	<circle class="target" cx="140" cy="440" r="15" />
+	<circle class="target" cx="80" cy="440" r="15" />
+	<circle class="target" cx="680" cy="380" r="15" />
+	<circle class="target" cx="560" cy="380" r="15" />
+	<circle class="target" cx="500" cy="380" r="15" />
+	<circle class="target" cx="440" cy="380" r="15" />
+	<circle class="target" cx="380" cy="380" r="15" />
+	<circle class="target" cx="320" cy="380" r="15" />
+	<circle class="target" cx="260" cy="380" r="15" />
+	<circle class="target" cx="200" cy="380" r="15" />
+	<circle class="target" cx="140" cy="380" r="15" />
+	<circle class="target" cx="80" cy="380" r="15" />
+	<circle class="target" cx="560" cy="320" r="15" />
+	<circle class="target" cx="500" cy="320" r="15" />
+	<circle class="target" cx="440" cy="320" r="15" />
+	<circle class="target" cx="320" cy="320" r="15" />
+	<circle class="target" cx="260" cy="320" r="15" />
+	<circle class="target" cx="200" cy="320" r="15" />
+	<circle class="target" cx="140" cy="320" r="15" />
+	<circle class="target" cx="380" cy="260" r="15" />
+	<circle class="target" cx="320" cy="260" r="15" />
+	<circle class="target" cx="260" cy="260" r="15" />
+	<style><![CDATA[#text-1-a  {display: none}]]></style>
+	<circle class="target" cx="-160" cy="1820" r="15" />
+	<style><![CDATA[#text-2675  {display: none}]]></style>
+	<text class="text" id="text-2675-a" x="80" y="265">♞</text>
+	<!--
+	Generated using the Perl SVG Module V2.84
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+	-->
+	<style><![CDATA[#text-2675-a  {display: none}]]></style>
+	<circle class="target" cx="80" cy="260" r="15" />
+	<style><![CDATA[#text-2884  {display: none}]]></style>
+	<text class="text" id="text-2884-a" x="200" y="205">♞</text>
+</svg>

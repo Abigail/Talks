@@ -77,6 +77,31 @@ class Board {
                                  . addClass (class_name);
             }
         }
+
+        this . board = board;
+    }
+
+    //
+    // Place a given value on the corresponding square
+    //
+    place_value (value) {
+        board = this . board;
+
+        var coordinates = this . to_coordinates (value);
+        var x           = coordinates . x;
+        var y           = coordinates . y;
+
+        var rect_size   = this . rect_size;
+
+        console . log ("value = " + value +
+                       "; x = " + x + 
+                       "; y = " + y + 
+                       "; x' = " + ((x + 0.5) * rect_size) +
+                       "; y' = " + ((y + 0.6) * rect_size));
+
+        board . plain (value) . attr ({x: (x + .5) * rect_size,
+                                       y: (y + .6) * rect_size})
+                              . addClass ("number");
     }
 }
 

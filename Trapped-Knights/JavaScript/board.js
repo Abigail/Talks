@@ -97,6 +97,24 @@ class Board {
                                        y: (y + .6) * rect_size})
                               . addClass ("number");
     }
+
+    //
+    // Place a series of values, with delays
+    //
+    place_values (args) {
+        var from_value = args . from_value;
+        var to_value   = args . to_value;
+        var init_delay = args . init_delay || 0;
+        var delay      = args . delay      || 0;
+
+        var count = 0;
+        var value;
+        for (value = from_value; value <= to_value; value ++, count ++) {
+            setTimeout (function (board, value) {board . place_value (value)},
+                        init_delay + count * delay, 
+                        this, value);
+        }
+    }
 }
 
 

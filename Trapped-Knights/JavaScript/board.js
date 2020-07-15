@@ -93,12 +93,6 @@ class Board {
 
         var rect_size   = this . rect_size;
 
-        console . log ("value = " + value +
-                       "; x = " + x + 
-                       "; y = " + y + 
-                       "; x' = " + ((x + 0.5) * rect_size) +
-                       "; y' = " + ((y + 0.6) * rect_size));
-
         board . plain (value) . attr ({x: (x + .5) * rect_size,
                                        y: (y + .6) * rect_size})
                               . addClass ("number");

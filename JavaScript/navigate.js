@@ -17,14 +17,35 @@ class Navigate {
         this . toggled = 0;
 
         this . paused  = 1;
+
+        this . todo = [];
     }
 
     //
-    // Handle hitting a space. If there are any paused elements,
-    // make them visible. Else, return 0 so we can later default
-    // to going to the next page.
+    // Queue an action
+    //
+    add_todo (f) {
+        this . todo . push (f)
+    }
+
+    //
+    // Handle hitting a space.
+    //   - If we have any actions queued, execute the first one.
+    //   - If there are any paused elements, make them visible.
+    //   - Else, return 0 so we can later default to going to the next page.
     //
     handle_space () {
+        //
+        // Execute the first queued actions, if any.
+        //
+        if (this . todo . length) {
+            this . todo . shift () ();
+            return (1);
+        }
+
+        //
+        // Unpause the next paused element, if any
+        //
         var paused   = this . paused;
         var div_name = "paused_" + paused;
         var element  = document . getElementById (div_name);

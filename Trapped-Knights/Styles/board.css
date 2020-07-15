@@ -1,0 +1,29 @@
+div.outer::before, div.outer::after {
+    display: block;
+    content: "";
+    height: 5%;
+    margin: 0 0 0 0;
+}
+div.outer {
+    margin: 0 0 0 0;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 90%;
+    height: 90%;
+}
+div.inner  {
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+}
+                       
+rect.even {
+    fill: brown;
+}
+rect.odd {
+    fill: rgb(232,235,239);
+}
+text.number {
+    text-anchor: middle;
+    font-size: 5px;
+}

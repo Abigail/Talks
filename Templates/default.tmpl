@@ -1,0 +1,15 @@
+<meta content = "text/html;charset=utf-8" http-equiv = "Content-Type">
+<link rel = 'stylesheet' href = '../Styles/default.css' type = 'text/css'>
+<script src = "../../JavaScript/navigate.js"></script>
+<script src = "../../JavaScript/jquery.js"></script>
+
+<script type = "text/javascript">
+var nav = new Navigate ({
+    __NEXT__
+    __PREV__
+});
+
+$(document) . on ("keypress", function (e) {
+    nav . do_keypress (e);
+});
+</script>

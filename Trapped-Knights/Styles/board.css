@@ -1,7 +1,19 @@
+div.top {
+    width:  100%;
+    height:   5%;
+}
+
+div.outer::before {
+    height: 0%;
+}
+
+div.outer::after {
+    height: 5%;
+}
+
 div.outer::before, div.outer::after {
     display: block;
     content: "";
-    height: 5%;
     margin: 0 0 0 0;
 }
 div.outer {

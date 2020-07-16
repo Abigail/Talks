@@ -7,6 +7,7 @@ use warnings;
 no  warnings 'syntax';
 
 use lib "/Users/abigail/Perl/CPAN/Chess-Infinite/lib/";
+use lib "/Users/abigail/Perl/CPAN/Colour-Name/lib";
 use lib ".";
 
 use experimental 'signatures';

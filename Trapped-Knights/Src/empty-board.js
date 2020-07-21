@@ -1,6 +1,4 @@
 #% Template: board
-<script markdown = "0" type = "text/javascript">
-
 var board;
 
 function loaded () {
@@ -35,10 +33,3 @@ function loaded () {
 }
 
 window . onload = loaded;
-
-</script>
-
-<div class = "outer">
-<div class = "inner">
-</div>
-</div>

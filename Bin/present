@@ -82,39 +82,70 @@ sub read_file ($file) {
     local $/;
     my $text = <$fh>;
     close $fh or die "close $file: $!";
+
     $text;
 }
 
 
-sub process_templates ($text) {
-    my $templates = $$templates {default};
+sub prep_template ($name, %options) {
+    my $text = $$templates {$name} or return "";
 
-    while ($text =~ s [^\#% \s* Template: \s* (\N+) \n][]gmx) {
-        $templates .= $templates {$1};
-    }
+    my $next = $options {next};
+    my $prev = $options {prev};
 
     #
     # Fill in the __NEXT__ and __PREV__ tokens; 
     #
-    $templates =~ s/__NEXT__/$next ? qq ["next": "$next.html",] : ""/e;
-    $templates =~ s/__PREV__/$prev ? qq ["prev": "$prev.html",] : ""/e;
+    $text =~ s/__NEXT__/$next ? qq ["next": "$next.html",] : ""/e;
+    $text =~ s/__PREV__/$prev ? qq ["prev": "$prev.html",] : ""/e;
 
-    ($text, $templates);
+    $text;
 }
 
 
+sub process_templates ($text = "", %options) {
+    $text =~ s [^\#% \s* Template: \s* (\N+) \n]
+               [prep_template $1, %options]gemx;
+
+    $text;
+}
+
+#
+# Given a piece of JavaScript, add <script> tags.
+# But exclude any (leading) directives.
+#
+sub scriptify ($js) {
+    return "" unless $js;
+  # $js  =~ s/^(?:\#% \N* \n)*\K/<script>/x;
+  # $js .=  "</script>";
+
+    $js =~ s[((?:^(?!\#%) \N* \n)+)]
+            [<script>\n$1</script>]gmx;
+
+    $js;
+}
+
 
 sub process_file ($prev, $file, $next) {
-    my $js   = read_file ("$src_dir/$file.js");
-    my $text = read_file ("$src_dir/$file");
-    my $templates;
+    my %options = (
+        next => $next,
+        prev => $prev,
+    );
 
-    ($text, $templates) = process_templates $text;
+    my $js   = read_file ("$src_dir/$file.js");
+    my $text = read_file ("$src_dir/$file.mkdn");
+
+    $js   = scriptify $js;
+
+    $text = process_templates $text, %options;
+    $js   = process_templates $js,   %options;
+
+    my $preamble = prep_template default => %options;
 
     open my $fh_out, ">", "$dest_dir/$file.html"
                 or die "open $dest_dir/$file.html: $!";
 
-    print $fh_out $text;
+    print $fh_out $_ || "" for $preamble, $js, $text;
 
     close $fh_out or die "close $dest_dir/$file.html: $!";
 }

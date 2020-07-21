@@ -23,5 +23,3 @@ function loaded () {
     });
 
 }
-
-window . onload = loaded;

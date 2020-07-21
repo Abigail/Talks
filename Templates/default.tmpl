@@ -13,4 +13,14 @@ var nav = new Navigate ({
 $(document) . on ("keypress", function (e) {
     nav . do_keypress (e);
 });
+
+//
+// If we have a function "loaded" define, execute it after the
+// page has finished loading.
+//
+$(document) . ready (function () {
+    if (typeof loaded === "function") {
+        loaded ();
+    }
+});
 </script>

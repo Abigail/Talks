@@ -12,5 +12,3 @@ function loaded () {
         $('#number-1') . css ('display', 'none');
     })
 }
-
-window . onload = loaded;

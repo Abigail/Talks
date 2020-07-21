@@ -6,28 +6,21 @@ function loaded () {
 
     board . draw ();
 
-    //
-    // I have no clue why we need to copy the objects
-    //
-    var board2 = board;
-    var board3 = board;
-    var board4 = board;
-
     nav . add_todo (function () {board . place_value (1)});
     nav . add_todo (function () {
-        board2 . place_values ({from_value:    2,
-                                to_value:      9,
-                                delay:       500})
+        board . place_values ({from_value:    2,
+                               to_value:      9,
+                               delay:       500})
     });
     nav . add_todo (function () {
-        board3 . place_values ({from_value:   10,
-                                to_value:     64,
-                                delay:       100})
+        board . place_values ({from_value:   10,
+                               to_value:     64,
+                               delay:       100})
     });
     nav . add_todo (function () {
-        board4 . place_values ({from_value:   65,
-                                to_value:    225,
-                                delay:        25})
+        board . place_values ({from_value:   65,
+                               to_value:    225,
+                               delay:        25})
     });
 
 }

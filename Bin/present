@@ -6,7 +6,7 @@ use strict;
 use warnings;
 no  warnings 'syntax';
 use Cwd;
-use Text::Markdown;
+use Text::Markdown 'markdown';
 
 use experimental 'signatures';
 
@@ -140,12 +140,14 @@ sub process_file ($prev, $file, $next) {
     $text = process_templates $text, %options;
     $js   = process_templates $js,   %options;
 
+    my $html = markdown ($text);
+
     my $preamble = prep_template default => %options;
 
     open my $fh_out, ">", "$dest_dir/$file.html"
                 or die "open $dest_dir/$file.html: $!";
 
-    print $fh_out $_ || "" for $preamble, $js, $text;
+    print $fh_out $_ || "" for $preamble, $js, $html;
 
     close $fh_out or die "close $dest_dir/$file.html: $!";
 }

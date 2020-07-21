@@ -110,7 +110,6 @@ sub process_file ($prev, $file, $next) {
     my $templates;
 
     ($text, $templates) = process_templates $text;
-    
 
     open my $fh_out, ">", "$dest_dir/$file.html"
                 or die "open $dest_dir/$file.html: $!";

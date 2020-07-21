@@ -1,4 +1,3 @@
-#% Template: board
 var board;
 
 function loaded () {

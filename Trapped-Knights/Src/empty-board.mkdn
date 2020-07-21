@@ -1,3 +1,5 @@
+# Empty Board
+
 <div class = "outer">
 <div class = "inner">
 </div>

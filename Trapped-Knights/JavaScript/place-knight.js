@@ -10,5 +10,7 @@ function loaded () {
 
     nav . add_todo (function () {
         $('#number-1') . css ('display', 'none');
+        spiral . place_text (chess_pieces . knight . white,
+                            {value: 1, class: 'chess-piece'});
     })
 }

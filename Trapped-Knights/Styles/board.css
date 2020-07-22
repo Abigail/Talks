@@ -45,7 +45,19 @@ rect.even {
 rect.odd {
     fill: rgb(232,235,239);
 }
+
+
+/*
+ * Numbers and chess pieces placed on the board
+ */
 text.number {
-    text-anchor: middle;
     font-size: 5px;
+}
+text.chess-piece {
+    font-size: 8px;
+    transform: translate(0px, 1.5px);
+}
+
+text.number, text.chess-piece {
+    text-anchor: middle;
 }

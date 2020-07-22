@@ -142,6 +142,16 @@ class Board {
                         this, value);
         }
     }
+
+    //
+    // Takes the x, y coordinates of a square, returns the corresponding value
+    //
+    to_value (x, y) {
+        var real_x = x - this . min_x;
+        var real_y = y - this . min_y;
+
+        return (real_y * (this . width) + real_x + 1);
+    }
 }
 
 

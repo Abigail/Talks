@@ -84,8 +84,5 @@ class Navigate {
         if (this . urls [char]) {
             location . href = this . urls [char]
         }
-
-        console . log ("Pressed: " + event . type + ": " + char);
     }
-
 }

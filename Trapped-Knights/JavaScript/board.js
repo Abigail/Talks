@@ -90,10 +90,14 @@ class Board {
             x = args . x;
             y = args . y;
         }
-        else {
+        else if ("value" in args) {
             var coordinates = this . to_coordinates (args . value);
             x = coordinates . x;
             y = coordinates . y;
+        }
+        else {
+            x = 0;
+            y = 0;
         }
 
         var rect_size = this . rect_size;

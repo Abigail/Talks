@@ -97,6 +97,23 @@ class Board {
         return [0, 0];
     }
 
+
+    //
+    // Place a circle on a specific location
+    //
+    place_circle (args) {
+        var x, y;
+        [x, y] = this . find_coordinates (args);
+
+        console . log ("coordinates = " + [x, y]);
+
+        var rect_size = this . rect_size;
+
+        this . board . circle (.8 * rect_size)
+                     . center ((x + .5) * rect_size, (y + .5) * rect_size)
+                     . addClass ("circle");
+    }
+
     //
     // Place an image on a specific location
     //

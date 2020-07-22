@@ -82,23 +82,54 @@ class Board {
     }
 
     //
+    // Find the x, y coordinates.
+    //   - if args contains "x", and "y", use (x, y)
+    //   - if args contains "value", convert this to coordinates
+    //   - else, use (0, 0)
+    //
+    find_coordinates (args) {
+        if (("x" in args) && ("y" in args)) {
+            return [args . x, args . y];
+        }
+        if ("value" in args) {
+            var coordinates = this . to_coordinates (args . value);
+            return [coordinates . x, coordinates . y];
+        }
+        return [0, 0];
+    }
+
+    //
+    // Place an image on a specific location
+    //
+    place_image (image_name, args) {
+        var x, y;
+        [x, y] = this . find_coordinates (args);
+
+        var path  = '../Images/' + image_name + '.svg';
+        var image = this . board . image (path);
+
+        //
+        // Scale the image to be 80% of the size a square,
+        // and place it 10% away from the edges.
+        //
+        var rect_size = this . rect_size;
+        image . size (rect_size *      .8 , rect_size *      .8) ;
+        image . move (rect_size * (x + .1), rect_size * (y + .1));
+
+        if ("id" in args) {
+            image . id (args . id);
+        }
+        if ("class" in args) {
+            text . addClass (args . class);
+        }
+    }
+
+    //
     // Place text on a particular spot
     //
     place_text (text, args) {
         var x, y;
-        if (("x" in args) && ("y" in args)) {
-            x = args . x;
-            y = args . y;
-        }
-        else if ("value" in args) {
-            var coordinates = this . to_coordinates (args . value);
-            x = coordinates . x;
-            y = coordinates . y;
-        }
-        else {
-            x = 0;
-            y = 0;
-        }
+        [x, y] = this . find_coordinates (args);
 
         var rect_size = this . rect_size;
 
@@ -238,6 +269,6 @@ class Piece extends Board {
     draw () {
         super . draw ();
 
-        this . place_text (this . piece, ({class: "chess-piece"}));
+        this . place_image (this . piece, ({id: "chess-piece"}));
     }
 }

@@ -3,7 +3,7 @@ class Board {
     // Construct a board. We take the following options:
     //
     //  - size:       The size (in squares, not pixels) of the board,
-    //                Defaults to 15, for a 15 x 15 board. 
+    //                Defaults to 13, for a 13 x 13 board. 
     //  - width:      The width of the board (in squares). Only needed
     //                for non-square boards. Defaults to size.
     //  - heigth:     The heigth of the board (in squares). Only needed

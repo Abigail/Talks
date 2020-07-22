@@ -11,13 +11,16 @@ function loaded () {
                    [ 1,  2], [-1,  2], [-2,  1], [-2, -1]];
 
     offsets . forEach (item => {
-        [x, y] = item;
-        knight . animate ({duration: 1000,
-                           delay:    1000,})
+        var [x, y] = item;
+        knight . animate ({duration:  500,
+                           delay:     500,})
                . dmove (  x * piece . rect_size,   y * piece . rect_size)
 
-        knight . animate ({duration:  100,
-                           delay:    1000,})
-               . dmove (- x * piece . rect_size, - y * piece . rect_size);
+        knight . animate ({duration:   50,
+                           delay:     500,})
+               . dmove (- x * piece . rect_size, - y * piece . rect_size)
+               . after (function () {
+                     piece . place_circle ({x: x, y: y});
+                 });
     });
 }

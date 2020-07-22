@@ -92,8 +92,7 @@ class Board {
             return [args . x, args . y];
         }
         if ("value" in args) {
-            var coordinates = this . to_coordinates (args . value);
-            return [coordinates . x, coordinates . y];
+            return this . to_coordinates (args . value);
         }
         return [0, 0];
     }
@@ -243,7 +242,7 @@ class Spiral extends Board {
             y_val =      ring;
         }
 
-        return ({x: x_val, y: y_val});
+        return [x_val, y_val];
     }
 }
 

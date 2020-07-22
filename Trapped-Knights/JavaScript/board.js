@@ -33,6 +33,8 @@ class Board {
         this . min_y     = - (Math . floor (this . height / 2));
         this . max_x     = - this . min_x;
         this . max_y     = - this . min_y;
+
+        this . max_value = this . width * this . height;
     }
 
 

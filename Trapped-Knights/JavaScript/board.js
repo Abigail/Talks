@@ -16,7 +16,7 @@ class Board {
     //  - id:         id of the SVG images. Defaults to 'board'.
     //
     constructor (args) {
-        this . size      = args . size      || 15;
+        this . size      = args . size      || 13;
         this . width     = args . width     || this . size;
         this . height    = args . height    || this . size;
         this . rect_size = args . rect_size || 10;

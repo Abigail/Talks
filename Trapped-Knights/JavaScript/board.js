@@ -82,19 +82,43 @@ class Board {
     }
 
     //
+    // Place text on a particular spot
+    //
+    place_text (text, args) {
+        var x, y;
+        if (("x" in args) && ("y" in args)) {
+            x = args . x;
+            y = args . y;
+        }
+        else {
+            var coordinates = this . to_coordinates (args . value);
+            x = coordinates . x;
+            y = coordinates . y;
+        }
+
+        var rect_size = this . rect_size;
+
+        var text = this . board . plain (text)
+                                . attr ({x: (x + .5) * rect_size,
+                                         y: (y + .6) * rect_size});
+
+        if ("id" in args) {
+            text . id (args . id);
+        }
+        if ("class" in args) {
+            text . addClass (args . class);
+        }
+
+        return text;
+    }
+
+    //
     // Place a given value on the corresponding square
     //
     place_value (value) {
-        var coordinates = this . to_coordinates (value);
-        var x           = coordinates . x;
-        var y           = coordinates . y;
-
-        var rect_size   = this . rect_size;
-
-        this . board . plain (value) . attr ({x: (x + .5) * rect_size,
-                                              y: (y + .6) * rect_size})
-                                     . id ("number-" + value)
-                                     . addClass ("number");
+        this . place_text (value, {value: value,
+                                   id: "number-" + value,
+                                   class: "number"});
     }
 
     //

@@ -215,3 +215,29 @@ class Spiral extends Board {
         return ({x: x_val, y: y_val});
     }
 }
+
+
+//
+// Board to show how a piece moves
+//
+
+class Piece extends Board {
+    //
+    // We're using a different default size
+    //
+    constructor (args) {
+        if (!("size" in args)) {
+            args . size = 7;
+        }
+
+        super (args);
+
+        this . piece = args . piece;
+    }
+
+    draw () {
+        super . draw ();
+
+        this . place_text (this . piece, ({class: "chess-piece"}));
+    }
+}

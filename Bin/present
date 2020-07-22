@@ -7,6 +7,7 @@ use warnings;
 no  warnings 'syntax';
 use Cwd;
 use Text::Markdown 'markdown';
+use Term::ProgressBar::Simple;
 
 use experimental 'signatures';
 
@@ -45,6 +46,11 @@ open my $fh_index, "<", $index;
 my @files = <$fh_index>;
 chomp (@files);
 
+my $progress = Term::ProgressBar::Simple:: -> new ({
+    name  => "Slides",
+    count =>  scalar @files,
+});
+
 my $templates = init_templates;
 
 for (my $i = 0; $i < @files; $i ++) {
@@ -53,6 +59,8 @@ for (my $i = 0; $i < @files; $i ++) {
     my $next = $i == @files - 1 ? "" : $files [$i + 1];
 
     process_file ($prev, $file, $next);
+
+    $progress ++;
 }
 
 exit;

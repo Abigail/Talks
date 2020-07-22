@@ -107,8 +107,6 @@ class Board {
         var x, y;
         [x, y] = this . find_coordinates (args);
 
-        console . log ("coordinates = " + [x, y]);
-
         var rect_size = this . rect_size;
 
         this . board . circle (.8 * rect_size)

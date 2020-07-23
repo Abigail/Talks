@@ -180,17 +180,26 @@ class Board {
     // Place a series of values, with delays
     //
     place_values (args) {
-        var from_value = args . from_value;
-        var to_value   = args . to_value;
+        var from_value = args . from_value || 1;
+        var to_value   = args . to_value   || this . max_value;
         var init_delay = args . init_delay || 0;
         var delay      = args . delay      || 0;
 
         var count = 0;
         var value;
-        for (value = from_value; value <= to_value; value ++, count ++) {
-            setTimeout (function (board, value) {board . place_value (value)},
-                        init_delay + count * delay, 
-                        this, value);
+        if (delay || init_delay) {
+            for (value = from_value; value <= to_value; value ++, count ++) {
+                setTimeout (function (board, value) {
+                                board . place_value (value)
+                            },
+                            init_delay + count * delay, 
+                            this, value);
+            }
+        }
+        else {
+            for (value = from_value; value <= to_value; value ++) {
+                this . place_value (value);
+            }
         }
     }
 

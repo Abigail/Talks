@@ -5,8 +5,7 @@ function loaded () {
 
     spiral . draw ();
 
-    spiral . place_values ({from_value: 1,
-                            to_value:   spiral . max_value,});
+    spiral . place_values ({ });
 
     nav . add_todo (function () {
         $('#number-1') . css ('display', 'none');

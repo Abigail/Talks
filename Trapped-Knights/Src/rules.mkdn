@@ -1,0 +1,5 @@
+# Rules of the game
+
+* Move the knight according to its movement.
+* Given a choice, move to the lowest possible value.
+* Never return to a square visited before.

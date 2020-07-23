@@ -16,12 +16,12 @@ function loaded () {
     nav . add_todo (function () {
         board . place_values ({from_value:      10,
                                to_value:        64,
-                               delay:          100})
-    });
-    nav . add_todo (function () {
+                               delay:          100});
+
         board . place_values ({from_value:       65,
                                to_value:  max_value,
-                               delay:            25})
+                               delay:            25,
+                               init_delay: 54 * 100,})
     });
 
 }

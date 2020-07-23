@@ -23,9 +23,6 @@ foreach my $name (qw [Knight]) {
                       $$a [0] <=> $$b [0]} $piece -> rides;
     my $lc_name = lc $name;
 
-    my @jumps = grep {$$_ [2] == 1} @rides;
-
-
     #
     # Run the piece, and record its movement list
     #
@@ -33,10 +30,10 @@ foreach my $name (qw [Knight]) {
 
     my $piece_info;
 
-    $$piece_info {image}        = $lc_name . ".svg";
-    $$piece_info {jumps}        = [map {pop @$_; $_} @rides];
-    $$piece_info {run_list}     = $piece -> value_list;
-    $$piece_info {bounding_box} = $piece -> bounding_box;
+    $$piece_info {image}        =  $lc_name . ".svg";
+    $$piece_info {moves}        = \@rides;
+    $$piece_info {run_list}     =  $piece -> value_list;
+    $$piece_info {bounding_box} =  $piece -> bounding_box;
 
     $$info {$lc_name} = $piece_info;
 }

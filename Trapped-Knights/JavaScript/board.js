@@ -316,8 +316,8 @@ class Piece extends Board {
         // piece to the destination, then quickly move it
         // back, leaving a circle where it jumped to.
         //
-        if ("jumps" in piece) {
-            piece . jumps . forEach (item => {
+        if ("moves" in piece) {
+            piece . moves . forEach (item => {
                 var [x, y] = item;
                 element . animate ({duration:  500,
                                     delay:     500,})

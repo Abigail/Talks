@@ -1,0 +1,48 @@
+#!/opt/perl/bin/perl
+
+use 5.026;
+
+use strict;
+use warnings;
+no  warnings 'syntax';
+
+use experimental 'signatures';
+
+use lib '/Users/abigail/Perl/CPAN/Chess-Infinite/lib';
+use lib '/Users/abigail/Perl/CPAN/Colour-Name/lib';
+
+use JSON;
+
+use Chess::Infinite;
+
+my $info;
+
+foreach my $name (qw [Knight]) {
+    my $piece = piece $name;
+    my @rides = sort {$$a [1] <=> $$b [1] ||
+                      $$a [0] <=> $$b [0]} $piece -> rides;
+    my $lc_name = lc $name;
+
+    my @jumps = grep {$$_ [2] == 1} @rides;
+
+    my $piece_info;
+
+    $$piece_info {image} = $lc_name . ".svg";
+    $$piece_info {jumps} = [map {pop @$_; $_} @rides];
+
+    $$info {$lc_name} = $piece_info;
+}
+
+my $json = encode_json $info;
+
+
+open my $fh, ">", "JavaScript/chess_pieces.js" or die "open: $!";
+my $text = << "--";
+//
+// This is a generated file. Do not modify.
+//
+var chess_pieces = $json;
+--
+say $fh $text;
+
+__END__

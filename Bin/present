@@ -40,6 +40,7 @@ chdir $main_dir or die "chdir $main_dir";
 my $src_dir  = "$main_dir/Src";
 my $dest_dir = "$main_dir/HTML";
 my $js_dir   = "$main_dir/JavaScript";
+my $bin_dir  = "$main_dir/Bin";
 
 my $index = "$src_dir/index";
 open my $fh_index, "<", $index;
@@ -54,9 +55,26 @@ my $progress = Term::ProgressBar::Simple:: -> new ({
 my $templates = init_templates;
 
 for (my $i = 0; $i < @files; $i ++) {
-    my $prev = $i == 0          ? "" : $files [$i - 1];
-    my $file =                         $files [$i];
-    my $next = $i == @files - 1 ? "" : $files [$i + 1];
+    my $file = $files [$i];
+    if ($file =~ s/^\@//) {
+        system "$bin_dir/$file";
+        next;
+    }
+
+    my ($prev, $next) = ("", "");
+    for (my $j = $i - 1; $j >= 0; $j --) {
+        if ($files [$j] =~ /^\pL/) {
+            $prev = $files [$j];
+            last;
+        }
+    }
+
+    for (my $j = $i + 1; $j < @files; $j ++) {
+        if ($files [$j] =~ /^\pL/) {
+            $next = $files [$j];
+            last;
+        }
+    }
 
     process_file ($prev, $file, $next);
 

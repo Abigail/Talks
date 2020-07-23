@@ -1,3 +1,4 @@
+@load_piece_data
 empty-board
 place-knight
 rules

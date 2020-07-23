@@ -48,16 +48,13 @@ rect.odd {
 
 
 /*
- * Numbers and chess pieces placed on the board
+ * Numbers placed on the board
+ * This places the text in the middle of the squares
+ * (not too happy about the transform, but it does make a difference).
  */
 text.number {
     font-size: 5px;
-}
-text.chess-piece {
-    font-size: 8px;
-    transform: translate(0px, 1.5px);
-}
-
-text.number, text.chess-piece {
     text-anchor: middle;
+    dominant-baseline: middle;
+    transform: translate(0px, 0.5px);
 }

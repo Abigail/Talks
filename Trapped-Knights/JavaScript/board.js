@@ -47,11 +47,12 @@ class Board {
         
         //
         // Calculate the parameters for the viewbox.
+        // For now, we will have (0, 0) in the middle.
         // 
-        var viewbox_min_x  = this . min_x  * rect_size;
-        var viewbox_min_y  = this . min_y  * rect_size;
-        var viewbox_width  = this . width  * rect_size;
-        var viewbox_height = this . height * rect_size;
+        var viewbox_min_x  = (this . min_x - .5)  * rect_size;
+        var viewbox_min_y  = (this . min_y - .5)  * rect_size;
+        var viewbox_width  =  this . width        * rect_size;
+        var viewbox_height =  this . height       * rect_size;
 
         //
         // Create the (empty) SVG image, and place it in
@@ -64,7 +65,8 @@ class Board {
                                       viewbox_width, viewbox_height);
 
         //
-        // Create the squares
+        // Create the squares; we place the *centers* on specific
+        // locations.
         //
         var x, y;
         for (x = this . min_x; x <= this . max_x; x ++) {
@@ -73,8 +75,8 @@ class Board {
                 var value      = this . to_value (x, y);
                 var id_name    = "value-" + value;
                 var rect = board . rect     (rect_size, rect_size)
-                                 . x        (x * rect_size)
-                                 . y        (y * rect_size)
+                                 . cx       (x * rect_size)
+                                 . cy       (y * rect_size)
                                  . id       (id_name)
                                  . addClass (class_name);
             }
@@ -110,7 +112,7 @@ class Board {
         var rect_size = this . rect_size;
 
         this . board . circle (.8 * rect_size)
-                     . center ((x + .5) * rect_size, (y + .5) * rect_size)
+                     . center (x * rect_size, y * rect_size)
                      . addClass ("circle");
     }
 
@@ -129,8 +131,8 @@ class Board {
         // and place it 10% away from the edges.
         //
         var rect_size = this . rect_size;
-        image . size (rect_size *      .8 , rect_size *      .8) ;
-        image . move (rect_size * (x + .1), rect_size * (y + .1));
+        image . size   (rect_size * .8, rect_size * .8);
+        image . center (rect_size *  x, rect_size *  y);
 
         if ("id" in args) {
             image . id (args . id);
@@ -152,8 +154,8 @@ class Board {
         var rect_size = this . rect_size;
 
         var text = this . board . plain (text)
-                                . attr ({x: (x + .5) * rect_size,
-                                         y: (y + .6) * rect_size});
+                                . attr ({x: x * rect_size,
+                                         y: y * rect_size});
 
         if ("id" in args) {
             text . id (args . id);

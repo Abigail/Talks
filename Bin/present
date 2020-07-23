@@ -130,6 +130,29 @@ sub process_directives ($text = "", %options) {
 }
 
 
+#
+# Create two divs with links to the previous/next slides, if any
+#
+sub make_prev_next ($prev, $next) {
+    my $prev_div = "&#x2190;";
+    my $next_div = "&#x2192;";
+
+    if ($prev) {
+        $prev_div = "<a href = '$prev.html'>$prev_div</a>";
+    }
+    if ($next) {
+        $next_div = "<a href = '$next.html'>$next_div</a>";
+    }
+
+    $prev_div = "<div class = 'prev'>$prev_div</div>";
+    $next_div = "<div class = 'next'>$next_div</div>";
+
+    "$prev_div$next_div";
+}
+
+
+
+
 sub process_file ($prev, $file, $next) {
     my %options = (
         next => $next,
@@ -151,8 +174,9 @@ sub process_file ($prev, $file, $next) {
                   [<div class = 'main'><]x) {
         $html .= "</div>";
     }
-              
 
+    my $prev_next = make_prev_next $prev, $next;
+              
     my $preamble = prep_template default => %options;
 
     if (-f $js_file) {
@@ -162,7 +186,7 @@ sub process_file ($prev, $file, $next) {
     open my $fh_out, ">", "$dest_dir/$file.html"
                 or die "open $dest_dir/$file.html: $!";
 
-    print $fh_out $_ || "" for $preamble, $html;
+    print $fh_out $_ || "" for $preamble, $html, $prev_next;
 
     close $fh_out or die "close $dest_dir/$file.html: $!";
 }

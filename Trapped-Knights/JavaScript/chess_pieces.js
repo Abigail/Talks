@@ -1,6 +1,7 @@
 var chess_pieces = {
     knight:    {
-        white: '\u2658',
-        black: '\u265E',
+        image: 'knight.svg',
+        jumps: [[-1, -2], [ 1, -2], [ 2, -1], [ 2,  1],
+                [ 1,  2], [-1,  2], [-2,  1], [-2, -1]],
     },
 };

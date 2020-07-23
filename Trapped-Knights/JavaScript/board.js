@@ -121,7 +121,7 @@ class Board {
         var x, y;
         [x, y] = this . find_coordinates (args);
 
-        var path  = '../Images/' + image_name + '.svg';
+        var path  = '../Images/' + image_name;
         var image = this . board . image (path);
 
         //
@@ -136,8 +136,10 @@ class Board {
             image . id (args . id);
         }
         if ("class" in args) {
-            text . addClass (args . class);
+            image . addClass (args . class);
         }
+
+        return (image);
     }
 
     //
@@ -283,8 +285,41 @@ class Piece extends Board {
     }
 
     draw () {
+        //
+        // Draw the board, using the parent class
+        //
         super . draw ();
 
-        this . place_image (this . piece, ({id: "chess-piece"}));
+        //
+        // Draw the chess piece
+        //
+        var piece     = this . piece;
+        var element   = this . place_image (piece . image,
+                                          ({id: "chess-piece"}));
+
+        var rect_size = this . rect_size;
+        var me        = this;
+
+        //
+        // For all the places a piece can jump to, move the
+        // piece to the destination, then quickly move it
+        // back, leaving a circle where it jumped to.
+        //
+        if ("jumps" in piece) {
+            piece . jumps . forEach (item => {
+                var [x, y] = item;
+                element . animate ({duration:  500,
+                                    delay:     500,})
+                        . dmove (  x * rect_size,
+                                   y * rect_size)
+                        . animate ({duration:   50,
+                                    delay:     500,})
+                        . dmove (- x * rect_size,
+                                 - y * rect_size)
+                        . after (function () {
+                              me . place_circle ({x: x, y: y});
+                          });
+            });
+        }
     }
 }

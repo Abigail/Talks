@@ -10,7 +10,7 @@ function loaded () {
 
     nav . add_todo (function () {
         $('#number-1') . css ('display', 'none');
-        spiral . place_image ('knight',
+        spiral . place_image (chess_pieces . knight . image,
                              {value: 1, id: 'chess-piece'});
     })
 }

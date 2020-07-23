@@ -144,6 +144,15 @@ sub process_file ($prev, $file, $next) {
 
     my $html = markdown ($text);
 
+    #
+    # Add a <div> around the main content, if there isn't one
+    #
+    if ($html =~ s[</h1> \s* \K <(?!div)]
+                  [<div class = 'main'><]x) {
+        $html .= "</div>";
+    }
+              
+
     my $preamble = prep_template default => %options;
 
     if (-f $js_file) {

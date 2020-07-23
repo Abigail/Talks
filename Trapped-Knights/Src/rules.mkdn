@@ -1,5 +1,5 @@
 # Rules of the game
 
-* Move the knight according to its movement.
-* Given a choice, move to the lowest possible value.
+* Move the knight according to the chess rules.
+* Given a choice, move to the square with the lowest number.
 * Never return to a square visited before.

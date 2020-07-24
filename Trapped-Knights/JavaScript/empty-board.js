@@ -1,11 +1,11 @@
-var board;
+let board;
 
 function loaded () {
     board = new Spiral ({});
 
     board . draw ();
 
-    var max_value = board . max_value;
+    let max_value = board . max_value;
 
     nav . add_todo (function () {board . place_value (1)});
     nav . add_todo (function () {

@@ -46,9 +46,9 @@ class Navigate {
         //
         // Unpause the next paused element, if any
         //
-        var paused   = this . paused;
-        var div_name = "paused_" + paused;
-        var element  = document . getElementById (div_name);
+        let paused   = this . paused;
+        let div_name = "paused_" + paused;
+        let element  = document . getElementById (div_name);
         if (element) {
             element . className = 'visible';
             this . paused ++;
@@ -63,8 +63,8 @@ class Navigate {
     // Handle a keypress
     //
     do_keypress (event) {
-        var char = String . fromCharCode (event . which);
-        var href;
+        let char = String . fromCharCode (event . which);
+        let href;
 
         //
         // Space is the default action. Do whatever is 'next'. 

@@ -42,23 +42,23 @@ class Board {
     // Draw the empty board.
     //
     draw () {
-        var size      = this . size;
-        var rect_size = this . rect_size;
+        let size      = this . size;
+        let rect_size = this . rect_size;
         
         //
         // Calculate the parameters for the viewbox.
         // For now, we will have (0, 0) in the middle.
         // 
-        var viewbox_min_x  = (this . min_x - .5)  * rect_size;
-        var viewbox_min_y  = (this . min_y - .5)  * rect_size;
-        var viewbox_width  =  this . width        * rect_size;
-        var viewbox_height =  this . height       * rect_size;
+        let viewbox_min_x  = (this . min_x - .5)  * rect_size;
+        let viewbox_min_y  = (this . min_y - .5)  * rect_size;
+        let viewbox_width  =  this . width        * rect_size;
+        let viewbox_height =  this . height       * rect_size;
 
         //
         // Create the (empty) SVG image, and place it in
         // the relevant container.
         //
-        var board = SVG () . addTo   (this . addto)
+        let board = SVG () . addTo   (this . addto)
                            . id      (this . id)
                            . size    ('100%', '100%')
                            . viewbox (viewbox_min_x, viewbox_min_y,
@@ -68,13 +68,13 @@ class Board {
         // Create the squares; we place the *centers* on specific
         // locations.
         //
-        var x, y;
+        let x, y;
         for (x = this . min_x; x <= this . max_x; x ++) {
             for (y = this . min_x; y <= this . max_x; y ++) {
-                var class_name = (x + y) % 2 ? "odd" : "even";
-                var value      = this . to_value (x, y);
-                var id_name    = "value-" + value;
-                var rect = board . rect     (rect_size, rect_size)
+                let class_name = (x + y) % 2 ? "odd" : "even";
+                let value      = this . to_value (x, y);
+                let id_name    = "value-" + value;
+                let rect = board . rect     (rect_size, rect_size)
                                  . cx       (x * rect_size)
                                  . cy       (y * rect_size)
                                  . id       (id_name)
@@ -108,7 +108,7 @@ class Board {
     place_circle (args) {
         let [x, y, value] = this . positions (args);
 
-        var rect_size = this . rect_size;
+        let rect_size = this . rect_size;
 
         this . board . circle (.8 * rect_size)
                      . center (x * rect_size, y * rect_size)
@@ -121,14 +121,14 @@ class Board {
     place_image (image_name, args) {
         let [x, y, value] = this . positions (args);
 
-        var path  = '../Images/' + image_name;
-        var image = this . board . image (path);
+        let path  = '../Images/' + image_name;
+        let image = this . board . image (path);
 
         //
         // Scale the image to be 80% of the size a square,
         // and place it 10% away from the edges.
         //
-        var rect_size = this . rect_size;
+        let rect_size = this . rect_size;
         image . size   (rect_size * .8, rect_size * .8);
         image . center (rect_size *  x, rect_size *  y);
 
@@ -154,7 +154,7 @@ class Board {
         args . value = value;
         args . id    = "chess-piece";
 
-        var image    = this . place_image (piece . image, args);
+        let image    = this . place_image (piece . image, args);
 
         this . current_piece               = {};
         this . current_piece . image       = image;
@@ -172,7 +172,7 @@ class Board {
         let image          = current_piece . image;
         let rect_size      = this . rect_size;
 
-        var runner = image . animate ();
+        let runner = image . animate ();
 
         let start = args . start || 0;
         let end   = move_list . length - 1;
@@ -215,20 +215,20 @@ class Board {
     place_text (text, args) {
         let [x, y, value] = this . positions (args);
 
-        var rect_size = this . rect_size;
+        let rect_size = this . rect_size;
 
-        var text = this . board . plain (text)
-                                . attr ({x: x * rect_size,
-                                         y: y * rect_size});
+        let plain = this . board . plain (text)
+                                 . attr ({x: x * rect_size,
+                                          y: y * rect_size});
 
         if ("id" in args) {
-            text . id (args . id);
+            plain . id (args . id);
         }
         if ("class" in args) {
-            text . addClass (args . class);
+            plain . addClass (args . class);
         }
 
-        return text;
+        return plain;
     }
 
     //
@@ -252,13 +252,13 @@ class Board {
     // Place a series of values, with delays
     //
     place_values (args) {
-        var from_value = args . from_value || 1;
-        var to_value   = args . to_value   || this . max_value;
-        var init_delay = args . init_delay || 0;
-        var delay      = args . delay      || 0;
+        let from_value = args . from_value || 1;
+        let to_value   = args . to_value   || this . max_value;
+        let init_delay = args . init_delay || 0;
+        let delay      = args . delay      || 0;
 
-        var count = 0;
-        var value;
+        let count = 0;
+        let value;
         if (delay || init_delay) {
             for (value = from_value; value <= to_value; value ++, count ++) {
                 setTimeout (function (board, value) {
@@ -279,8 +279,8 @@ class Board {
     // Takes the x, y coordinates of a square, returns the corresponding value
     //
     to_value (x, y) {
-        var real_x = x - this . min_x;
-        var real_y = y - this . min_y;
+        let real_x = x - this . min_x;
+        let real_y = y - this . min_y;
 
         return (real_y * (this . width) + real_x + 1);
     }
@@ -336,10 +336,10 @@ class Spiral extends Board {
     // Takes the x, y coordinates of a square, returns the corresponding value
     //
     to_value (x, y) {
-        var abs_x = Math . abs (x);
-        var abs_y = Math . abs (y);
-        var max   = abs_x > abs_y ? abs_x : abs_y;
-        var base  = Math . pow (2 * max - 1, 2);
+        let abs_x = Math . abs (x);
+        let abs_y = Math . abs (y);
+        let max   = abs_x > abs_y ? abs_x : abs_y;
+        let base  = Math . pow (2 * max - 1, 2);
 
         return y ==  max ? base + 7 * max + x
              : x == -max ? base + 5 * max + y
@@ -352,11 +352,11 @@ class Spiral extends Board {
     // Takes value, returns a pair of x, y coordinates
     //
     to_coordinates (value) {
-        var base = Math . ceil  (Math . sqrt (value));
-        var ring = Math . floor (base / 2);
-        var left = value - Math . pow (2 * ring - 1, 2);
+        let base = Math . ceil  (Math . sqrt (value));
+        let ring = Math . floor (base / 2);
+        let left = value - Math . pow (2 * ring - 1, 2);
 
-        var x_val, y_val;
+        let x_val, y_val;
 
         if (left <= 2 * ring) {
             x_val =     ring;
@@ -407,12 +407,12 @@ class Piece extends Board {
         //
         // Draw the chess piece
         //
-        var piece     = this . piece;
-        var element   = this . place_image (piece . image,
+        let piece     = this . piece;
+        let element   = this . place_image (piece . image,
                                           ({id: "chess-piece"}));
 
-        var rect_size = this . rect_size;
-        var me        = this;
+        let rect_size = this . rect_size;
+        let me        = this;
 
         //
         // For all the places a piece can jump to, move the
@@ -421,7 +421,7 @@ class Piece extends Board {
         //
         if ("moves" in piece) {
             piece . moves . forEach (item => {
-                var [x, y] = item;
+                let [x, y] = item;
                 element . animate ({duration:  500,
                                     delay:     500,})
                         . dmove (  x * rect_size,

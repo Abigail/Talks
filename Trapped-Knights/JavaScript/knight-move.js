@@ -1,4 +1,4 @@
-var spiral;
+let spiral;
 
 function loaded () {
     spiral = new Spiral ({});
@@ -15,7 +15,7 @@ function loaded () {
 
     let manual_steps = 5;
 
-    for (var i = 1; i <=  manual_steps; i ++) {
+    for (let i = 1; i <=  manual_steps; i ++) {
         let move = moves [i];
         nav . add_todo (function () {
             spiral . move_piece ({move_list: [move]})

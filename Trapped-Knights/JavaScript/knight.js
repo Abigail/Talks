@@ -1,4 +1,4 @@
-var piece;
+let piece;
 
 function loaded () {
     piece = new Piece ({piece: chess_pieces . knight});

@@ -1,4 +1,4 @@
-var spiral;
+let spiral;
 
 function loaded () {
     spiral = new Spiral ({});

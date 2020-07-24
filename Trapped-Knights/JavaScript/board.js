@@ -106,8 +106,7 @@ class Board {
     // Place a circle on a specific location
     //
     place_circle (args) {
-        var x, y;
-        [x, y] = this . find_coordinates (args);
+        let [x, y, value] = this . positions (args);
 
         var rect_size = this . rect_size;
 
@@ -120,8 +119,7 @@ class Board {
     // Place an image on a specific location
     //
     place_image (image_name, args) {
-        var x, y;
-        [x, y] = this . find_coordinates (args);
+        let [x, y, value] = this . positions (args);
 
         var path  = '../Images/' + image_name;
         var image = this . board . image (path);
@@ -149,15 +147,14 @@ class Board {
     // image on the given spot, and sets some coordinates.
     //
     place_piece (piece, args) {
-        var x, y, value;
-        [x, y] = this . find_coordinates (args);
-        value = args . value || this . to_value (x, y);
+        let [x, y, value] = this . positions (args);
 
-        args . x  = x;
-        args . y  = y;
-        args . id = "chess-piece";
+        args . x     = x;
+        args . y     = y;
+        args . value = value;
+        args . id    = "chess-piece";
 
-        var image = this . place_image (piece . image, args);
+        var image    = this . place_image (piece . image, args);
 
         this . current_piece               = {};
         this . current_piece . image       = image;
@@ -194,8 +191,7 @@ class Board {
             if (target > this . max_value) {
                 break;
             }
-            let [new_x, new_y] = this . find_coordinates ({value: target});
-            let new_value      = this . to_value (new_x, new_y);
+            let [new_x, new_y, new_value] = this . positions ({value: target});
 
             let [old_x, old_y] = current_piece . coordinates;
             let  old_value     = current_piece . value;
@@ -217,8 +213,7 @@ class Board {
     // Place text on a particular spot
     //
     place_text (text, args) {
-        var x, y;
-        [x, y] = this . find_coordinates (args);
+        let [x, y, value] = this . positions (args);
 
         var rect_size = this . rect_size;
 
@@ -288,6 +283,37 @@ class Board {
         var real_y = y - this . min_y;
 
         return (real_y * (this . width) + real_x + 1);
+    }
+
+    //
+    // Take a value, return the x, y coordinates (0, 0) is top-left corner.
+    //
+    to_coordinates (value) {
+        let v = value - 1;
+        let y = Math . floor (v / this . width);
+        let x = v % this . width;
+
+        return [x, y];
+    }
+
+    //
+    // Returns three values: x, y, value
+    //     - if x and y are given, use them, and calculate value
+    //     - else, if value is given, use that, and calculate x, y
+    //     - else, assume value = 1, and calculate x, y
+    //
+    positions (args) {
+        let x, y, value;
+        if ("x" in args && "y" in args) {
+            value = this . to_value (args . x, args . y)
+            x     = args . x;
+            y     = args . y;
+        }
+        else {
+            value  = args . value || 1;
+            [x, y] = this . to_coordinates (value);
+        }
+        return [x, y, value];
     }
 }
 

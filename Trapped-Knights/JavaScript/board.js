@@ -145,6 +145,56 @@ class Board {
     }
 
     //
+    // Place a piece on a particular location. This just draws the
+    // image on the given spot, and sets some coordinates.
+    //
+    place_piece (piece, args) {
+        var x, y, value;
+        [x, y] = this . find_coordinates (args);
+        value = args . value || this . to_value (x, y);
+
+        args . x  = x;
+        args . y  = y;
+        args . id = "chess-piece";
+
+        var image = this . place_image (piece . image, args);
+
+        this . current_piece               = {};
+        this . current_piece . image       = image;
+        this . current_piece . coordinates = [x, y];
+        this . current_piece . value       = value;
+    }
+
+    //
+    // Move current piece to a different location
+    //
+    move_piece (args) {
+        var [new_x, new_y] = this . find_coordinates (args);
+        var new_value      = this . to_value (new_x, new_y);
+        var current_piece  = this . current_piece;
+        var rect_size      = this . rect_size;
+
+        var me = this;
+
+        var image          = current_piece . image;
+        var [old_x, old_y] = current_piece . coordinates;
+
+        image . animate ({duration: 0})
+              . after (function () {
+                    me . hide_value (new_value);
+                })
+              . animate ({duration: 500})
+              . center (new_x * rect_size, new_y * rect_size)
+              . after (function () {
+                    me . place_circle ({x: old_x, y: old_y})
+                });
+
+        current_piece . coordinates = [new_x, new_y];
+        current_piece . value       =  new_value;
+    }
+
+
+    //
     // Place text on a particular spot
     //
     place_text (text, args) {
@@ -175,6 +225,14 @@ class Board {
                                    id: "number-" + value,
                                    class: "number"});
     }
+
+    //
+    // Hide the given value from sight.
+    //
+    hide_value (value) {
+        $('#number-' + value) . css ('display', 'none');
+    }
+
 
     //
     // Place a series of values, with delays

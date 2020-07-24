@@ -166,31 +166,53 @@ class Board {
     }
 
     //
-    // Move current piece to a different location
+    // Move current piece along a series of moves.
     //
     move_piece (args) {
-        var [new_x, new_y] = this . find_coordinates (args);
-        var new_value      = this . to_value (new_x, new_y);
-        var current_piece  = this . current_piece;
-        var rect_size      = this . rect_size;
+        let move_list      = args . move_list;
 
-        var me = this;
+        let current_piece  = this . current_piece;
+        let image          = current_piece . image;
+        let rect_size      = this . rect_size;
 
-        var image          = current_piece . image;
-        var [old_x, old_y] = current_piece . coordinates;
+        var runner = image . animate ();
 
-        image . animate ({duration: 0})
-              . after (function () {
-                    me . hide_value (new_value);
-                })
-              . animate ({duration: 500})
-              . center (new_x * rect_size, new_y * rect_size)
-              . after (function () {
-                    me . place_circle ({x: old_x, y: old_y})
-                });
+        let start = args . start || 0;
+        let end   = move_list . length - 1;
+        if (args . end && args . end < end) {
+            end = args . end;
+        }
 
-        current_piece . coordinates = [new_x, new_y];
-        current_piece . value       =  new_value;
+        let me = this;
+
+        for (let i = start; i <= end; i ++) {
+            //
+            // Get the next value or coordinates to move to;
+            // for now, assume it's always a value.
+            //
+            let target = move_list [i];
+            if (target > this . max_value) {
+                break;
+            }
+            let [new_x, new_y] = this . find_coordinates ({value: target});
+            let new_value      = this . to_value (new_x, new_y);
+
+            let [old_x, old_y] = current_piece . coordinates;
+            let  old_value     = current_piece . value;
+
+            runner . animate ({duration: 500})
+                   . center (new_x * rect_size, new_y * rect_size)
+                   . after (function () {
+                         console . log (Date . now () + ": " +
+                                        "Moved from " + old_value + 
+                                        " to " + new_value);
+                         me . hide_value (new_value);
+                         me . place_circle ({x: old_x, y: old_y})
+                     });
+
+            current_piece . coordinates = [new_x, new_y];
+            current_piece . value       =  new_value;
+        }
     }
 
 

@@ -203,9 +203,6 @@ class Board {
             runner . animate ({duration: 500})
                    . center (new_x * rect_size, new_y * rect_size)
                    . after (function () {
-                         console . log (Date . now () + ": " +
-                                        "Moved from " + old_value + 
-                                        " to " + new_value);
                          me . hide_value (new_value);
                          me . place_circle ({x: old_x, y: old_y})
                      });

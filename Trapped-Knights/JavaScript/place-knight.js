@@ -5,7 +5,7 @@ function loaded () {
 
     spiral . draw ();
 
-    spiral . place_values ({ });
+    spiral . place_values ({to_value: 169});
 
     nav . add_todo (function () {
         $('#number-1') . css ('display', 'none');

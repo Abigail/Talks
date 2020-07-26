@@ -29,12 +29,10 @@ class Board {
         //            The minimum/maximum coordinates of the squares on
         //            the board.
         //
-        this . min_x     = - (Math . floor (this . width  / 2));
-        this . min_y     = - (Math . floor (this . height / 2));
-        this . max_x     = - this . min_x;
-        this . max_y     = - this . min_y;
-
-        this . max_value = this . width * this . height;
+        this . min_x     = args . min_x || - (Math . floor (this . width  / 2));
+        this . min_y     = args . min_y || - (Math . floor (this . height / 2));
+        this . max_x     = args . max_x || this . min_x + this . width  - 1;
+        this . max_y     = args . max_y || this . min_y + this . height - 1;
     }
 
 
@@ -44,15 +42,17 @@ class Board {
     draw () {
         let size      = this . size;
         let rect_size = this . rect_size;
+
+        let width     = this . max_x - this . min_x + 1;
+        let height    = this . max_y - this . min_y + 1;
         
         //
         // Calculate the parameters for the viewbox.
-        // For now, we will have (0, 0) in the middle.
         // 
         let viewbox_min_x  = (this . min_x - .5)  * rect_size;
         let viewbox_min_y  = (this . min_y - .5)  * rect_size;
-        let viewbox_width  =  this . width        * rect_size;
-        let viewbox_height =  this . height       * rect_size;
+        let viewbox_width  =         width        * rect_size;
+        let viewbox_height =         height       * rect_size;
 
         //
         // Create the (empty) SVG image, and place it in
@@ -69,6 +69,7 @@ class Board {
         // locations.
         //
         let x, y;
+        let value_set = ({});
         for (x = this . min_x; x <= this . max_x; x ++) {
             for (y = this . min_x; y <= this . max_x; y ++) {
                 let class_name = (x + y) % 2 ? "odd" : "even";
@@ -79,10 +80,12 @@ class Board {
                                  . cy       (y * rect_size)
                                  . id       (id_name)
                                  . addClass (class_name);
+                value_set [value] = 1;
             }
         }
 
-        this . board = board;
+        this . value_set = value_set;
+        this . board     = board;
     }
 
     //
@@ -188,9 +191,15 @@ class Board {
             // for now, assume it's always a value.
             //
             let target = move_list [i];
-            if (target > this . max_value) {
+            
+            //
+            // If we're outside of the board, stop.
+            //
+            let value_set = this . value_set;
+            if (!(value_set [target])) {
                 break;
             }
+
             let [new_x, new_y, new_value] = this . positions ({value: target});
 
             let [old_x, old_y] = current_piece . coordinates;
@@ -253,7 +262,7 @@ class Board {
     //
     place_values (args) {
         let from_value = args . from_value || 1;
-        let to_value   = args . to_value   || this . max_value;
+        let to_value   = args . to_value;
         let init_delay = args . init_delay || 0;
         let delay      = args . delay      || 0;
 

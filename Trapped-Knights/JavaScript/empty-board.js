@@ -19,7 +19,7 @@ function loaded () {
                                delay:          100});
 
         board . place_values ({from_value:       65,
-                               to_value:  max_value,
+                               to_value:        169,
                                delay:            25,
                                init_delay: 54 * 100,})
     });

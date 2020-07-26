@@ -5,7 +5,7 @@ function loaded () {
 
     spiral . draw ();
 
-    spiral . place_values ({from_value: 2});
+    spiral . place_values ({from_value: 2, to_value: 169});
 
     let knight = chess_pieces . knight;
 

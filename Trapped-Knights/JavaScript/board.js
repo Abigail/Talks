@@ -211,12 +211,14 @@ class Board {
             let [old_x, old_y] = current_piece . coordinates;
             let  old_value     = current_piece . value;
 
-            runner . animate ({duration: 500})
+            runner . animate ({duration: 400})
                    . center (new_x * rect_size, new_y * rect_size)
                    . after (function () {
                          me . hide_value (new_value);
                          me . place_circle ({x: old_x, y: old_y})
-                     });
+                     })
+                   . delay (100);
+            ;
 
             current_piece . coordinates = [new_x, new_y];
             current_piece . value       =  new_value;

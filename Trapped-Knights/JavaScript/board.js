@@ -69,7 +69,6 @@ class Board {
         // locations.
         //
         let x, y;
-        let value_set = ({});
         for (x = this . min_x; x <= this . max_x; x ++) {
             for (y = this . min_x; y <= this . max_x; y ++) {
                 let class_name = (x + y) % 2 ? "odd" : "even";
@@ -80,12 +79,10 @@ class Board {
                                  . cy       (y * rect_size)
                                  . id       (id_name)
                                  . addClass (class_name);
-                value_set [value] = 1;
             }
         }
 
-        this . value_set = value_set;
-        this . board     = board;
+        this . board = board;
     }
 
     //
@@ -185,18 +182,24 @@ class Board {
 
         let me = this;
 
+        let min_x = this . min_x;
+        let min_y = this . min_y;
+        let max_x = this . max_x;
+        let max_y = this . max_y;
+
         for (let i = start; i <= end; i ++) {
             //
             // Get the next value or coordinates to move to;
             // for now, assume it's always a value.
             //
             let target = move_list [i];
+
+            let [x, y, value] = this . positions ({value: target});
             
             //
             // If we're outside of the board, stop.
             //
-            let value_set = this . value_set;
-            if (!(value_set [target])) {
+            if (x < min_x || x > max_x || y < min_y || y > max_y) {
                 break;
             }
 

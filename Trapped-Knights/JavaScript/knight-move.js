@@ -3,13 +3,12 @@ let spiral;
 function loaded () {
     spiral = new Spiral ({});
 
-    spiral . draw ();
-
-    spiral . place_values ({from_value: 2, to_value: 169});
+    spiral . draw ({with_values: 1});
 
     let knight = chess_pieces . knight;
 
     spiral . place_piece (knight, {});
+    spiral . hide_value (1);
 
     let moves = knight . run_list;
 

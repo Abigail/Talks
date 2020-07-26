@@ -39,7 +39,7 @@ class Board {
     //
     // Draw the empty board.
     //
-    draw () {
+    draw (args = {}) {
         let size      = this . size;
         let rect_size = this . rect_size;
 
@@ -64,6 +64,8 @@ class Board {
                            . viewbox (viewbox_min_x, viewbox_min_y,
                                       viewbox_width, viewbox_height);
 
+        this . board = board;
+
         //
         // Create the squares; we place the *centers* on specific
         // locations.
@@ -79,10 +81,11 @@ class Board {
                                  . cy       (y * rect_size)
                                  . id       (id_name)
                                  . addClass (class_name);
+                if (args . with_values) {
+                    this . place_value (value);
+                }
             }
         }
-
-        this . board = board;
     }
 
     //

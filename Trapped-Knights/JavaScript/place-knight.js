@@ -3,9 +3,7 @@ let spiral;
 function loaded () {
     spiral = new Spiral ({});
 
-    spiral . draw ();
-
-    spiral . place_values ({to_value: 169});
+    spiral . draw ({with_values: 1});
 
     nav . add_todo (function () {
         $('#number-1') . css ('display', 'none');

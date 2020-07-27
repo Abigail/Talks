@@ -21,10 +21,8 @@ function loaded () {
     }
 
     //
-    // Make sure we have a square of odd size.
+    // Make sure we have a square.
     //
-    if ((max_x - min_x) % 2) {min_x --;}
-    if ((max_y - min_y) % 2) {min_y --;}
     if ((max_x - min_x) > (max_y - min_y)) {
         min_y += (max_x - min_x) - (max_y - min_y);
     }

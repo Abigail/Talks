@@ -5,3 +5,4 @@ rules
 knight
 knight-move
 knight-trapped
+knight-full-run

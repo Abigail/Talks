@@ -222,6 +222,8 @@ class Board {
         let duration       = args . duration || 400;
         let delay          = args . delay    || 100;
 
+        let callback       = args . callback || function (args) {1};
+
         let runner = image . animate ();
 
         let start = args . start || 0;
@@ -262,7 +264,12 @@ class Board {
                    . center (new_x * rect_size, new_y * rect_size)
                    . after (function () {
                          me . hide_value (new_value);
-                         me . place_circle ({x: old_x, y: old_y})
+                         me . place_circle ({x: old_x, y: old_y});
+                         callback ({
+                            value: new_value,
+                            x:     new_x,
+                            y:     new_y,
+                            move:  i + 1});
                      })
                    . delay (delay);
             ;

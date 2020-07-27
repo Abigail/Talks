@@ -104,6 +104,20 @@ class Board {
         return [0, 0];
     }
 
+    //
+    // Returns true if a position is on the board
+    //
+    on_board (args = {}) {
+        let [x, y, value] = this . positions (args);
+        if (x >= this . min_x && x <= this . max_x &&
+            y >= this . min_y && y <= this . max_y) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+
 
     //
     // Place a circle on a specific location

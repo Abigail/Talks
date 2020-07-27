@@ -219,6 +219,9 @@ class Board {
         let image          = current_piece . image;
         let rect_size      = this . rect_size;
 
+        let duration       = args . duration || 400;
+        let delay          = args . delay    || 100;
+
         let runner = image . animate ();
 
         let start = args . start || 0;
@@ -255,19 +258,20 @@ class Board {
             let [old_x, old_y] = current_piece . coordinates;
             let  old_value     = current_piece . value;
 
-            runner . animate ({duration: 400})
+            runner . animate ({duration: duration})
                    . center (new_x * rect_size, new_y * rect_size)
                    . after (function () {
                          me . hide_value (new_value);
                          me . place_circle ({x: old_x, y: old_y})
                      })
-                   . delay (100);
+                   . delay (delay);
             ;
 
             current_piece . coordinates = [new_x, new_y];
             current_piece . value       =  new_value;
         }
     }
+
 
 
     //

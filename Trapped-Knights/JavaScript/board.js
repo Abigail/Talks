@@ -16,12 +16,13 @@ class Board {
     //  - id:         id of the SVG images. Defaults to 'board'.
     //
     constructor (args = {}) {
-        this . size      = args . size      || 13;
-        this . width     = args . width     || this . size;
-        this . height    = args . height    || this . size;
         this . rect_size = args . rect_size || 10;
         this . addto     = args . addto     || '.inner';
         this . id        = args . id        || 'board';
+
+        let size         = args . size      || 13;
+        let width        = args . width     || size;
+        let height       = args . height    || size;
 
         //
         // Derived values.
@@ -29,10 +30,40 @@ class Board {
         //            The minimum/maximum coordinates of the squares on
         //            the board.
         //
-        this . min_x     = args . min_x || - (Math . floor (this . width  / 2));
-        this . min_y     = args . min_y || - (Math . floor (this . height / 2));
-        this . max_x     = args . max_x || this . min_x + this . width  - 1;
-        this . max_y     = args . max_y || this . min_y + this . height - 1;
+        let min_x = "min_x" in args ? args . min_x
+                                    : - (Math . floor (width  / 2));
+        let min_y = "min_y" in args ? args . min_y
+                                    : - (Math . floor (height / 2));
+        let max_x = "max_x" in args ? args . max_x
+                                    : min_x + width  - 1;
+        let max_y = "max_y" in args ? args . max_y
+                                    : min_y + height - 1;
+
+        this . min_x = min_x;
+        this . min_y = min_y;
+        this . max_x = max_x;
+        this . max_y = max_y;
+    }
+
+    //
+    // Width and height are derived from the min_x, max_x values.
+    //
+    width () {
+        return (this . max_x - this . min_x + 1);
+    }
+    height () {
+        return (this . max_y - this . min_y + 1);
+    }
+
+    //
+    // Set the bounding box. Useful if you first need a board object
+    // to calculate boundaries.
+    //
+    set_bounding_box (min_x, min_y, max_x, max_y) {
+        this . min_x = min_x;
+        this . min_y = min_y;
+        this . max_x = max_x;
+        this . max_y = max_y;
     }
 
 
@@ -40,11 +71,10 @@ class Board {
     // Draw the empty board.
     //
     draw (args = {}) {
-        let size      = this . size;
         let rect_size = this . rect_size;
 
-        let width     = this . max_x - this . min_x + 1;
-        let height    = this . max_y - this . min_y + 1;
+        let width     = this . width  ();
+        let height    = this . height ();
         
         //
         // Calculate the parameters for the viewbox.
@@ -313,7 +343,7 @@ class Board {
         let real_x = x - this . min_x;
         let real_y = y - this . min_y;
 
-        return (real_y * (this . width) + real_x + 1);
+        return (real_y * (this . width ()) + real_x + 1);
     }
 
     //
@@ -321,8 +351,8 @@ class Board {
     //
     to_coordinates (value) {
         let v = value - 1;
-        let y = Math . floor (v / this . width);
-        let x = v % this . width;
+        let y = Math . floor (v / this . width ());
+        let x = v % this . width ();
 
         return [x, y];
     }

@@ -185,6 +185,11 @@ sub process_file ($prev, $file, $next) {
 
     $text = process_directives $text, %options;
 
+    $text =~ s{ ^\[\[\s*\n
+            ((?:^(?!\]\]) \N+ \n)*)
+                ^\]\] }
+              {say $1; markdown ($1) }megx;
+
     my $html = markdown ($text);
 
     #

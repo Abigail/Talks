@@ -133,16 +133,16 @@ sub prep_template ($name, %options) {
 
 sub process_directives ($text = "", %options) {
     #
-    # #% JS: module
+    # %% JS: module
     #        Links to the named JavaScript module (from ../JavaScript).
     #
-    $text =~ s [^\#% \s* Template: \s* (\N+) \n]
+    $text =~ s [^\%% \s* Template: \s* (\N+) \n]
                [prep_template $1, %options]gemx;
 
-    # #% Template: module
+    # %% Template: module
     #        Includes the named templace.
     #
-    $text =~ s [^\#% \s* JS: \s* (\S+) \s* \n]
+    $text =~ s [^\%% \s* JS: \s* (\S+) \s* \n]
                [<script src = "../Javascript/$1.js"></script>]gmx;
 
     $text;

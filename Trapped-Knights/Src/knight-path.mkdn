@@ -1,3 +1,3 @@
 # Knight's Path
 
-#% Template: main_divs
+%% Template: main_divs

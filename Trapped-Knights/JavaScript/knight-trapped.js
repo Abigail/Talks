@@ -38,6 +38,8 @@ function loaded () {
     spiral . hide_value (moves [index + 1]);
     spiral . place_piece (knight, {value: moves [index + 1]});
 
+    $('#move-number') . html (index + 1);
+
     //
     // We're using a trick here. We first delete the existing chess
     // piece, then replace it with another. This way, the animation
@@ -45,7 +47,12 @@ function loaded () {
     // at once.
     //
     nav . add_todo (function () {
-        spiral . move_piece ({move_list: moves,
-                              start:     index + 2,});
+        spiral . move_piece ({
+            move_list: moves,
+            start:     index + 2,
+            callback:  function (args) {
+                $('#move-number') . html (args . move);
+            }
+        })
     });
 }

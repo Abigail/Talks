@@ -12,12 +12,20 @@ function loaded () {
 
     let moves = knight . run_list;
 
+    console . log (moves . length);
+
     let manual_steps = 5;
 
     for (let i = 1; i <=  manual_steps; i ++) {
-        let move = moves [i];
         nav . add_todo (function () {
-            spiral . move_piece ({move_list: [move]})
+            spiral . move_piece ({
+                move_list: moves,
+                start:     i,
+                end:       i,
+                callback:  function (args) {
+                    $('#move-number') . html (args . move);
+                }
+            });
         });
     }
 
@@ -31,7 +39,12 @@ function loaded () {
         SVG ('#chess-piece') . css ({display: 'none'});
         SVG ('#chess-piece') . id ('bogus');
         spiral . place_piece (knight, {value: moves [manual_steps]});
-        spiral . move_piece ({move_list: moves,
-                              start:     manual_steps + 1,});
+        spiral . move_piece ({
+            move_list: moves,
+            start:     manual_steps + 1,
+            callback:  function (args) {
+                $('#move-number') . html (args . move);
+            }
+        });
     });
 }

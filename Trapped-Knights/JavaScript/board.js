@@ -93,6 +93,10 @@ class Board {
                            . viewbox (viewbox_min_x, viewbox_min_y,
                                       viewbox_width, viewbox_height);
 
+        if (args . preserveAspectRatio) {
+            board . attr ({preserveAspectRatio: args . preserveAspectRatio});
+        }
+
         this . board = board;
     }
 
@@ -103,7 +107,7 @@ class Board {
     draw (args = {}) {
         let rect_size = this . rect_size;
 
-        this . create_board ();
+        this . create_board (args);
 
         let board = this . board;
 
@@ -133,8 +137,6 @@ class Board {
     // Given a piece, draw the path it takes until trapped, or out of moves
     //
     draw_path (args = {}) {
-        console . log ("draw_path");
-
         let piece = args  . piece;
         let moves = piece . run_list;
         let rect_size = this . rect_size;
@@ -562,11 +564,12 @@ class Piece extends Board {
         this . piece = args . piece;
     }
 
-    draw () {
+    draw (args = {}) {
         //
         // Draw the board, using the parent class
         //
-        super . draw ();
+        args  . preserveAspectRatio = 'xMaxYMin meet';
+        super . draw (args);
 
         //
         // Draw the chess piece

@@ -33,6 +33,17 @@ div.inner  {
     border: 1px solid black;
     width: 100%;
     height: 100%;
+    position: relative;
+}
+
+/*
+ * CSS for a move counter
+ */
+span.move-line {
+    position:  absolute;
+    top:       0;
+    right:     0;
+    font-size: 4vh;
 }
                        
 

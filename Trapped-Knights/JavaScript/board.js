@@ -15,7 +15,7 @@ class Board {
     //                be placed in. Defaults to '.inner'.
     //  - id:         id of the SVG images. Defaults to 'board'.
     //
-    constructor (args) {
+    constructor (args = {}) {
         this . size      = args . size      || 13;
         this . width     = args . width     || this . size;
         this . height    = args . height    || this . size;

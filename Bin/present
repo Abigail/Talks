@@ -41,6 +41,7 @@ my $src_dir  = "$main_dir/Src";
 my $dest_dir = "$main_dir/HTML";
 my $js_dir   = "$main_dir/JavaScript";
 my $bin_dir  = "$main_dir/Bin";
+my $css_dir  = "$main_dir/Styles";
 
 my $index = "$src_dir/index";
 open my $fh_index, "<", $index;
@@ -177,7 +178,8 @@ sub process_file ($prev, $file, $next) {
         prev => $prev,
     );
 
-    my $js_file = "$js_dir/$file.js";
+    my $js_file  = "$js_dir/$file.js";
+    my $css_file = "$css_dir/$file.css";
 
     my $text = read_file ("$src_dir/$file.mkdn");
 
@@ -199,6 +201,10 @@ sub process_file ($prev, $file, $next) {
 
     if (-f $js_file) {
         $preamble .= "<script src = '../JavaScript/$file.js'></script>\n";
+    }
+    if (-f $css_file) {
+        $preamble .= "<link rel = 'stylesheet' href = '../Styles/$file.css' " .
+                     "type = 'text/css'>";
     }
 
     open my $fh_out, ">", "$dest_dir/$file.html"

@@ -36,6 +36,15 @@ div.inner  {
     position: relative;
 }
 
+div.infobox {
+    position:  absolute; 
+    top:       1vh;
+    leftt:     1vh;
+    font-size: 4vh;
+}
+                       
+
+
 /*
  * CSS for a move counter
  */
@@ -45,7 +54,7 @@ span.move-line {
     right:     0;
     font-size: 4vh;
 }
-                       
+
 
 /*
  * CSS for the SVG

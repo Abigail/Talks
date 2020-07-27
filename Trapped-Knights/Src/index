@@ -1,6 +1,6 @@
 @load_piece_data
 empty-board
-knigh-place
+knight-place
 rules
 knight
 knight-move

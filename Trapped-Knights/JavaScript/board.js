@@ -130,6 +130,76 @@ class Board {
     }
 
     //
+    // Given a piece, draw the path it takes until trapped, or out of moves
+    //
+    draw_path (args = {}) {
+        console . log ("draw_path");
+
+        let piece = args  . piece;
+        let moves = piece . run_list;
+        let rect_size = this . rect_size;
+
+        //
+        // Find bounding box
+        //
+        let [min_x, min_y] = this . positions ({value: moves [0]});
+        let [max_x, max_y] = [min_x, min_y];
+
+        for (let i = 1; i < moves . length; i ++) {
+            let [x, y] = this . positions ({value: moves [i]});
+            if (x < min_x) {min_x = x}
+            if (x > max_x) {max_x = x}
+            if (y < min_y) {min_y = y}
+            if (y > max_y) {max_y = y}
+        }
+
+        this . set_bounding_box (min_x, min_y, max_x, max_y);
+
+        this . create_board ();
+        let board = this . board;
+
+        //
+        // Draw tiny dots
+        //
+        for (let x = min_x; x <= max_x; x ++) {
+            for (let y = min_y; y <= max_y; y ++) {
+                board . circle   (.2 * rect_size)
+                      . center   ( x * rect_size, y * rect_size)
+                      . addClass ("path-dot");
+            }
+        }
+
+        //
+        // Start dot
+        //
+        let [old_x, old_y] = this . positions ({value: moves [0]});
+        board . circle   (.3 * rect_size)
+              . center   (old_x * rect_size, old_y * rect_size)
+              . addClass ("path-point");
+
+        //
+        // Path
+        //
+        for (let i = 1; i < moves . length; i ++) {
+            let [new_x, new_y] = this . positions ({value: moves [i]});
+            board . line     (old_x * rect_size, old_y * rect_size,
+                              new_x * rect_size, new_y * rect_size) 
+                  . addClass ("path-line");
+            board . circle   (.3 * rect_size)
+                  . center   (new_x * rect_size, new_y * rect_size)
+                  . addClass ("path-point");
+
+            [old_x, old_y] = [new_x, new_y];
+        }
+
+        //
+        // Place the piece itself
+        //
+        this . place_piece (piece, {x: old_x, y: old_y});
+
+    }
+
+    //
     // Find the x, y coordinates.
     //   - if args contains "x", and "y", use (x, y)
     //   - if args contains "value", convert this to coordinates

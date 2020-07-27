@@ -69,3 +69,24 @@ text.number {
     dominant-baseline: middle;
     transform: translate(0px, 0.5px);
 }
+
+
+
+/*
+ * Styles for the path
+ */
+circle.path-dot {
+    fill: rgb(100,100,100);
+}
+
+circle.path-point {
+    fill: black;
+}
+
+
+line.path-line {
+   stroke-width:  1;
+   stroke:        black;
+   fill:          black;
+}
+

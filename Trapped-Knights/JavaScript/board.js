@@ -247,7 +247,7 @@ class Board {
             let target = move_list [i];
 
             let [x, y, value] = this . positions ({value: target});
-            
+
             //
             // If we're outside of the board, stop.
             //
@@ -269,7 +269,7 @@ class Board {
                             value: new_value,
                             x:     new_x,
                             y:     new_y,
-                            move:  i + 1});
+                            move:  i});
                      })
                    . delay (delay);
             ;

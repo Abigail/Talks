@@ -72,7 +72,7 @@ class Board {
         //
         let x, y;
         for (x = this . min_x; x <= this . max_x; x ++) {
-            for (y = this . min_x; y <= this . max_x; y ++) {
+            for (y = this . min_y; y <= this . max_y; y ++) {
                 let class_name = (x + y) % 2 ? "odd" : "even";
                 let value      = this . to_value (x, y);
                 let id_name    = "value-" + value;

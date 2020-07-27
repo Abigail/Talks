@@ -138,6 +138,7 @@ class Board {
         let piece = args  . piece;
         let moves = piece . run_list;
         let rect_size = this . rect_size;
+        let delay     = args . delay || 20;
 
         //
         // Find bounding box
@@ -181,21 +182,31 @@ class Board {
         // Path
         //
         for (let i = 1; i < moves . length; i ++) {
+            let [old_x, old_y] = this . positions ({value: moves [i - 1]});
             let [new_x, new_y] = this . positions ({value: moves [i]});
-            board . line     (old_x * rect_size, old_y * rect_size,
-                              new_x * rect_size, new_y * rect_size) 
-                  . addClass ("path-line");
-            board . circle   (.3 * rect_size)
-                  . center   (new_x * rect_size, new_y * rect_size)
-                  . addClass ("path-point");
-
-            [old_x, old_y] = [new_x, new_y];
+            setTimeout (function () {
+                board . line     (old_x * rect_size, old_y * rect_size,
+                                  new_x * rect_size, new_y * rect_size) 
+                      . addClass ("path-line");
+                board . circle   (.3 * rect_size)
+                      . center   (new_x * rect_size, new_y * rect_size)
+                      . addClass ("path-point")
+            }, delay * i);
         }
 
         //
         // Place the piece itself
         //
-        this . place_piece (piece, {x: old_x, y: old_y});
+        let [final_x, final_y] =
+             this . positions ({value: moves [moves . length - 1]});
+
+        setTimeout (
+            function (me) {
+                me . place_piece (piece, {x: final_x, y: final_y})
+            },
+            delay * (moves . length - 1),
+            this
+        );
 
     }
 

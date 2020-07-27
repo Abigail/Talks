@@ -46,8 +46,12 @@ function loaded () {
     spiral . place_piece (knight, {value: 1});
 
     nav . add_todo (function () {
-        spiral . move_piece ({move_list: moves,
-                              duration:   100,
-                              delay:       20,});
+        spiral . move_piece ({
+            move_list: moves,
+            duration:   100,
+            delay:       20,
+            callback: function (args) {
+                $('#move-number') . html (args . move);
+            }});
     });
 }

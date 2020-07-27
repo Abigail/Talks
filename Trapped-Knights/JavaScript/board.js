@@ -66,11 +66,10 @@ class Board {
         this . max_y = max_y;
     }
 
-
     //
-    // Draw the empty board.
+    // Create the board: just the SVG image appropriately sized
     //
-    draw (args = {}) {
+    create_board (args = {}) {
         let rect_size = this . rect_size;
 
         let width     = this . width  ();
@@ -95,6 +94,18 @@ class Board {
                                       viewbox_width, viewbox_height);
 
         this . board = board;
+    }
+
+
+    //
+    // Draw the empty board.
+    //
+    draw (args = {}) {
+        let rect_size = this . rect_size;
+
+        this . create_board ();
+
+        let board = this . board;
 
         //
         // Create the squares; we place the *centers* on specific

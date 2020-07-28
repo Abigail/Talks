@@ -1,7 +1,3 @@
 # Move the Knight
 
-<div class = "outer">
-<div class = "inner">
-<span class = "move-line">Move: <span id = "move-number">0</span></span>
-</div>
-</div>
+%% Template: move_piece

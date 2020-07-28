@@ -17,7 +17,49 @@ use Chess::Infinite;
 
 my $info;
 
-foreach my $name (qw [Knight]) {
+my $CC_ORG = "creativecommons.org";
+
+my %licence_info = (
+    'CC0'  =>  {
+        name        =>  "Creative Commons CC0",
+        link        =>  "https://$CC_ORG/publicdomain/zero/1.0/deed.en",
+    },
+);
+
+
+my %credit_info;
+
+foreach my $piece (qw [knight king queen rook bishop pawn]) {
+    $credit_info {$piece} = {
+        licence      =>  'CC0',
+        name         =>  'SVG SILH',
+        link         =>  'https://svgsilh.com/',
+    };
+}
+
+
+foreach my $piece (keys %credit_info) {
+    my $info = $credit_info {$piece};
+    my $licence = $$info {licence} || next;
+    if ($licence_info {$licence}) {
+        $$info {licence_link} = $licence_info {$licence} {link};
+        $$info {licence}      = $licence_info {$licence} {name};
+    }
+}
+
+
+#
+# Put some limits on the paths generated
+#
+my %limits = (
+    king   =>  {max_bounding_box  =>  13},
+    queen  =>  {max_bounding_box  =>  13},
+    rook   =>  {max_bounding_box  =>  13},
+    pawn   =>  {max_bounding_box  =>  13},
+);
+
+
+foreach my $name (qw [Knight King Rook Queen Bishop Pawn]) {
     my $piece = piece $name;
     my @rides = sort {$$a [1] <=> $$b [1] ||
                       $$a [0] <=> $$b [0]} $piece -> rides;
@@ -26,7 +68,9 @@ foreach my $name (qw [Knight]) {
     #
     # Run the piece, and record its movement list
     #
-    $piece -> run;
+    $piece -> run (
+        max_bounding_box   =>  $limits {$lc_name} {max_bounding_box},
+    );
 
     my $piece_info;
 
@@ -34,6 +78,7 @@ foreach my $name (qw [Knight]) {
     $$piece_info {moves}        = \@rides;
     $$piece_info {run_list}     =  $piece -> value_list;
     $$piece_info {bounding_box} =  $piece -> bounding_box;
+    $$piece_info {credits}      =  $credit_info {$lc_name};
 
     $$info {$lc_name} = $piece_info;
 }

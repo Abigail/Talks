@@ -10,13 +10,13 @@ h1   {
 }
 
 div.prev, div.next {
-    position:      absolute;
+    position:      fixed;
     width:         5%;
     height:        5%;
     text-align:    center;
-    top:           0px;
+    top:           .5vh;
     color:         rgba(0, 0, 0, .1);
-    margin-top:    -1.3vh;
+    font-size:     4vh;
 }
 
 div.prev a, div.next a {

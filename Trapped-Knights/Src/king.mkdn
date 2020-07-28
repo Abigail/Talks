@@ -1,5 +1,4 @@
-# Knight
+# King
 
 %% Template: piece_begin
-
 %% Template: piece_end

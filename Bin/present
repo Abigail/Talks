@@ -127,28 +127,29 @@ sub prep_template ($name, %options) {
     $text =~ s/__NEXT__/$next ? qq ["next": "$next.html",] : ""/e;
     $text =~ s/__PREV__/$prev ? qq ["prev": "$prev.html",] : ""/e;
 
+    $text =~ s/__FILE__/$options {file}/eg;
+
     $text;
 }
 
 
 sub process_directives ($text = "", %options) {
     #
-    # %% JS: module
-    #        Links to the named JavaScript module (from ../JavaScript).
+    # %% Template: module
+    #        Includes the named templace.
     #
-    my $template = $options {post} ? "Post\\s+Template" : "Template";
     if ($options {post}) {
-        my $r =
-        $text =~ s [^\%% \s* Post \s+ Template: \s (\N+) \n]
+        $text =~ s [(?:^|>)\K%% \s* Post \s+ Template: \s* ([^<\n]+) (?=$|<)]
                    [prep_template $1, %options]gemx;
     }
     else {
-        $text =~ s [^\%% \s* Template: \s* (\N+) \n]
+        $text =~ s [^%% \s* Template: \s* (\N+) \n]
                    [prep_template $1, %options]gemx;
     }
 
-    # %% Template: module
-    #        Includes the named templace.
+    #
+    # %% JS: module
+    #        Links to the named JavaScript module (from ../JavaScript).
     #
     $text =~ s [^\%% \s* JS: \s* (\S+) \s* \n]
                [<script src = "../Javascript/$1.js"></script>]gmx;
@@ -191,22 +192,29 @@ sub process_file ($prev, $file, $next) {
 
     my $text = read_file ("$src_dir/$file.mkdn");
 
-    $text = process_directives $text, %options, post => 0;
+    #
+    # If it's a plain file, without templates or markup,
+    # wrap it in a "<div class = 'main'>".
+    #
+    if ($text  !~ /^%%/m && $text !~ /<\pL/) {
+        $text  =~ s/\n\n\K/<div class = "main">\n[[\n\n/;
+        $text .= "\n]]\n</div>";
+    }
+
+    $text = process_directives $text, %options, post => 0,
+                                                file => $file;
 
     $text =~ s{ ^\[\[\s*\n
-            ((?:^(?!\]\]) \N+ \n)*)
+            ((?:^(?!\]\]) \N* \n)*)
                 ^\]\] }
               {markdown ($1)}megx;
 
     my $html = markdown ($text);
 
     #
-    # Add a <div> around the main content, if there isn't one
+    # Markdown may put <link> tags inside <p>/</p>
     #
-    if ($html =~ s[</h1> \s* \K <(?!div)]
-                  [<div class = 'main'><]x) {
-        $html .= "</div>";
-    }
+    $html =~ s!(?:<p>)?(<link[^>]+>)(?:</p>)?!$1!g;
 
     #
     # Templates *after* markdown processing

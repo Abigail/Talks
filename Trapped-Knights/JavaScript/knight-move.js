@@ -12,8 +12,6 @@ function loaded () {
 
     let moves = knight . run_list;
 
-    console . log (moves . length);
-
     let manual_steps = 5;
 
     for (let i = 1; i <=  manual_steps; i ++) {

@@ -211,6 +211,11 @@ sub process_file ($prev, $file, $next) {
 
     my $html = markdown ($text);
 
+    #
+    # Markdown may put <link> tags inside <p>/</p>
+    #
+    $html =~ s!(?:<p>)?(<link[^>]+>)(?:</p>)?!$1!g;
+
     my $prev_next = make_prev_next $prev, $next;
               
     my $preamble = prep_template default => %options;

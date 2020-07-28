@@ -49,7 +49,7 @@ foreach my $piece (keys %credit_info) {
 }
 
 
-foreach my $name (qw [Knight]) {
+foreach my $name (qw [Knight King Rook Queen Bishop Pawn]) {
     my $piece = piece $name;
     my @rides = sort {$$a [1] <=> $$b [1] ||
                       $$a [0] <=> $$b [0]} $piece -> rides;

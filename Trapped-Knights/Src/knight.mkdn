@@ -1,6 +1,5 @@
 # Knight
 
-%% Template: infobox_open
-%% Template: infobox_close
+%% Template: piece_begin
 
-%% Template: credits
+%% Template: piece_end

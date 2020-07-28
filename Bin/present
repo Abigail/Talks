@@ -216,16 +216,6 @@ sub process_file ($prev, $file, $next) {
     #
     $html =~ s!(?:<p>)?(<link[^>]+>)(?:</p>)?!$1!g;
 
-    #
-    # Templates *after* markdown processing
-    #
-    if ($file eq 'knight') {
-        my $copy = $html;
-        $html = process_directives $html, %options, post => 1;
-        say $copy;
-        say $html;
-    }
-
     my $prev_next = make_prev_next $prev, $next;
               
     my $preamble = prep_template default => %options;

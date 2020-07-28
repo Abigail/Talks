@@ -133,14 +133,21 @@ sub prep_template ($name, %options) {
 
 sub process_directives ($text = "", %options) {
     #
-    # %% JS: module
-    #        Links to the named JavaScript module (from ../JavaScript).
-    #
-    $text =~ s [^\%% \s* Template: \s* (\N+) \n]
-               [prep_template $1, %options]gemx;
-
     # %% Template: module
     #        Includes the named templace.
+    #
+    if ($options {post}) {
+        $text =~ s [(?:^|>)\K%% \s* Post \s+ Template: \s* ([^<\n]+) (?=$|<)]
+                   [prep_template $1, %options]gemx;
+    }
+    else {
+        $text =~ s [^%% \s* Template: \s* (\N+) \n]
+                   [prep_template $1, %options]gemx;
+    }
+
+    #
+    # %% JS: module
+    #        Links to the named JavaScript module (from ../JavaScript).
     #
     $text =~ s [^\%% \s* JS: \s* (\S+) \s* \n]
                [<script src = "../Javascript/$1.js"></script>]gmx;
@@ -183,12 +190,12 @@ sub process_file ($prev, $file, $next) {
 
     my $text = read_file ("$src_dir/$file.mkdn");
 
-    $text = process_directives $text, %options;
+    $text = process_directives $text, %options, post => 0;
 
     $text =~ s{ ^\[\[\s*\n
             ((?:^(?!\]\]) \N+ \n)*)
                 ^\]\] }
-              {say $1; markdown ($1) }megx;
+              {markdown ($1)}megx;
 
     my $html = markdown ($text);
 
@@ -199,6 +206,7 @@ sub process_file ($prev, $file, $next) {
                   [<div class = 'main'><]x) {
         $html .= "</div>";
     }
+
 
     my $prev_next = make_prev_next $prev, $next;
               

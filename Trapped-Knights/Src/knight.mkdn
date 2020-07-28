@@ -2,3 +2,5 @@
 
 %% Template: infobox_open
 %% Template: infobox_close
+
+%% Template: credits

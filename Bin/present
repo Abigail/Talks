@@ -127,6 +127,8 @@ sub prep_template ($name, %options) {
     $text =~ s/__NEXT__/$next ? qq ["next": "$next.html",] : ""/e;
     $text =~ s/__PREV__/$prev ? qq ["prev": "$prev.html",] : ""/e;
 
+    $text =~ s/__FILE__/$options {file}/eg;
+
     $text;
 }
 
@@ -190,7 +192,8 @@ sub process_file ($prev, $file, $next) {
 
     my $text = read_file ("$src_dir/$file.mkdn");
 
-    $text = process_directives $text, %options, post => 0;
+    $text = process_directives $text, %options, post => 0,
+                                                file => $file;
 
     $text =~ s{ ^\[\[\s*\n
             ((?:^(?!\]\]) \N+ \n)*)

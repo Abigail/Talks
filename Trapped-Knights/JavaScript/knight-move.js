@@ -12,7 +12,7 @@ function loaded () {
 
     let moves = knight . run_list;
 
-    let manual_steps = 5;
+    let manual_steps = chess_pieces . knight . manual_moves;
 
     for (let i = 1; i <=  manual_steps; i ++) {
         nav . add_todo (function () {

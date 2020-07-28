@@ -86,7 +86,7 @@ foreach my $name (qw [Knight King Rook Queen Bishop Pawn]) {
 my $json = encode_json $info;
 
 
-open my $fh, ">", "JavaScript/chess_pieces.js" or die "open: $!";
+open my $fh, ">", "JavaScript/chess_pieces_generated.js" or die "open: $!";
 my $text = << "--";
 //
 // This is a generated file. Do not modify.

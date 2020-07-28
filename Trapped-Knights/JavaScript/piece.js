@@ -1,4 +1,4 @@
-function handle_piece (name) {
+function piece_movements (name) {
     piece = new Piece ({piece: chess_pieces [name]});
 
     piece . draw ();

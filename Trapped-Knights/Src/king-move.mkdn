@@ -1,0 +1,3 @@
+# Move the King
+
+%% Template: move_piece

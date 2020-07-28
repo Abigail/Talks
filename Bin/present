@@ -192,24 +192,24 @@ sub process_file ($prev, $file, $next) {
 
     my $text = read_file ("$src_dir/$file.mkdn");
 
+    #
+    # If it's a plain file, without templates or markup,
+    # wrap it in a "<div class = 'main'>".
+    #
+    if ($text  !~ /^%%/m && $text !~ /<\pL/) {
+        $text  =~ s/\n\n\K/<div class = "main">\n[[\n\n/;
+        $text .= "\n]]\n</div>";
+    }
+
     $text = process_directives $text, %options, post => 0,
                                                 file => $file;
 
     $text =~ s{ ^\[\[\s*\n
-            ((?:^(?!\]\]) \N+ \n)*)
+            ((?:^(?!\]\]) \N* \n)*)
                 ^\]\] }
               {markdown ($1)}megx;
 
     my $html = markdown ($text);
-
-    #
-    # Add a <div> around the main content, if there isn't one
-    #
-    if ($html =~ s[</h1> \s* \K <(?!div)]
-                  [<div class = 'main'><]x) {
-        $html .= "</div>";
-    }
-
 
     my $prev_next = make_prev_next $prev, $next;
               

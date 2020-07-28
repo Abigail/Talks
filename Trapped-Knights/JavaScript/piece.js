@@ -73,6 +73,10 @@ function move_piece (name) {
 
 
 
+//
+// piece_path:
+//   Method to set up the image which shows the path of the piece.
+//
 function piece_path (name) {
     let piece = chess_pieces [name];
 

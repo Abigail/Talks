@@ -52,7 +52,7 @@ foreach my $piece (keys %credit_info) {
 # Put some limits on the paths generated
 #
 my %limits = (
-    king   =>  {max_bounding_box  =>  13},
+    king   =>  {max_bounding_box  =>  20},
     queen  =>  {max_bounding_box  =>  13},
     rook   =>  {max_bounding_box  =>  13},
     pawn   =>  {max_bounding_box  =>  13},

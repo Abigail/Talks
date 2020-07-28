@@ -588,18 +588,36 @@ class Piece extends Board {
         //
         if ("moves" in piece) {
             piece . moves . forEach (item => {
-                let [x, y] = item;
-                element . animate ({duration:  500,
+                let [x, y, steps] = item;
+                let move = 0;
+                let [this_x, this_y] = [0, 0];
+
+                while (1) {
+                    this_x += x;
+                    this_y += y;
+                    if (!this . on_board ({x: this_x, y: this_y})) {
+                        break;
+                    }
+                    let [tx, ty] = [this_x, this_y];
+                    element . animate ({duration: 500,
+                                        delay:    move ? 200 : 500})
+                            . dmove (x * rect_size,
+                                     y * rect_size)
+                            . after (function () {
+                                  me . place_circle ({x: tx, y: ty});
+                              });
+                    move ++;
+                    if (steps > 0 && move >= steps) {
+                        break;
+                    }
+                }
+
+                //
+                // Move the piece back to the center
+                //
+                element . animate ({duration:   50,
                                     delay:     500,})
-                        . dmove (  x * rect_size,
-                                   y * rect_size)
-                        . animate ({duration:   50,
-                                    delay:     500,})
-                        . dmove (- x * rect_size,
-                                 - y * rect_size)
-                        . after (function () {
-                              me . place_circle ({x: x, y: y});
-                          });
+                        . center (0, 0);
             });
         }
     }

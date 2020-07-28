@@ -1,0 +1,3 @@
+# Bishops' Path
+
+%% Template: piece_path

@@ -56,6 +56,7 @@ my %limits = (
     queen  =>  {no_run            =>   1},
     rook   =>  {no_run            =>   1},
     pawn   =>  {max_bounding_box  =>  13},
+    bishop =>  {max_bounding_box  =>  70},
 );
 
 

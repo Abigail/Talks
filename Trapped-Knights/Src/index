@@ -12,3 +12,7 @@ king
 king-move
 king-path
 rook
+queen
+bishop
+bishop-move
+bishop-path

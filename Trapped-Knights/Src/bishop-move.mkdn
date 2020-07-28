@@ -1,0 +1,3 @@
+# Move the Bishop
+
+%% Template: move_piece

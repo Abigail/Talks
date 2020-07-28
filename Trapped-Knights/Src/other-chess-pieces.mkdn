@@ -1,0 +1,7 @@
+# Other Chess Pieces
+
+* King
+* Queen
+* Rook
+* Bishop
+* Pawn

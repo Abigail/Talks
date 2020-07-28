@@ -53,32 +53,35 @@ foreach my $piece (keys %credit_info) {
 #
 my %limits = (
     king   =>  {max_bounding_box  =>  20},
-    queen  =>  {max_bounding_box  =>  13},
-    rook   =>  {max_bounding_box  =>  13},
+    queen  =>  {no_run            =>   1},
+    rook   =>  {no_run            =>   1},
     pawn   =>  {max_bounding_box  =>  13},
 );
 
 
 foreach my $name (qw [Knight King Rook Queen Bishop Pawn]) {
-    my $piece = piece $name;
-    my @rides = sort {$$a [1] <=> $$b [1] ||
-                      $$a [0] <=> $$b [0]} $piece -> rides;
+    my $piece   = piece $name;
+    my @rides   = sort {$$a [1] <=> $$b [1] ||
+                        $$a [0] <=> $$b [0]} $piece -> rides;
     my $lc_name = lc $name;
-
-    #
-    # Run the piece, and record its movement list
-    #
-    $piece -> run (
-        max_bounding_box   =>  $limits {$lc_name} {max_bounding_box},
-    );
+    my $limits  = $limits {$lc_name};
 
     my $piece_info;
-
     $$piece_info {image}        =  $lc_name . ".svg";
     $$piece_info {moves}        = \@rides;
-    $$piece_info {run_list}     =  $piece -> value_list;
-    $$piece_info {bounding_box} =  $piece -> bounding_box;
     $$piece_info {credits}      =  $credit_info {$lc_name};
+
+    unless ($$limits {no_run}) {
+        #
+        # Run the piece, and record its movement list
+        #
+        $piece -> run (
+            max_bounding_box   =>  $$limits {max_bounding_box},
+        );
+
+        $$piece_info {run_list}     =  $piece -> value_list;
+        $$piece_info {bounding_box} =  $piece -> bounding_box;
+    }
 
     $$info {$lc_name} = $piece_info;
 }

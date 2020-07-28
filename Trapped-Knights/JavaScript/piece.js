@@ -69,3 +69,14 @@ function move_piece (name) {
         });
     });
 }
+
+
+
+
+function piece_path (name) {
+    let piece = chess_pieces [name];
+
+    let board = new Spiral;
+
+    board . draw_path ({piece: piece});
+}

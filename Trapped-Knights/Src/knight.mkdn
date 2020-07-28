@@ -1,3 +1,4 @@
 # Knight
 
-#% Template: main_divs
+%% Template: infobox_open
+%% Template: infobox_close

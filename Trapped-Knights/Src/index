@@ -16,3 +16,5 @@ queen
 bishop
 bishop-move
 bishop-path
+pawn
+pawn-move

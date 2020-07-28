@@ -1,0 +1,3 @@
+# Move the Pawn
+
+%% Template: move_piece

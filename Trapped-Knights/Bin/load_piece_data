@@ -109,6 +109,7 @@ foreach my $name (keys %piece_limits) {
 
         $$piece_info {run_list}     =  $piece -> value_list;
         $$piece_info {bounding_box} =  $piece -> bounding_box;
+        $$piece_info {trapped}      =  $piece -> trapped ? 1 : 0;
     }
 
     $$info {$name} = $piece_info;

@@ -48,6 +48,12 @@ let credit_info = {
         link:      'https://commons.wikimedia.org/wiki/File:Chess_Alt26.svg',
         title:     '(via Wikipedia)',
     },
+    archbishop: {
+        licence:   'CC BY-SA 3.0',
+        name:      'NikNaks',
+        link:      'https://commons.wikimedia.org/wiki/File:Chess_alt45.svg',
+        title:     '(via Wikipedia)',
+    },
 }
 
 function anchor (args = {}) {

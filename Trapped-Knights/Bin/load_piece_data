@@ -17,36 +17,6 @@ use Chess::Infinite;
 
 my $info;
 
-my $CC_ORG = "creativecommons.org";
-
-my %licence_info = (
-    'CC0'  =>  {
-        name        =>  "Creative Commons CC0",
-        link        =>  "https://$CC_ORG/publicdomain/zero/1.0/deed.en",
-    },
-);
-
-
-my %credit_info;
-
-foreach my $piece (qw [knight king queen rook bishop pawn]) {
-    $credit_info {$piece} = {
-        licence      =>  'CC0',
-        name         =>  'SVG SILH',
-        link         =>  'https://svgsilh.com/',
-    };
-}
-
-
-foreach my $piece (keys %credit_info) {
-    my $info = $credit_info {$piece};
-    my $licence = $$info {licence} || next;
-    if ($licence_info {$licence}) {
-        $$info {licence_link} = $licence_info {$licence} {link};
-        $$info {licence}      = $licence_info {$licence} {name};
-    }
-}
-
 
 #
 # Put some limits on the paths generated
@@ -70,7 +40,6 @@ foreach my $name (qw [Knight King Rook Queen Bishop Pawn]) {
     my $piece_info;
     $$piece_info {image}        =  $lc_name . ".svg";
     $$piece_info {moves}        = \@rides;
-    $$piece_info {credits}      =  $credit_info {$lc_name};
 
     unless ($$limits {no_run}) {
         #

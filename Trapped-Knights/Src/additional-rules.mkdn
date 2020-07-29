@@ -1,0 +1,5 @@
+# Additional rules
+
+* We only look at regular moves -- we don't consider capture.
+* While we can jump over "blocked" squares (like a Knight), we
+  cannot slide through them (like a Queen).

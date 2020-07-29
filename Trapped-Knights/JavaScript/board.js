@@ -137,10 +137,11 @@ class Board {
     // Given a piece, draw the path it takes until trapped, or out of moves
     //
     draw_path (args = {}) {
-        let piece = args  . piece;
-        let moves = piece . run_list;
-        let rect_size = this . rect_size;
-        let delay     = args . delay || 20;
+        let piece     = args  . piece;
+        let moves     = piece . run_list;
+        let trapped   = piece . trapped;
+        let rect_size = this  . rect_size;
+        let delay     = args  . delay || 20;
 
         //
         // Find bounding box
@@ -205,7 +206,10 @@ class Board {
 
         setTimeout (
             function (me) {
-                me . place_piece (piece, {x: final_x, y: final_y})
+                me . place_piece (piece, {x: final_x, y: final_y});
+                if (trapped) {
+                    $('#trapped') . css ({display: 'inline'});
+                }
             },
             delay * (moves . length - 1),
             this

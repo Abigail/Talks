@@ -83,6 +83,9 @@ span.move-line {
     font-size: 4vh;
 }
 
+span#trapped {
+    display: none;
+}
 
 /*
  * CSS for the SVG

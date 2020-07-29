@@ -44,13 +44,21 @@ div.inner  {
  * Responsive setup for the piece movements
  *
  */
-div.movement_main {
+div.outer_responsive {
     margin: 0 0 0 0;
     padding-left: 5%;
     padding-right: 5%;
     display: grid;
     grid-template-rows: 5vh 84vh 5vh;
+}
+div.outer_right {
     grid-template-columns: 1fr 84vh;
+}
+div.outer_left {
+    grid-template-columns: 84vh 1fr;
+}
+div.outer_middle {
+    grid-template-columns: 1fr 84vh 1fr;
 }
 
 div.infobox {

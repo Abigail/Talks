@@ -1,4 +1,9 @@
 # Queen
 
 %% Template: piece_begin
+[[
+* Slides along diagonals and axis.
+
+* Is a combined rook + bishop.
+]]
 %% Template: piece_end

@@ -1,4 +1,7 @@
 # Bishop
 
 %% Template: piece_begin
+[[
+* Slides along either diagonal.
+]]
 %% Template: piece_end

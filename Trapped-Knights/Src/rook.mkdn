@@ -1,4 +1,7 @@
 # Rook
 
 %% Template: piece_begin
+[[
+* Slides along any axis.
+]]
 %% Template: piece_end

@@ -1,4 +1,10 @@
 # Pawn
 
 %% Template: piece_begin
+[[
+* Moves one square forward.
+* Optional two squares on the first move.
+
+* Special rules for capture are ignored.
+]]
 %% Template: piece_end

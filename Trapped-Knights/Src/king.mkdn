@@ -1,4 +1,7 @@
 # King
 
 %% Template: piece_begin
+[[
+* One step in each direction.
+]]
 %% Template: piece_end

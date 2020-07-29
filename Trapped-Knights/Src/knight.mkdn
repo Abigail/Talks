@@ -1,5 +1,9 @@
 # Knight
 
 %% Template: piece_begin
-
+[[
+* Knights jump:
+    * Two squares along one axis
+    * One square along the other
+]]
 %% Template: piece_end

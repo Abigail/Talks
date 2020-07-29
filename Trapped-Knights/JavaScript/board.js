@@ -24,8 +24,6 @@ class Board {
         let width        = args . width     || size;
         let height       = args . height    || size;
 
-        console . log (this . addto);
-
         //
         // Derived values.
         //   - min_x, min_y, max_x, max_y:

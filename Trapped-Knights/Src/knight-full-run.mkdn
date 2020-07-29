@@ -1,7 +1,3 @@
 # Knight: Full Run
 
-<div class = "outer">
-<div class = "inner">
-<span class = "move-line">Move: <span id = "move-number">0</span></span>
-</div>
-</div>
+%% Template: piece_full_run

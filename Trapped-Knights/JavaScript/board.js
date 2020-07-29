@@ -193,6 +193,7 @@ class Board {
                 board . circle   (.3 * rect_size)
                       . center   (new_x * rect_size, new_y * rect_size)
                       . addClass ("path-point")
+                $('#move-number') . html (i);
             }, delay * i);
         }
 

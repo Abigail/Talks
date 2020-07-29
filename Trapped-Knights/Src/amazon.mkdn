@@ -1,4 +1,13 @@
 # Amazon
 
 %% Template: piece_begin
+[[
+* Combines the movement of a Knight and a Queen.
+* (Or Knight, Rook and Bishop).
+
+##### Alternative names
+* Maharajah ('Maharajah and the Sepoys')
+* Giraffe/Shahzadeh/General ('Turkish Great Chess')
+]]
+
 %% Template: piece_end

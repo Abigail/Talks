@@ -43,7 +43,7 @@ let credit_info = {
     pawn:       silh_info,
 
     amazon:     {
-        license:   'CC BY-SA 3.0',
+        licence:   'CC BY-SA 3.0',
         name:      'NikNaks',
         link:      'https://commons.wikimedia.org/wiki/File:Chess_Alt26.svg',
         title:     '(via Wikipedia)',

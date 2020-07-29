@@ -9,6 +9,7 @@
  *     - 84%  for the "outer" div; this sets the size of board.
  *
  */
+
 div.outer::before {
     height: 5%;
 }
@@ -22,6 +23,7 @@ div.outer::before, div.outer::after {
     content: "";
     margin: 0 0 0 0;
 }
+
 div.outer {
     margin: 0 0 0 0;
     padding-left: 5%;
@@ -35,14 +37,25 @@ div.inner  {
     height: 100%;
     position: relative;
 }
+                       
+
+/*
+ *
+ * Responsive setup for the piece movements
+ *
+ */
+div.movement_main {
+    margin: 0 0 0 0;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: grid;
+    grid-template-rows: 5vh 84vh 5vh;
+    grid-template-columns: 1fr 84vh;
+}
 
 div.infobox {
-    position:  absolute; 
-    top:       1vh;
-    leftt:     1vh;
     font-size: 4vh;
 }
-                       
 
 
 /*

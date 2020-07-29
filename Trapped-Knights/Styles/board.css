@@ -93,6 +93,10 @@ text.number {
 }
 
 
+circle.move {
+    fill:  rgba(0,0,0,.6);
+}
+
 
 /*
  * Styles for the path

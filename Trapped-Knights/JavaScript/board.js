@@ -250,12 +250,13 @@ class Board {
     //
     place_circle (args) {
         let [x, y, value] = this . positions (args);
+        let  class_name = args . class || "circle";
 
         let rect_size = this . rect_size;
 
         this . board . circle (.8 * rect_size)
                      . center (x * rect_size, y * rect_size)
-                     . addClass ("circle");
+                     . addClass (class_name);
     }
 
     //
@@ -608,7 +609,8 @@ class Piece extends Board {
                             . dmove (x * rect_size,
                                      y * rect_size)
                             . after (function () {
-                                  me . place_circle ({x: tx, y: ty});
+                                  me . place_circle ({x: tx, y: ty,
+                                                      class: "move"})
                               });
                     move ++;
                     if (steps > 0 && move >= steps) {

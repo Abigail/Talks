@@ -65,6 +65,13 @@ div.infobox {
     font-size: 4vh;
 }
 
+div.infobox_right {
+    padding-left: 1vw;
+}
+div.infobox_left {
+    padding-right: 1vw;
+}
+
 
 /*
  * CSS for a move counter

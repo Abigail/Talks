@@ -21,25 +21,77 @@ my $info;
 #
 # Put some limits on the paths generated
 #
-my %limits = (
+my %piece_limits = (
     king   =>  {max_bounding_box  =>  20},
     queen  =>  {no_run            =>   1},
     rook   =>  {no_run            =>   1},
     pawn   =>  {max_bounding_box  =>  13},
     bishop =>  {max_bounding_box  =>  70},
+
+    amazon =>  {no_run            =>   1},
 );
 
+#
+# We want the movements sorted by the following rules:
+#    - jumps first
+#    - slides last
+# and as secondary ordering:
+#    - clockwise, starting from 12 o'clock
+#
+sub sort_rides (@rides) {
+    #
+    # First calculate the quadrant the movement is in:
+    #    -  Quadrant 1:  x >= 0, y <= 0
+    #    -  Quadrant 2:  x >= 0, y >= 0
+    #    -  Quadrant 3:  x <= 0, y >= 0
+    #    -  Quadrant 4:  x <= 0, y <= 0
+    #
+    # and the cosine of the angle: x / | v |,
+    # where | v | = sqrt (x^2 + y^2).
+    #
+    # For quadrants 1 and 4, we store cos, otherwise, we store - cos.
+    # Quadrants 1 and 4 are the ones where y <= 0.
+    #
 
-foreach my $name (qw [Knight King Rook Queen Bishop Pawn]) {
-    my $piece   = piece $name;
-    my @rides   = sort {$$a [1] <=> $$b [1] ||
-                        $$a [0] <=> $$b [0]} $piece -> rides;
-    my $lc_name = lc $name;
-    my $limits  = $limits {$lc_name};
+    my $X        =  0;
+    my $Y        =  1;
+    my $STEPS    =  2;
+    my $QUADRANT = -2;
+    my $COS      = -1;
+
+    my @temp = map {
+        my $x_pos = $$_ [$X] >= 0;
+        my $y_pos = $$_ [$Y] >= 0;
+        my $quadrant =  $x_pos && !$y_pos ? 1
+                      : $x_pos &&  $y_pos ? 2
+                      :!$x_pos &&  $y_pos ? 3
+                      :!$x_pos && !$y_pos ? 4
+                      : die "Huh?";
+        my $cos = $$_ [$X] / sqrt ($$_ [$X] ** 2 + $$_ [$Y] ** 2);
+
+        [@$_, $quadrant, $y_pos ? - $cos : $cos];
+    } @rides;
+
+    @temp = sort {
+       ($$a [$STEPS] || 9999) <=> ($$b [$STEPS] || 9999) ||
+        $$a [$QUADRANT]       <=>  $$b [$QUADRANT]       ||
+        $$a [$COS]            <=>  $$b [$COS]
+    } @temp;
+
+    map {splice @$_, -2; $_} @temp;
+}
+
+
+
+
+foreach my $name (keys %piece_limits) {
+    my $piece  = piece $name;
+    my @rides  = sort_rides $piece -> rides;
+    my $limits = $piece_limits {$name};
 
     my $piece_info;
-    $$piece_info {image}        =  $lc_name . ".svg";
-    $$piece_info {moves}        = \@rides;
+    $$piece_info {image}  =  $name . ".svg";
+    $$piece_info {moves}  = \@rides;
 
     unless ($$limits {no_run}) {
         #
@@ -53,7 +105,7 @@ foreach my $name (qw [Knight King Rook Queen Bishop Pawn]) {
         $$piece_info {bounding_box} =  $piece -> bounding_box;
     }
 
-    $$info {$lc_name} = $piece_info;
+    $$info {$name} = $piece_info;
 }
 
 my $json = encode_json $info;

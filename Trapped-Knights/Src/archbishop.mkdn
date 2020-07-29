@@ -1,0 +1,21 @@
+# Archbishop
+
+%% Template: piece_begin
+[[
+* Combines the movement of a Knight and a Bishop.
+
+
+* Term Archbishop introduced by Capablanca
+  (Capablance Chess, 1920s).
+
+##### Alternative names
+* Vizir (Turkish Great Chess)
+* Centaur (Carrera's Chess, 1617)
+* Equerry (Henry Bird, 1874)
+* Janus (Janus Chess, 1976)
+* Cardinal (Grand Chess, 1984)
+* Hawk (Seirawan Chess, 2007)
+* Princess (Chess problems)
+]]
+
+%% Template: piece_end

@@ -1,8 +1,8 @@
-Combining Pieces
+# Combining Pieces
 
-* Chancellor (Rook + Knight)
 * Amazon (Queen + Knight)
+* Chancellor (Rook + Knight)
 * Samurai (King + Knight)
 * Monk (King + Bishop)
-* Archbishop (Bishop + Knight)
 * DragonKing (King + Rook)
+* Archbishop (Bishop + Knight)

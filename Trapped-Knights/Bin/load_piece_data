@@ -22,6 +22,7 @@ my $info;
 # Put some limits on the paths generated
 #
 my %piece_limits = (
+    knight =>  {},
     king   =>  {max_bounding_box  =>  20},
     queen  =>  {no_run            =>   1},
     rook   =>  {no_run            =>   1},

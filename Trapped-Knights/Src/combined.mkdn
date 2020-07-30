@@ -1,8 +1,13 @@
 # Combining Pieces
 
-* Amazon (Queen + Knight)
-* Chancellor (Rook + Knight)
-* Archbishop (Bishop + Knight)
-* Crowned Knight (King + Knight)
-* Crowned Bishop (King + Bishop)
-* Crowned Rook (King + Rook)
+##### Knighted pieces
+
+* [Amazon](amazon.html) (Queen + Knight)
+* [Chancellor](chancellor) (Rook + Knight)
+* [Archbishop](archbishop) (Bishop + Knight)
+
+##### Crowned pieces
+
+* Crowned Knight (Knight + King)
+* Crowned Bishop (Bishop + King)
+* Crowned Rook (Rook + King)

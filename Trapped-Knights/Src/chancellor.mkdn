@@ -13,7 +13,7 @@
 * Marshal(l) (*[The Sultan's Game][sultan]*, 1840)
 * Guard (*[Bird's Chess][bird]*, 1874)
 * Wolf (*[Wolf Chess][wolf]*, &#x2264; 1943)
-* Nobleman (*[Rennaissance Chess][renaiss]*, 1980)
+* Nobleman (*[Renniassance Chess][renaiss]*, 1980)
 * Duke (*[The Knightliest Black Hole][knight32]*, 2000)
 * Elephant (*[Seirawan Chess][Seirawan_chess]*, 2007)
 * Empress (Chess problems)

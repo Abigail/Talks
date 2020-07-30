@@ -2,12 +2,33 @@
 
 %% Template: piece_begin
 [[
-* Combines the movement of a Knight and a Queen.
+* [Amazon][amazon] combines the movement of a Knight and a Queen.
 * (Or Knight, Rook and Bishop).
+* Dates from the Middle Ages (*[Amazon Chess][amazone]*).
 
 ##### Alternative names
-* Giraffe/Shahzadeh/General (*Turkish Great Chess*)
-* Maharajah (*Maharajah and the Sepoys*, 19th century)
+* Giraffe/Shahzadeh/General (*[Turkish Great Chess][indiangr1]*, &#x2264; 1700s)
+* Maharaja(h) (*[Maharajah and the Sepoys][Maharajah_and_the_Sepoys]*, 19th century)
+* General (*[The Emperor's Game][emperor]*, 1840)
+* Tiger (*[Tiger Hunt][tigerhnt]*, 1996)
+* Elder (*[Fantasy Grand Chess][fantasygrand]*, 1999)
+* Empress (*[Millennial Chess][milchess]*, 1999)
+* Ace (*[Cardmate][cardmat]*, 2000)
+* General (*[Giant Chess][giantchess]*, 2000)
+* Terror (*[Terror Chess][terror]*, 2000)
+
+%% Link: CVp amazon
+%% Link: CV diffmove.dir/amazone
+%% Link: CV historic.dir/indiangr1
+%% Link: CV large.dir/emperor
+%% Link: CV unequal.dir/tigerhnt
+%% Link: CV large.dir/contest/fantasygrand
+%% Link: CV large.dir/contest/milchess
+%% Link: CV large.dir/cardmat
+%% Link: CV large.dir/giantchess
+%% Link: CV large.dir/terror
+%% Link: Wiki Maharajah_and_the_Sepoys
+
 ]]
 
 %% Template: piece_end

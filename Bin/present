@@ -231,7 +231,7 @@ sub process_file ($prev, $file, $next) {
     }
     if (-f $css_file) {
         $preamble .= "<link rel = 'stylesheet' href = '../Styles/$file.css' " .
-                     "type = 'text/css'>";
+                     "type = 'text/css'>\n";
     }
 
     open my $fh_out, ">", "$dest_dir/$file.html"

@@ -132,6 +132,28 @@ sub prep_template ($name, %options) {
     $text;
 }
 
+sub linkify ($name, %options) {
+    my @chunks = split /\s+/ => $name;
+    my $type   = lc shift @chunks;
+    my $link   = "";
+    my $tag    = "";
+    if ($type eq 'cv') {
+        my $info = join '/' => @chunks;
+        $info =~ s/\.html$//;
+       ($tag) = $info =~ m[/(.*)];
+        $link = "https://www.chessvariants.com/$info.html";
+    }
+    elsif ($type eq 'wiki') {
+        $tag  = join "_" => @chunks;
+        $link = "https://en.wikipedia.org/wiki/$tag";
+    }
+
+    if ($tag && $link) {
+        return "[$tag]: $link\n";
+    }
+
+    return "";
+}
 
 sub process_directives ($text = "", %options) {
     #
@@ -153,6 +175,12 @@ sub process_directives ($text = "", %options) {
     #
     $text =~ s [^\%% \s* JS: \s* (\S+) \s* \n]
                [<script src = "../Javascript/$1.js"></script>]gmx;
+
+    #
+    # Links, to be processed by Markdown
+    #
+    $text =~ s [^%% \s* Link: \s* (\N+) \n]
+               [linkify $1, %options]gemx;
 
     $text;
 }

@@ -137,10 +137,12 @@ sub linkify ($name, %options) {
     my $type   = lc shift @chunks;
     my $link   = "";
     my $tag    = "";
-    if ($type eq 'cv') {
+    if ($type =~ /^cv(p?)$/) {
+        my $piececlopedia = $1;
         my $info = join '/' => @chunks;
         $info =~ s/\.html$//;
-       ($tag) = $info =~ m[/(.*)];
+        $info = "piececlopedia.dir/$info" if $piececlopedia;
+       ($tag) = $info =~ m[/([^/]+)$];
         $link = "https://www.chessvariants.com/$info.html";
     }
     elsif ($type eq 'wiki') {

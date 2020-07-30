@@ -18,6 +18,11 @@ let licence_info = {
         title:  "Creative Commons Attribution-ShareAlike 3.0 Unported",
         link:   CC_ORG + "/licenses/by-sa/3.0/deed.en",
     },
+    'GPL 3': {
+        name:   'GPL Version 3',
+        title:  'GNU General Public Licence Version 3',
+        link:   'https://www.gnu.org/licenses/gpl-3.0.html',
+    },
 };
 
 let silh_info = {
@@ -53,6 +58,12 @@ let credit_info = {
         name:      'NikNaks',
         link:      'https://commons.wikimedia.org/wiki/File:Chess_alt45.svg',
         title:     '(via Wikipedia)',
+    },
+    chancellor: {
+        licence:   'GPL 3',
+        name:      'xboard',
+        link:      'http://www.gnu.org/software/xboard/',
+        title:     '(GNU software)',
     },
 }
 

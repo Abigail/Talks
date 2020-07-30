@@ -6,8 +6,8 @@
 * (Or Knight, Rook and Bishop).
 
 ##### Alternative names
-* Maharajah ('Maharajah and the Sepoys')
-* Giraffe/Shahzadeh/General ('Turkish Great Chess')
+* Giraffe/Shahzadeh/General (*Turkish Great Chess*)
+* Maharajah (*Maharajah and the Sepoys*, 19th century)
 ]]
 
 %% Template: piece_end

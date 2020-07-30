@@ -2,19 +2,45 @@
 
 %% Template: piece_begin
 [[
-* Combines the movement of a Knight and a Bishop.
+* [Archbishop][bishop-knight] combines the movement of a Knight and a Bishop.
+* Probably dates from 14th century.
 * Term Archbishop introduced by Capablanca
-  (*Capablanca Chess*, 1920s).
+  (*[Capablanca Chess][capablanca]*, 1920s).
 
 ##### Alternative names
-* Vizir (*Turkish Great Chess*)
-* Centaur (*Carrera's Chess*, 1617)
-* Equerry (Henry Bird, 1874)
-* Prime Minister (*Modern Chess*, 1968)
-* Janus (*Janus Chess*, 1976)
-* Cardinal (*Grand Chess*, 1984)
-* Hawk (*Seirawan Chess*, 2007)
+* Centaur (*[Carrera's Chess][carrera]*, 1617)
+* Vizir/Wazir (*[Turkish Great Chess][indiangr1]*, &#x2264; 1700s)
+* Adjudant (*[The Emperor's Game][emperor]*, 1840)
+* Equerry (*[Bird's Chess][bird]*, 1874)
+* Chancellor (*[Capablanca Chess][capablanca]*, 1920s)
+* Fox (*[Wolf Chess][wolf]*, &#x2264; 1943)
+* (Prime) Minister (*[Modern Chess][modern]*, 1968)
+* Janus (*[Janus Chess][Janus_Chess]*, 1978)
+* Cardinal (*[Grand Chess][freeling]*, 1984)
+* Paladin (*[Cavalier Chess][cavalier]*, 1998)
+* Count (*[The Knightliest Black Hole][knight32]*, 2000)
+* Crusader (*[Drop Chess][dropchess]*, 2000)
+* Baron (*[Twenty-First Century Chess][21st-century-chess]*, 2001)
+* Hawk (*[Seirawan Chess][Seirawan_chess]*, 2007)
 * Princess (Chess problems)
+
+%% Link: CVp bishop-knight
+%% Link: CV large.dir/capablanca
+%% Link: CV historic.dir/carrera
+%% Link: CV historic.dir/indiangr1
+%% Link: CV large.dir/emperor
+%% Link: CV large.dir/bird
+%% Link: CV large.dir/wolf
+%% Link: CV large.dir/modern
+%% Link: Wiki Janus_Chess
+%% Link: CV large.dir/freeling
+[cavalier]: https://www.chessvariants.com/dpieces.dir/cavalier/index.html
+%% Link: CV 32turn.dir/knight32
+%% Link: CV unequal.dir/dropchess
+%% Link: CV large.dir/21st-century-chess
+%% Link: Wiki Seirawan_chess
+
 ]]
 
 %% Template: piece_end
+

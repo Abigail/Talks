@@ -2,7 +2,7 @@
 
 %% Template: piece_begin
 [[
-* Combines the movement of a Knight and a Rook.
+* [Chancellor][rook-knight] combines the movement of a Knight and a Rook.
 * Probably 14th century.
 * Name introduced by Ben Foster (*[Chancellor Chess][chancellor]*, 1887)
 
@@ -27,6 +27,7 @@
 %% Link: CV large.dir/wolf
 %% Link: CV large.dir/renaiss
 %% Link: CV 32turn.dir/knight32
+%% Link: CVp rook-knight
 %% Link: Wiki Seirawan_chess
 ]]
 

@@ -3,7 +3,8 @@ body     {font-size: 6vh;
           background: #e6e6e6;}
 
 div.main {margin-left:  5%;
-          margin-right: 5%;}
+          margin-right: 5%;
+          margin-top: 5vh;}
 
 ul {padding-top: 0;
     margin-top:  0}

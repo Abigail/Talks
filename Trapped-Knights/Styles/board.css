@@ -1,50 +1,27 @@
 /*
- * This sets the sizes of the responsive boxes, consisting of
- * on "outer" and "inner" div. 
+ * CSS for the layout of slides with images.
  * 
- * The height of the page is as follows:
- *     -  6%  for the title (handled in navigate.css)
- *     -  5%  padding above
- *     -  5%  padding below
- *     - 84%  for the "outer" div; this sets the size of board.
+ * "outer_{right,middle,left}" will be the main div, using
+ * a CSS grid layout. There will always be 3 rows, of sizes
+ * 5vh, 84vh, and 5vh. This leaves 6vh free for the top bar.
  *
+ * The top and bottom row of the grid will be empty, and
+ * are filled with "bogus" divs (handled in the templates).
+ *
+ * A square of size 84vh will be reserved for the main image,
+ * which could be on the left, middle, or right. This leaves
+ * one or two spaces to the sides of the image. Since the width
+ * of those spaces is flexible, their width is controlled with
+ * '1fr' -- if there is only one such space, it gets all the
+ * remaining space; if there are two, it's evenly divided.
+ *
+ * The .inner div is reserved for the main SVG image.
+ * The .infobox_{right,left} divs are the spaces to the right
+ * and left of the main image.
  */
 
-div.outer::before {
-    height: 5%;
-}
 
-div.outer::after {
-    height: 5%;
-}
-
-div.outer::before, div.outer::after {
-    display: block;
-    content: "";
-    margin: 0 0 0 0;
-}
-
-div.outer {
-    margin: 0 0 0 0;
-    padding-left: 5%;
-    padding-right: 5%;
-    width: 90%;
-    height: 84%;
-}
-div.inner  {
-    border: 1px solid black;
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-                       
-
-/*
- *
- * Responsive setup for the piece movements
- *
- */
-div.outer_responsive {
+div.outer_right, div.outer_left, div.outer_middle {
     margin: 0 0 0 0;
     padding-left: 5%;
     padding-right: 5%;
@@ -61,10 +38,23 @@ div.outer_middle {
     grid-template-columns: 1fr 84vh 1fr;
 }
 
-div.infobox {
+
+div.inner  {
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+                       
+
+/*
+ * Use a responsive font-size, and give it some padding between the
+ * text and the image.
+ */
+
+div.infobox_right, div.infobox_left {
     font-size: 4vh;
 }
-
 div.infobox_right {
     padding-left: 1vw;
 }
@@ -74,15 +64,8 @@ div.infobox_left {
 
 
 /*
- * CSS for a move counter
+ * The word 'Trapped!' starts out hidden.
  */
-span.move-line {
-    position:  absolute;
-    top:       0;
-    right:     0;
-    font-size: 4vh;
-}
-
 span#trapped {
     display: none;
 }

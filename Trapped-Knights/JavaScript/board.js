@@ -565,8 +565,6 @@ class Piece extends Board {
             args . size = 7;
         }
 
-        args . addto = ('.movement_inner');
-
         super (args);
 
         this . piece = args . piece;

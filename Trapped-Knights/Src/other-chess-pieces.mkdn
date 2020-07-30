@@ -1,7 +1,7 @@
 # Other Chess Pieces
 
-* King
-* Queen
-* Rook
-* Bishop
-* Pawn
+* [King](king.html)
+* [Queen](queen.html)
+* [Rook](rook.html)
+* [Bishop](bishop.html)
+* [Pawn](pawn.html)

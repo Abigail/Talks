@@ -3,14 +3,32 @@
 %% Template: piece_begin
 [[
 * Combines the movement of a Knight and a Rook.
-* Name introduced by Ben Foster (*Chanchellor Chess*, 1887)
+* Probably 14th century.
+* Name introduced by Ben Foster (*[Chancellor Chess][chancellor]*, 1887)
 
 ##### Alternative names
-* Dabbabbah/War Machine (*Turkish Great Chess*)
-* Champion (*Carrera's Chess*, 1617)
-* Marshal(l) (*The Sultan's Game*)
-* Elephant (*Seirawan Chess*, 2007)
+* Champion (*[Carrera's Chess][carrera]*, 1617)
+* Concubine (*[The Duke of Rutland's Chess][rutland]*, 1747)
+* Dabbabbah/War Machine (*[Turkish Great Chess][indiangr1]*, &#x2264; 1700s)
+* Marshal(l) (*[The Sultan's Game][sultan]*, 1840)
+* Guard (*[Bird's Chess][bird]*, 1874)
+* Wolf (*[Wolf Chess][wolf]*, &#x2264; 1943)
+* Nobleman (*[Rennaissance Chess][renaiss]*, 1980)
+* Duke (*[The Knightliest Black Hole][knight32]*, 2000)
+* Elephant (*[Seirawan Chess][Seirawan_chess]*, 2007)
 * Empress (Chess problems)
+
+%% Link: CV historic.dir/carrera
+%% Link: CV historic.dir/rutland
+%% Link: CV historic.dir/indiangr1
+%% Link: CV large.dir/chancellor
+%% Link: CV large.dir/sultan
+%% Link: CV large.dir/bird
+%% Link: CV large.dir/wolf
+%% Link: CV large.dir/renaiss
+%% Link: CV 32turn.dir/knight32
+%% Link: Wiki Seirawan_chess
 ]]
+
 
 %% Template: piece_end

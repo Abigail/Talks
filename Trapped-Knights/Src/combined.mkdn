@@ -2,7 +2,7 @@
 
 * Amazon (Queen + Knight)
 * Chancellor (Rook + Knight)
-* Samurai (King + Knight)
-* Monk (King + Bishop)
-* DragonKing (King + Rook)
 * Archbishop (Bishop + Knight)
+* Crowned Knight (King + Knight)
+* Crowned Bishop (King + Bishop)
+* Crowned Rook (King + Rook)

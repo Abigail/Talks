@@ -141,7 +141,7 @@ class Board {
         let moves     = piece . run_list;
         let trapped   = piece . trapped;
         let rect_size = this  . rect_size;
-        let delay     = args  . delay || 20;
+        let delay     = args  . delay || 10;
 
         //
         // Find bounding box

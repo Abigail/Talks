@@ -1,0 +1,16 @@
+# Chancellor
+
+%% Template: piece_begin
+[[
+* Combines the movement of a Knight and a Rook.
+* Name introduced by Ben Foster (*Chanchellor Chess*, 1887)
+
+##### Alternative names
+* Dabbabbah/War Machine (*Turkish Great Chess*)
+* Champion (*Carrera's Chess*, 1617)
+* Marshal(l) (*The Sultan's Game*)
+* Elephant (*Seirawan Chess*, 2007)
+* Empress (Chess problems)
+]]
+
+%% Template: piece_end

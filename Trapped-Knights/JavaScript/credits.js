@@ -65,6 +65,11 @@ let credit_info = {
         link:      'http://www.gnu.org/software/xboard/',
         title:     '(GNU software)',
     },
+    centaur: {
+        licence:   'CC0 1.0',
+        name:      'Free SVG',
+        link:      'https://freesvg.org',
+    },
 }
 
 function anchor (args = {}) {

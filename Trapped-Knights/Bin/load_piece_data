@@ -31,7 +31,7 @@ my %piece_limits = (
 
     amazon     =>  {no_run            =>   1},
     chancellor =>  {no_run            =>   1},
-    samurai    =>  {no_run            =>   1},
+    centaur    =>  {no_run            =>   1},
     monk       =>  {no_run            =>   1},
     dragonking =>  {no_run            =>   1},
     archbishop =>  {},

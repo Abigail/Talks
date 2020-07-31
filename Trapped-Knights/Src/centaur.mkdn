@@ -1,0 +1,30 @@
+# Crowned Knight
+
+%% Template: piece_begin
+[[
+* The [Crowned Knight][centaur] combines the movement of a [Knight](knight.html)
+  and a [King](king.html).
+
+##### Alternative names
+* Councellor (*[Courier-Spiel][courierspiel]*. 1976)
+* Samurai (*[Chakra][chakra]*, 1980)
+* Duke (*[Cobra Chess][cobra]*, 1998)
+* Knight King (*[Cavalier Chess][cavalier]*, 1998)
+* Wolf Rider (*[Fantasy Grand Chess][fantasygrandchess]*, 1999)
+* Cavalier King (*[Fusion Chess][fusion]*. 1999)
+* Tiger (*[Kung Fu Chess][kungfuchess]*, 2001)
+* Centaur (Chess Problems)
+
+%% Link CVp centaur
+[chakra]: https://en.wikipedia.org/wiki/Chakra_(chess_variant)
+[cavalier]: https://www.chessvariants.com/dpieces.dir/cavalier/index.html
+%% Link: CV historic.dir/courierspiel
+%% Link: CV large.dir/cobra
+%% Link: CV large.dir/fantasygrandchess
+%% Link: CV large.dir/kungfuchess
+%% Link: CV other.dir/fusion
+
+]]
+
+%% Template: piece_end
+

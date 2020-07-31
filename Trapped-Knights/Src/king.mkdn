@@ -2,6 +2,26 @@
 
 %% Template: piece_begin
 [[
-* One step in each direction.
+* The [King][king] makes one step in each direction.
+
+##### Alternative Names
+
+* Dabbabah/War Machine (*[Shatranj Kamil][shkam2]*, &#x2248; 1000)
+* Man (*[Courier chess][courier]*, Middle Ages)
+* Guards (*[Pacific Chess][pacific]*, 1971)
+* Counsellor (*[Counsellor Chess][councellor]*. 1976)
+* Fool (*[Courier-Spiel][courierspiel]*. 1976)
+* Commoner (*[Jupiter][jupiter]*, &#x2264; 1999)
+* Prince (*[Perfect 12][perfect12]*, &#x2264; 1999)
+
+
+%% Link: CVp king
+%% Link: CV historic.dir/shkam2
+%% Link: CV historic.dir/courier
+%% Link: CV large.dir/pacific
+%% Link: CV large.dir/councellor
+%% Link: CV historic.dir/courierspiel
+%% Link: CV large.dir/jupiter
+%% Link: CV large.dir/perfect12
 ]]
 %% Template: piece_end

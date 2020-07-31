@@ -3,8 +3,8 @@
 ##### Knighted pieces
 
 * [Amazon](amazon.html) (Queen + Knight)
-* [Chancellor](chancellor) (Rook + Knight)
-* [Archbishop](archbishop) (Bishop + Knight)
+* [Chancellor](chancellor.html) (Rook + Knight)
+* [Archbishop](archbishop.html) (Bishop + Knight)
 
 ##### Crowned pieces
 

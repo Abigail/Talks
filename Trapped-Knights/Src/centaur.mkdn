@@ -15,7 +15,7 @@
 * Tiger (*[Kung Fu Chess][kungfuchess]*, 2001)
 * Centaur (Chess Problems)
 
-%% Link CVp centaur
+%% Link: CVp centaur
 [chakra]: https://en.wikipedia.org/wiki/Chakra_(chess_variant)
 [cavalier]: https://www.chessvariants.com/dpieces.dir/cavalier/index.html
 %% Link: CV historic.dir/courierspiel

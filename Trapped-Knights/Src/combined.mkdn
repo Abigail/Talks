@@ -9,5 +9,5 @@
 ##### Crowned pieces
 
 * [Crowned Knight](centaur.html) (Knight + King)
-* Crowned Bishop (Bishop + King)
-* Crowned Rook (Rook + King)
+* [Crowned Bishop](dragonhorse.html) (Bishop + King)
+* [Crowned Rook](dragonking.html) (Rook + King)

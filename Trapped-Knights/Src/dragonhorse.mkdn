@@ -1,0 +1,21 @@
+# Crowned Bishop
+
+%% Template: piece_begin
+[[
+* The [Crowned Bishop][dragonhorse] combines the movement of a
+  [Bishop](bishop.html) and a [King](king.html).
+
+##### Alternative names
+* Dragon Horse (*[Shogi][shogi]*, 16th Century)
+* Pontiff (*[Fusion Chess][fusion]*, 1999)
+* Pope (*[Bedlam][bedlam]*)
+
+%% Link: CVp dragonhorse
+[shogi]: https://www.chessvariants.com/shogi.html
+%% Link: CV other.dir/fusion
+%% Link: CV other.dir/bedlam
+
+]]
+
+%% Template: piece_end
+

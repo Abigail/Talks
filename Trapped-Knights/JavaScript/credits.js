@@ -55,6 +55,7 @@ let credit_info = {
     pawn:           silh_info,
 
     chancellor:     xboard_info,
+    dragonhorse:    xboard_info,
     dragonking:     xboard_info,
 
     amazon:     {

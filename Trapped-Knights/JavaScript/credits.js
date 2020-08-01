@@ -47,14 +47,15 @@ let xboard_info = {
 //    -  link:     URL of webpage/site image comes from
 //
 let credit_info = {
-    knight:     silh_info,
-    king:       silh_info,
-    queen:      silh_info,
-    rook:       silh_info,
-    bishop:     silh_info,
-    pawn:       silh_info,
+    knight:         silh_info,
+    king:           silh_info,
+    queen:          silh_info,
+    rook:           silh_info,
+    bishop:         silh_info,
+    pawn:           silh_info,
 
-    chancellor: xboard_info,
+    chancellor:     xboard_info,
+    dragonking:     xboard_info,
 
     amazon:     {
         licence:   'CC BY-SA 3.0',

@@ -1,0 +1,19 @@
+# Crowned Rook
+
+%% Template: piece_begin
+[[
+* The [Crowned Rook][dragonking] combines the movement of a
+  [Rook](rook.html) and a [King](king.html).
+
+##### Alternative names
+* Dragon King (*[Shogi][shogi]*, 16th Century)
+* Berse/Baras/Queen (*[Shatar][shatar]*)
+
+%% Link: CVp dragonking
+[shogi]: https://www.chessvariants.com/shogi.html
+%% Link: CV oriental.dir/shatar
+
+]]
+
+%% Template: piece_end
+

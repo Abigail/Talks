@@ -32,6 +32,13 @@ let silh_info = {
     title:     'Free SVG Image & Icon',
 };
 
+let xboard_info = {
+    licence:   'GPL 3',
+    name:      'xboard',
+    link:      'http://www.gnu.org/software/xboard/',
+    title:     '(GNU software)',
+};
+
 //
 // Credit info
 //    -  licence:  link to licence info
@@ -47,6 +54,8 @@ let credit_info = {
     bishop:     silh_info,
     pawn:       silh_info,
 
+    chancellor: xboard_info,
+
     amazon:     {
         licence:   'CC BY-SA 3.0',
         name:      'NikNaks',
@@ -59,12 +68,7 @@ let credit_info = {
         link:      'https://commons.wikimedia.org/wiki/File:Chess_alt45.svg',
         title:     '(via Wikipedia)',
     },
-    chancellor: {
-        licence:   'GPL 3',
-        name:      'xboard',
-        link:      'http://www.gnu.org/software/xboard/',
-        title:     '(GNU software)',
-    },
+
     centaur: {
         licence:   'CC0 1.0',
         name:      'Free SVG',

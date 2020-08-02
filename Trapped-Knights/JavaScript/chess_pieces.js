@@ -6,7 +6,9 @@
 //
 
 let info = {
-    knight:  {manual_moves:   5},
+    knight:                 {manual_moves:   5},
+   'silver_general:south':  {spiral_args:   {min_x: -12, min_y: - 3, size: 17}},
+   'silver_general:west' :  {spiral_args:   {min_x: - 9, min_y: -10}},
 };
 
 

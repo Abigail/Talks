@@ -17,6 +17,10 @@ use Chess::Infinite;
 
 my $info;
 
+my $silver_general_limits = {
+    max_bounding_box  =>  100,
+    max_moves         => 2500,
+};
 
 #
 # Put some limits on the paths generated
@@ -39,10 +43,10 @@ my %piece_limits = (
     gold_general            =>  {no_run            =>   1},
     lance                   =>  {no_run            =>   1},
     shogiknight             =>  {no_run            =>   1},
-    silver_general          =>  {},
-   'silver_general:east'    =>  {},
-   'silver_general:south'   =>  {},
-   'silver_general:west'    =>  {},
+    silver_general          =>  $silver_general_limits,
+   'silver_general:east'    =>  $silver_general_limits,
+   'silver_general:south'   =>  $silver_general_limits,
+   'silver_general:west'    =>  $silver_general_limits,
 
 );
 
@@ -121,6 +125,7 @@ foreach my $name (keys %piece_limits) {
         #
         $piece -> run (
             max_bounding_box   =>  $$limits {max_bounding_box},
+            max_moves          =>  $$limits {max_moves},
         );
 
         $$piece_info {run_list}     =  $piece -> value_list;

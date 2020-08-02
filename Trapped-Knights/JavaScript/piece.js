@@ -25,8 +25,9 @@ function piece_movements (name) {
 //    runs out of bounds.
 //
 function move_piece (name) {
-    let piece  = chess_pieces [name];
-    let spiral = new Spiral ({});
+    let piece       = chess_pieces [name];
+    let spiral_args = piece . spiral_args || {};
+    let spiral      = new Spiral (spiral_args);
 
     spiral . draw ({with_values: 1});
 

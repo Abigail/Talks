@@ -54,39 +54,45 @@ let shogi_info = {
 //    -  link:     URL of webpage/site image comes from
 //
 let credit_info = {
-    knight:         silh_info,
-    king:           silh_info,
-    queen:          silh_info,
-    rook:           silh_info,
-    bishop:         silh_info,
-    pawn:           silh_info,
+    knight:                       silh_info,
+    king:                         silh_info,
+    queen:                        silh_info,
+    rook:                         silh_info,
+    bishop:                       silh_info,
+    pawn:                         silh_info,
 
-    chancellor:     xboard_info,
-    dragonhorse:    xboard_info,
-    dragonking:     xboard_info,
+    chancellor:                   xboard_info,
+    dragonhorse:                  xboard_info,
+    dragonking:                   xboard_info,
+    gold_general:                 shogi_info,
 
     amazon:     {
-        licence:   'CC BY-SA 3.0',
-        name:      'NikNaks',
-        link:      'https://commons.wikimedia.org/wiki/File:Chess_Alt26.svg',
-        title:     '(via Wikipedia)',
+        licence:                 'CC BY-SA 3.0',
+        name:                    'NikNaks',
+        link:                    'https://commons.wikimedia.org/wiki/' +
+                                         'File:Chess_Alt26.svg',
+        title:                   '(via Wikipedia)',
     },
     archbishop: {
-        licence:   'CC BY-SA 3.0',
-        name:      'NikNaks',
-        link:      'https://commons.wikimedia.org/wiki/File:Chess_alt45.svg',
-        title:     '(via Wikipedia)',
+        licence:                 'CC BY-SA 3.0',
+        name:                    'NikNaks',
+        link:                    'https://commons.wikimedia.org/wiki/' +
+                                         'File:Chess_alt45.svg',
+        title:                   '(via Wikipedia)',
     },
 
     centaur: {
-        licence:   'CC0 1.0',
-        name:      'Free SVG',
-        link:      'https://freesvg.org',
+        licence:                 'CC0 1.0',
+        name:                    'Free SVG',
+        link:                    'https://freesvg.org',
     },
 
-    gold_general:   shogi_info,
-    silver_general: shogi_info,
-    lance:          shogi_info,
+    gold_general:                 shogi_info,
+    silver_general:               shogi_info,
+    silver_general_east:          shogi_info,
+    silver_general_south:         shogi_info,
+    silver_general_west:          shogi_info,
+    lance:                        shogi_info,
     shogi_pawn:     shogi_info,
     shogi_knight:   shogi_info,
 }

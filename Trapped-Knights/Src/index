@@ -33,3 +33,9 @@ gold_general
 silver_general
 silver_general-move
 silver_general-path
+silver_general:east-move
+silver_general:east-path
+silver_general:south-move
+silver_general:south-path
+silver_general:west-move
+silver_general:west-path

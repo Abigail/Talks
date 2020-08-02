@@ -17,8 +17,15 @@ sub generate_file ($file) {
     $file =~ s!^.*/!!;
     my ($name, $type) = $file =~ /^([^-]+)(?:-([^.]+))?\.mkdn$/ or return "";
     $type //= "";
+    my $heading = "";
+
+    if ($name =~ /:/p) {
+        $heading = ${^POSTMATCH};
+        $name    = ${^PREMATCH};
+    }
 
     my $piece = join ' ' => map {ucfirst} split /_/ => $name;
+    $piece .= " (\u$heading)" if $heading;
 
     if ($type eq 'move') {
         return <<~ "--" =~ s/^\s+//gmr;

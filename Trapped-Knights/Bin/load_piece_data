@@ -40,6 +40,9 @@ my %piece_limits = (
     lance                   =>  {no_run            =>   1},
     shogiknight             =>  {no_run            =>   1},
     silver_general          =>  {},
+   'silver_general:east'    =>  {},
+   'silver_general:south'   =>  {},
+   'silver_general:west'    =>  {},
 
 );
 
@@ -97,12 +100,19 @@ sub sort_rides (@rides) {
 
 
 foreach my $name (keys %piece_limits) {
-    my $piece  = piece $name;
+    my %args;
+    my $piece_name = $name;
+    if ($name =~ /:/p) {
+        $args {heading} = ${^POSTMATCH};
+        $piece_name     = ${^PREMATCH};
+    }
+    my $piece  = piece $piece_name, %args;
     my @rides  = sort_rides $piece -> rides;
     my $limits = $piece_limits {$name};
 
     my $piece_info;
-    $$piece_info {image}  =  $name . ".svg";
+    my $image_name = $name =~ s/:/_/gr;
+    $$piece_info {image}  =  $image_name . ".svg";
     $$piece_info {moves}  = \@rides;
 
     unless ($$limits {no_run}) {

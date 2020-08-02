@@ -1,0 +1,11 @@
+# Silver General
+
+%% Template: piece_begin
+[[
+* The [Silver General][silvergeneral] moves either one square
+  diagonally, or one square orthogonally forward.
+
+%% Link: CVp silvergeneral
+]]
+
+%% Template: piece_end

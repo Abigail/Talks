@@ -64,7 +64,6 @@ let credit_info = {
     chancellor:                   xboard_info,
     dragonhorse:                  xboard_info,
     dragonking:                   xboard_info,
-    gold_general:                 shogi_info,
 
     amazon:     {
         licence:                 'CC BY-SA 3.0',
@@ -93,8 +92,8 @@ let credit_info = {
     silver_general_south:         shogi_info,
     silver_general_west:          shogi_info,
     lance:                        shogi_info,
-    shogi_pawn:     shogi_info,
-    shogi_knight:   shogi_info,
+    shogi_pawn:                   shogi_info,
+    shogi_knight:                 shogi_info,
 }
 
 function anchor (args = {}) {

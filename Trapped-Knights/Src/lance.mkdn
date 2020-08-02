@@ -1,0 +1,10 @@
+# Lance
+
+%% Template: piece_begin
+[[
+* The [Lance][lance] slides straight forward.
+
+%% Link: CVp lance
+]]
+
+%% Template: piece_end

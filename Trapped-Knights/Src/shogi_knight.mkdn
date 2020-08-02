@@ -1,0 +1,11 @@
+# Shogi Knight
+
+%% Template: piece_begin
+[[
+* The [Shogi Knight][shogiknight] moves as the two most-forward
+  moves of the [Western Chess Knight](knight.html).
+
+%% Link: CVp shogiknight
+]]
+
+%% Template: piece_end

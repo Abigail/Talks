@@ -1,0 +1,9 @@
+# Shogi Pawn
+
+%% Template: piece_begin
+[[
+* The Shogi Pawn moves one square straight forward.
+
+]]
+
+%% Template: piece_end

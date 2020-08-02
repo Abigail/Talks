@@ -43,6 +43,11 @@ my $js_dir   = "$main_dir/JavaScript";
 my $bin_dir  = "$main_dir/Bin";
 my $css_dir  = "$main_dir/Styles";
 
+my $generate_file = sub {""};
+if (require "$bin_dir/GenerateFile.pm") {
+    $generate_file = GenerateFile:: -> can ('generate_file');
+}
+
 my $index = "$src_dir/index";
 open my $fh_index, "<", $index;
 my @files = <$fh_index>;
@@ -105,7 +110,7 @@ sub read_file ($file) {
     #
     # Return the content of a file if it exists, an empty string otherwise.
     #
-    return "" unless -f $file;
+    return $generate_file -> ($file) unless -f $file;
     open my $fh, "<", $file or die "open $file: $!";
     local $/;
     my $text = <$fh>;

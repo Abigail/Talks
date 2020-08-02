@@ -22,19 +22,24 @@ my $info;
 # Put some limits on the paths generated
 #
 my %piece_limits = (
-    knight      =>  {},
-    king        =>  {max_bounding_box  =>  20},
-    queen       =>  {no_run            =>   1},
-    rook        =>  {no_run            =>   1},
-    pawn        =>  {max_bounding_box  =>  13},
-    bishop      =>  {max_bounding_box  =>  70},
+    knight                  =>  {},
+    king                    =>  {max_bounding_box  =>  20},
+    queen                   =>  {no_run            =>   1},
+    rook                    =>  {no_run            =>   1},
+    pawn                    =>  {max_bounding_box  =>  13},
+    bishop                  =>  {max_bounding_box  =>  70},
 
-    amazon      =>  {no_run            =>   1},
-    chancellor  =>  {no_run            =>   1},
-    centaur     =>  {no_run            =>   1},
-    dragonhorse =>  {no_run            =>   1},
-    dragonking  =>  {no_run            =>   1},
-    archbishop  =>  {},
+    amazon                  =>  {no_run            =>   1},
+    chancellor              =>  {no_run            =>   1},
+    centaur                 =>  {no_run            =>   1},
+    dragonhorse             =>  {no_run            =>   1},
+    dragonking              =>  {no_run            =>   1},
+    archbishop              =>  {},
+
+    gold_general            =>  {no_run            =>   1},
+    lance                   =>  {no_run            =>   1},
+    shogiknight             =>  {no_run            =>   1},
+    silver_general          =>  {},
 
 );
 

@@ -39,6 +39,13 @@ let xboard_info = {
     title:     '(GNU software)',
 };
 
+let shogi_info = {
+    licence:   'CC BY-SA 3.0',
+    name:      'Hari Sheldon &amp; orangain',
+    link:      'https://github.com/orangain/shogi-piece-images',
+    title:     'GitHub',
+};
+
 //
 // Credit info
 //    -  licence:  link to licence info
@@ -76,6 +83,12 @@ let credit_info = {
         name:      'Free SVG',
         link:      'https://freesvg.org',
     },
+
+    gold_general:   shogi_info,
+    silver_general: shogi_info,
+    lance:          shogi_info,
+    shogi_pawn:     shogi_info,
+    shogi_knight:   shogi_info,
 }
 
 function anchor (args = {}) {

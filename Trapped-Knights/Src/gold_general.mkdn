@@ -1,0 +1,11 @@
+# Gold General
+
+%% Template: piece_begin
+[[
+* The [Gold General][goldgeneral] moves either one square
+  orthogonally, or one square diagonally forward.
+
+%% Link: CVp goldgeneral
+]]
+
+%% Template: piece_end

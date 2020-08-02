@@ -10,13 +10,29 @@ use experimental 'signatures';
 use experimental 'lexical_subs';
 
 
-sub generate_file ($name) {
-    if ($name =~ m!/([^/]+)-move\.mkdn$!) {
-        my $piece = ucfirst $1;
+sub generate_file ($file) {
+    #
+    # Strip off the directory.
+    #
+    $file =~ s!^.*/!!;
+    my ($name, $type) = $file =~ /^([^-]+)(?:-([^.]+))?\.mkdn$/ or return "";
+    $type //= "";
+
+    my $piece = ucfirst $name;
+
+    if ($type eq 'move') {
         return <<~ "--" =~ s/^\s+//gmr;
             # Move the $piece
 
             %% Template: move
+        --
+    }
+
+    if ($type eq 'path') {
+        return <<~ "--" =~ s/^\s+//gmr;
+            # $piece\'s Path
+
+            %% Template: path
         --
     }
 

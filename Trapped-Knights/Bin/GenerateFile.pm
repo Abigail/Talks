@@ -18,7 +18,7 @@ sub generate_file ($file) {
     my ($name, $type) = $file =~ /^([^-]+)(?:-([^.]+))?\.mkdn$/ or return "";
     $type //= "";
 
-    my $piece = ucfirst $name;
+    my $piece = join ' ' => map {ucfirst} split /_/ => $name;
 
     if ($type eq 'move') {
         return <<~ "--" =~ s/^\s+//gmr;

@@ -1,0 +1,12 @@
+Shogi
+
+* [King](king.html) (&#x738b;&#x5c07; or &#x7389;&#x5c07;)
+* [Rook](rook.html) (&#x98db;&#x8eca;)
+* [Bishop](bishop.html) (&#x89d2;&#x884c;)
+* [Gold General](gold_general.html) (&#x91d1;&#x5c07;)
+* [Silver General](silver_general.html) (&#x9280;&#x5c07;)
+* [Knight](shogi_knight.html) (&#x6842;&#x99ac;)
+* [Lance](lance.html) (&#x9999;&#x8eca;)
+* [Pawn](shogi_pawn.html) (&#x6b69;&#x5175;)
+* [Dragon King](dragonking.html) (&#x9f8d;&#x738b;)
+* [Dragon Horse](dragonhorse.html) (&#x9f8d;&#x99ac;)

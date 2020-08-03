@@ -255,9 +255,10 @@ class Board {
         let [x, y, value] = this . positions (args);
         let  class_name = args . class || "circle";
 
-        let rect_size = this . rect_size;
+        let rect_size   = this . rect_size;
+        let circle_size = args . size || .8 * rect_size;
 
-        this . board . circle (.8 * rect_size)
+        this . board . circle (circle_size)
                      . center (x * rect_size, y * rect_size)
                      . addClass (class_name);
     }
@@ -594,25 +595,59 @@ class Piece extends Board {
         //
         if ("moves" in piece) {
             piece . moves . forEach (item => {
-                let [x, y, steps] = item;
+                let [x, y, steps, options] = item;
+
+                if (!options) {
+                    options = {};
+                }
+
                 let move = 0;
                 let [this_x, this_y] = [0, 0];
 
                 while (1) {
+                    let [old_x, old_y] = [this_x, this_y];
                     this_x += x;
                     this_y += y;
                     if (!this . on_board ({x: this_x, y: this_y})) {
                         break;
                     }
                     let [tx, ty] = [this_x, this_y];
-                    element . animate ({duration: 500,
-                                        delay:    move ? 200 : 500})
-                            . dmove (x * rect_size,
-                                     y * rect_size)
-                            . after (function () {
-                                  me . place_circle ({x: tx, y: ty,
-                                                      class: "move"})
-                              });
+
+                    if (options ["pass_through"]) {
+                        //
+                        // For now, there will be just one square/move
+                        // with pass_through.
+                        //
+                        let pass_through = options ["pass_through"] [0];
+                        let [px, py]   = pass_through;
+                        let [ldx, ldy] = [x - px, y - py];
+                        element . animate ({duration: 200, delay: 500})
+                                . dmove (px * rect_size,
+                                         py * rect_size)
+                                . animate ({duration: 200, delay: 100})
+                                . after (function () {
+                                    me . place_circle ({x: old_x + px,
+                                                        y: old_y + py,
+                                                        class: "pass",
+                                                        size: .4 * rect_size})
+                                })
+                                . dmove (ldx * rect_size,
+                                         ldy * rect_size)
+                                . after (function () {
+                                      me . place_circle ({x: tx, y: ty,
+                                                          class: "move"})
+                                  });
+                    }
+                    else {
+                        element . animate ({duration: 500,
+                                            delay:    move ? 200 : 500})
+                                . dmove (x * rect_size,
+                                         y * rect_size)
+                                . after (function () {
+                                      me . place_circle ({x: tx, y: ty,
+                                                          class: "move"})
+                                  });
+                    }
                     move ++;
                     if (steps > 0 && move >= steps) {
                         break;

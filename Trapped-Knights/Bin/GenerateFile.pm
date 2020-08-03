@@ -61,7 +61,8 @@ sub xiangqi () {
         ['Adviser',  'Ferz',                       '4ED5', '58EB'],
         ['Elephant', 'Alfil<sup>&dagger;</sup>',   '76F8', '8C61'],
         ['Chariot',  'Rook',                       '4FE5', '8ECA'],
-        ['Horse',    'Knight<sup>&dagger;</sup>',  '508C', '99AC'],
+        ['[Horse](horse.html)',
+                     'Knight<sup>&dagger;</sup>',  '508C', '99AC'],
         ['Cannon',   'Rook<sup>&ddagger;</sup>',   '70AE', '7832'],
         ['Soldier',  'Pawn<sup>&para;</sup>',      '5175', '5352'],
     );

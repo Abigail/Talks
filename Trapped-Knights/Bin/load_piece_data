@@ -12,6 +12,7 @@ use lib '/Users/abigail/Perl/CPAN/Chess-Infinite/lib';
 use lib '/Users/abigail/Perl/CPAN/Colour-Name/lib';
 
 use JSON;
+use List::Util 'max';
 
 use Chess::Infinite;
 
@@ -47,6 +48,8 @@ my %piece_limits = (
    'silver_general:east'    =>  $silver_general_limits,
    'silver_general:south'   =>  $silver_general_limits,
    'silver_general:west'    =>  $silver_general_limits,
+
+    horse                   =>  {},
 
 );
 
@@ -117,6 +120,28 @@ foreach my $name (keys %piece_limits) {
     my $piece_info;
     my $image_name = $name =~ s/:/_/gr;
     $$piece_info {image}  =  $image_name . ".svg";
+    foreach my $ride (@rides) {
+        if (@$ride > 3) {
+            my @info    = splice @$ride, 3;
+            push @$ride => {@info};
+        }
+        if ($$ride [3] {free_path}) {
+            #
+            # Calculate the trace the move is taking
+            #
+            my ($dx, $dy) = @{$ride} [0, 1];
+            my $max_away = max abs ($dx), abs ($dy);
+            my @pass_through;
+            my ($px, $py) = (0, 0);
+            foreach my $step (1 .. ($max_away - 1)) {
+                my $nx = int ($step * $dx / $max_away);
+                my $ny = int ($step * $dy / $max_away);
+                push @pass_through => [$nx - $px, $ny - $py];
+                ($px, $py) = ($nx, $ny);
+            }
+            $$ride [3] {pass_through} = \@pass_through;
+        }
+    }
     $$piece_info {moves}  = \@rides;
 
     unless ($$limits {no_run}) {

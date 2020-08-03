@@ -94,6 +94,8 @@ let credit_info = {
     lance:                        shogi_info,
     shogi_pawn:                   shogi_info,
     shogi_knight:                 shogi_info,
+
+    horse:                        xboard_info,
 }
 
 function anchor (args = {}) {

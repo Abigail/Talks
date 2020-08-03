@@ -1,0 +1,18 @@
+# Horse
+
+%% Template: piece_begin
+[[
+* The [Horse][mao] moves like a [Knight](knight.html), but doesn't jump.
+* First moves one square orthogonally, then one space diagonally outward.
+
+##### Alternative names
+* Cavalier (*[Cavelier Chess][cavalier]*, 1998)
+* Mao (Chess problems)
+
+%% Link: CVp mao
+[cavalier]: https://www.chessvariants.com/dpieces.dir/cavalier/index.html
+
+]]
+
+%% Template: piece_end
+

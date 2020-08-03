@@ -39,6 +39,9 @@ silver_general:south-move
 silver_general:south-path
 silver_general:west-move
 silver_general:west-path
+shogi_knight
+lance
+shogi_pawn
 xiangqi
 horse
 horse-move

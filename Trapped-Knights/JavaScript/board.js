@@ -138,10 +138,11 @@ class Board {
     //
     draw_path (args = {}) {
         let piece     = args  . piece;
+        let options   = piece . path_args || {};
         let moves     = piece . run_list;
         let trapped   = piece . trapped;
         let rect_size = this  . rect_size;
-        let delay     = args  . delay || 10;
+        let delay     = args  . delay || options . delay || 10;
 
         //
         // Find bounding box

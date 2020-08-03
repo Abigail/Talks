@@ -10,7 +10,8 @@ use experimental 'signatures';
 use experimental 'lexical_subs';
 
 my %unique_files = (
-    'xiangqi.mkdn'   =>  \&xiangqi
+    'xiangqi.mkdn'   =>  \&xiangqi,
+    'janggi.mkdn'    =>  \&janggi,
 );
 
 sub generate_file ($file) {
@@ -91,6 +92,50 @@ sub xiangqi () {
         <sup>&dagger;</sup>Cannot jump pieces.
         <sup>&ddagger;</sup>Captures differently.
         <sup>&para;</sup>More or less.
+        </div>
+        ]]
+        </div>
+    --
+
+    $text
+}
+
+
+sub janggi {
+    my @pieces = (
+        ['General',  'King',                       '6F22', '695A'],
+        ['Guard',    'King',                       '58EB', '58EB'],
+        ['Chariot',  'Rook',                       '8ECA', '8ECA'],
+        ['Cannon',   '',                           '5305', '5305'],
+        ['[Horse](horse.html)',
+                     'Knight<sup>&dagger;</sup>',  '99AC', '99AC'],
+        ['[Elephant](elephant.html)',
+                     'Zebra<sup>&dagger;</sup>',   '8C61', '8C61'],
+        ['Soldier',  '',                           '5175', '5352'],
+    );
+
+    my $text = <<~ '--' =~ s/^\s+//grm;
+        # Janggi (Korean Chess)
+
+        <div class = 'main'>
+        [[
+    --
+    foreach my $piece (@pieces) {
+        my ($name, $moves_as, $han, $chu) = @$piece;
+        $text .= "* $name (" .
+                 "<span class = 'janggi-han'>&#x$han;</span>/" .
+                 "<span class = 'janggi-chu'>&#x$chu;</span>)";
+        if ($moves_as) {
+            my $link = lc ($moves_as =~ s/<.*//r) . ".html";
+            $text .= "; moves as [$moves_as]($link)";
+        }
+        $text .= ".\n";
+    }
+
+    $text .= <<~ '--' =~ s/^\s+//grm;
+
+        <div class = 'footnotes'>
+        <sup>&dagger;</sup>Cannot jump pieces.
         </div>
         ]]
         </div>

@@ -1,5 +1,4 @@
-@load_piece_data
-empty-board
+@load_piece_data empty-board
 knight-place
 rules
 knight
@@ -46,3 +45,6 @@ xiangqi
 horse
 horse-move
 horse-path
+janggi
+janggi_elephant-move
+janggi_elephant-path

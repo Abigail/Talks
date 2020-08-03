@@ -52,6 +52,8 @@ my %piece_limits = (
 
     horse                   =>  {},
 
+    janggi_elephant         =>  {},
+
 );
 
 #

@@ -18,6 +18,11 @@ let licence_info = {
         title:  "Creative Commons Attribution-ShareAlike 3.0 Unported",
         link:   CC_ORG + "/licenses/by-sa/3.0/deed.en",
     },
+    'CC BY-SA 4.0': {
+        name:   "CC BY-SA 4.0",
+        title:  "Creative Commons Attribution-ShareAlike 4.0 International"
+        link:   CC_ORG + "/licenses/by-sa/4.0/deed.en",
+    },
     'GPL 3': {
         name:   'GPL Version 3',
         title:  'GNU General Public Licence Version 3',
@@ -96,6 +101,14 @@ let credit_info = {
     shogi_knight:                 shogi_info,
 
     horse:                        xboard_info,
+
+    janggi_elephant: {
+        licence:                 'CC BY-SA 4.0',
+        name:                    'Hari Seldon',
+        link:                    'https://commons.wikimedia.org/wiki/' +
+                                         'File:Red_Sang_(svg).svg',
+        title:                   '(via Wikipedia)',
+    },
 }
 
 function anchor (args = {}) {

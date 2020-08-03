@@ -21,3 +21,11 @@ span.xiangqi-red {
 span.xiangqi-black {
     color: black;
 }
+
+
+span.janggi-han {
+    color: red;
+}
+span.janggi-chu {
+    color: green;
+}

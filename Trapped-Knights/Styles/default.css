@@ -8,3 +8,16 @@ div.main {margin-left:  5%;
 
 ul {padding-top: 0;
     margin-top:  0}
+
+
+div.footnotes {
+    font-size: 3vh;
+}
+
+
+span.xiangqi-red {
+    color: red;
+}
+span.xiangqi-black {
+    color: black;
+}

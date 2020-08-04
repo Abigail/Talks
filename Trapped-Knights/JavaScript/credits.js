@@ -135,10 +135,15 @@ let credit_info = {
     janggi_elephant:              janggi_info,
     janggi_soldier:               janggi_info,
 
-    wazir:                        sasr_info,
-    dabbaba:                      xboard_info,
+    wazir: {
+        name:                    'Freepik',
+        link:                    'https://www.flaticon.com/authors/freepik',
+        title:                   'Freepik',
+    },
+    dabbaba:                      sasr_info,
     threeleaper:                  xboard_info,
 };
+
 
 for (name in janggi_name_map) {
     let janggi_name = janggi_name_map [name];

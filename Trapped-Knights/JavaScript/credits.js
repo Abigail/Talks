@@ -115,6 +115,8 @@ let credit_info = {
 
     janggi_elephant:              janggi_info,
     janggi_soldier:               janggi_info,
+
+    wazir:                        xboard_info,
 };
 
 for (name in janggi_name_map) {

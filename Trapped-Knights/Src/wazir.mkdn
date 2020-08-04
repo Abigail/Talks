@@ -1,0 +1,7 @@
+# Wazir
+
+%% Template: piece_begin
+[[
+* Steps one square orthogonally.
+]]
+%% Template: piece_end

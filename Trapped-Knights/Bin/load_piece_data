@@ -54,6 +54,8 @@ my %piece_limits = (
 
     janggi_elephant         =>  {},
     janggi_soldier          =>  {max_moves         => 289},
+
+    wazir                   =>  {no_run            =>   1},
 );
 
 #

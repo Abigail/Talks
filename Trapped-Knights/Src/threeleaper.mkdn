@@ -1,7 +1,7 @@
-# Rook
+# Threeleaper
 
 %% Template: piece_begin
 [[
-* Slides orthogonally.
+* Jumps three squares orthogonally.
 ]]
 %% Template: piece_end

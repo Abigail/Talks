@@ -1,7 +1,7 @@
-# Rook
+# Wazir
 
 %% Template: piece_begin
 [[
-* Slides orthogonally.
+* Steps one square orthogonally.
 ]]
 %% Template: piece_end

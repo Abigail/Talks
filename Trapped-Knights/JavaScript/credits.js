@@ -20,7 +20,7 @@ let licence_info = {
     },
     'CC BY-SA 4.0': {
         name:   "CC BY-SA 4.0",
-        title:  "Creative Commons Attribution-ShareAlike 4.0 International"
+        title:  "Creative Commons Attribution-ShareAlike 4.0 International",
         link:   CC_ORG + "/licenses/by-sa/4.0/deed.en",
     },
     'GPL 3': {
@@ -50,6 +50,17 @@ let shogi_info = {
     link:      'https://github.com/orangain/shogi-piece-images',
     title:     'GitHub',
 };
+
+let janggi_info = {
+    licence:   'CC BY-SA 4.0',
+    name:      'Hari Seldon',
+    title:     '(via Wikipedia)',
+}
+
+let janggi_name_map = {
+    elephant:  'Sang',
+    soldier:   'Byung',
+}
 
 //
 // Credit info
@@ -102,6 +113,7 @@ let credit_info = {
 
     horse:                        xboard_info,
 
+<<<<<<< HEAD
     janggi_elephant: {
         licence:                 'CC BY-SA 4.0',
         name:                    'Hari Seldon',
@@ -109,7 +121,26 @@ let credit_info = {
                                          'File:Red_Sang_(svg).svg',
         title:                   '(via Wikipedia)',
     },
+=======
+    janggi_elephant:              janggi_info,
+    janggi_soldier:               janggi_info,
+
+    wazir:                        xboard_info,
+    dabbada:                      xboard_info,
+    threeleaper:                  xboard_info,
+};
+
+for (name in janggi_name_map) {
+    let janggi_name = janggi_name_map [name];
+    let key         = "janggi_" + name;
+    let link        = 'https://commons.wikimedia.org/wiki/' +
+                      `File:Red_${janggi_name}_(svg).svg`;
+
+    credit_info [key] ["link"] = link;
+>>>>>>> d7a13f2c8ee91ae2dd78433a9d59eb5539423a92
 }
+
+
 
 function anchor (args = {}) {
     let link  = args . link;

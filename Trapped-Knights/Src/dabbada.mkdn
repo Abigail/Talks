@@ -1,7 +1,7 @@
-# Rook
+# Dabbada
 
 %% Template: piece_begin
 [[
-* Slides orthogonally.
+* Jumps two squares orthogonally.
 ]]
 %% Template: piece_end

@@ -596,61 +596,127 @@ class Piece extends Board {
         //
         if ("moves" in piece) {
             piece . moves . forEach (item => {
-                let [x, y, steps, options] = item;
+                let [x, y, max_moves, options] = item;
 
                 if (!options) {
                     options = {};
                 }
 
                 let move = 0;
-                let [this_x, this_y] = [0, 0];
+
+                //
+                // "target_x", "target_y" is where the piece moves
+                // to for the next step. For moves (x, y, max_moves),
+                // where max_moves equals 1, this will be the ultimate
+                // destination before we move on to the next move.
+                // For multi-step moves, this will increase by the
+                // move direction for each step.
+                //
+                let [target_x, target_y] = [0, 0];
 
                 while (1) {
-                    let [old_x, old_y] = [this_x, this_y];
-                    this_x += x;
-                    this_y += y;
-                    if (!this . on_board ({x: this_x, y: this_y})) {
+                    //
+                    // old_x, old_y will be where the piece moves from.
+                    //
+                    let [old_x, old_y] = [target_x, target_y];
+
+                    //
+                    // Set the new target, and if we're moving
+                    // off the board, stop (and continue with the 
+                    // next move).
+                    //
+                    target_x += x;
+                    target_y += y;
+                    if (!this . on_board ({x: target_x, y: target_y})) {
                         break;
                     }
-                    let [tx, ty] = [this_x, this_y];
+
+                    //
+                    // Create a step_list. These are the intermediate
+                    // squares a piece should move through before hitting
+                    // the destination. Intermediate squares are typically
+                    // used if squares must be empty for a piece to reach
+                    // a destination. There squares are *not* allowable
+                    // destination squares (and hence differ from the 
+                    // intermediate squares of sliders).
+                    //
+                    let step_list = [[x, y]];
 
                     if (options ["pass_through"]) {
+                        step_list = options ["pass_through"];
+                        let steps    = step_list . length;
+
                         //
-                        // For now, there will be just one square/move
-                        // with pass_through.
+                        // Calculate the movement for the last step
                         //
-                        let pass_through = options ["pass_through"] [0];
-                        let [px, py]   = pass_through;
-                        let [ldx, ldy] = [x - px, y - py];
-                        element . animate ({duration: 200, delay: 500})
+                        let [tdx, tdy] = [0, 0];
+                        for (let i = 0; i < steps; i ++) {
+                            let [dx, dy] = step_list [i];
+                            tdx += dx;
+                            tdy += dy;
+                        }
+                        step_list [step_list . length] = [x - tdx, y - tdy];
+                    }
+
+                    //
+                    // Move the piece to the destination, stopping at
+                    // possible intermediate squares. If there are any,
+                    // drop a small circle.
+                    //
+                    let steps = step_list . length;
+                    let duration = 500 / (steps + 1);
+
+                    //
+                    // [mx, my] will be the current offset from where
+                    // the piece left off.
+                    //
+                    let [mx, my] = [0, 0];
+
+                    for (let i = 0; i < step_list . length; i ++) {
+                        let step = step_list [i];
+                        let [px, py] = step;
+                        mx += px;
+                        my += py;
+                        let delay = i == 0 ? 500 : 100;
+
+                        element . animate ({duration: duration, delay: delay})
                                 . dmove (px * rect_size,
-                                         py * rect_size)
-                                . animate ({duration: 200, delay: 100})
-                                . after (function () {
-                                    me . place_circle ({x: old_x + px,
-                                                        y: old_y + py,
-                                                        class: "pass",
-                                                        size: .4 * rect_size})
-                                })
-                                . dmove (ldx * rect_size,
-                                         ldy * rect_size)
-                                . after (function () {
-                                      me . place_circle ({x: tx, y: ty,
-                                                          class: "move"})
-                                  });
+                                         py * rect_size);
+
+                        if (i < step_list . length - 1) {
+                            //
+                            // Don't use old_x + mx, and old_y + my
+                            // directly, as old_x and old_y are defined
+                            // in an outer scope, and will have changed
+                            // before the circle is drawn.
+                            //
+                            let [ttx, tty] = [old_x + mx, old_y + my];
+                            element . animate ({duration: 100, delay: 100})
+                                    . after (function () {
+                                        me . place_circle ({
+                                            x: ttx,
+                                            y: tty,
+                                            class: "pass",
+                                            size: .4 * rect_size})
+                                      })
+                        }
                     }
-                    else {
-                        element . animate ({duration: 500,
-                                            delay:    move ? 200 : 500})
-                                . dmove (x * rect_size,
-                                         y * rect_size)
-                                . after (function () {
-                                      me . place_circle ({x: tx, y: ty,
-                                                          class: "move"})
-                                  });
-                    }
+
+                    //
+                    // We're now at the destination, so drop a circle.
+                    // We'll have to copy [target_x, target_y], as it's
+                    // defined in an outer scope, and may change by
+                    // the time it gets drawn.
+                    //
+                    let [ttx, tty] = [target_x, target_y];
+                    element . animate ({duration: 200, delay: 100})
+                            . after (function () {
+                                  me . place_circle ({x: ttx,
+                                                      y: tty,
+                                                      class: "move"})
+                              });
                     move ++;
-                    if (steps > 0 && move >= steps) {
+                    if (max_moves > 0 && move >= max_moves) {
                         break;
                     }
                 }
@@ -664,4 +730,4 @@ class Piece extends Board {
             });
         }
     }
-}
+} 

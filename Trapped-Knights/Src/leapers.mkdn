@@ -3,7 +3,7 @@ Basic Leapers
 <div class = "main">
 [[
 * [Wazir](wazir.html)
-* [Dabbada](dabbada.html)
+* [Dabbada](dabbaba.html)
 * [Threeleaper](threeleaper.html)
 ]]
 <p>

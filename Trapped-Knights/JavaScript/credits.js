@@ -136,7 +136,7 @@ let credit_info = {
     janggi_soldier:               janggi_info,
 
     wazir:                        sasr_info,
-    dabbada:                      xboard_info,
+    dabbaba:                      xboard_info,
     threeleaper:                  xboard_info,
 };
 

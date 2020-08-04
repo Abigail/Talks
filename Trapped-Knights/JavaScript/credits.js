@@ -140,7 +140,11 @@ let credit_info = {
         link:                    'https://www.flaticon.com/authors/freepik',
         title:                   'Freepik',
     },
-    dabbaba:                      sasr_info,
+    dabbaba: {
+        name:                    'Free icons',
+        link:                    'https://freeicons.io/',
+        title:                   'Free icons',
+    },
     threeleaper:                  xboard_info,
 };
 

@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><path fill="#404040" stroke="#000" stroke-width="2" stroke-dashoffset="4" d="M22 12h20v40H22z"/></svg>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+<g id="Layer_1">
+	<path d="M35,18v3h-3.327L31,18.848V14h5V8h-5V1H19v7h-5v6h5v4.848L18.327,21H15v-3h-4.764L1,13.382v17.236L10.236,26H15v-3h2.702
+		l-3.805,12.177L18.057,41H8v8h34v-8H31.943l4.159-5.823L32.298,23H35v3h4.764L49,30.618V13.382L39.764,18H35z M13,24H9.764
+		L3,27.382V16.618L9.764,20H13V24z M21,3h8v5h-8V3z M16,12v-2h3h12h3v2h-3H19H16z M29,14v4h-8.035L21,14H29z M40,43v4H10v-4h9.485
+		h11.029H40z M29.485,41h-8.971l-4.412-6.177L20.735,20h8.575l4.588,14.823L29.485,41z M47,16.618v10.764L40.236,24H37v-4h3.236
+		L47,16.618z"/>
+</g>
+<g>
+</g>
+</svg>

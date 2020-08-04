@@ -58,7 +58,7 @@ sub generate_file ($file) {
 
 sub xiangqi () {
     my @pieces = (
-        ['General',  'King',                       '5E25', '5C07'],
+        ['General',  'Wazir',                      '5E25', '5C07'],
         ['Adviser',  'Ferz',                       '4ED5', '58EB'],
         ['Elephant', 'Alfil<sup>&dagger;</sup>',   '76F8', '8C61'],
         ['Chariot',  'Rook',                       '4FE5', '8ECA'],

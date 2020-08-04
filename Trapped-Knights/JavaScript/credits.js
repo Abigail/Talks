@@ -80,6 +80,11 @@ let freeicons_info = {
     title:     'Free icons',
 };
 
+// 
+// Other places with (SVG) icons:
+//    https://www.flaticon.com/
+//
+
 let janggi_name_map = {
     elephant:  'Sang',
     soldier:   'Byung',

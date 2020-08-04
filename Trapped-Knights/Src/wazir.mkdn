@@ -2,6 +2,13 @@
 
 %% Template: piece_begin
 [[
-* Steps one square orthogonally.
+* The [Wazir][wazir] steps one square orthogonally.
+
+##### Alternative Names
+
+* Vizir (*[Tamerlane Chess][tamerlane]*, 14th century)
+
+%% Link: CVp wazir
+%% Link: CV historic.dir/tamerlane
 ]]
 %% Template: piece_end

@@ -1,0 +1,7 @@
+# Threeleaper
+
+%% Template: piece_begin
+[[
+* Jumps three squares orthogonally.
+]]
+%% Template: piece_end

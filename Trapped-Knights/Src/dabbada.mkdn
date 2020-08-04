@@ -1,0 +1,7 @@
+# Dabbada
+
+%% Template: piece_begin
+[[
+* Jumps two squares orthogonally.
+]]
+%% Template: piece_end

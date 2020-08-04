@@ -1,0 +1,21 @@
+Basic Leapers
+
+<div class = "main">
+[[
+* [Wazir](wazir.html)
+* [Dabbada](dabbada.html)
+* [Threeleaper](threeleaper.html)
+]]
+<p>
+[[
+* [Ferz](ferz.html)
+* [Alfil](alfil.html)
+* [Tripper](tripper.html)
+]]
+<p>
+[[
+* [Knight](knight.html)
+* [Camel](camel.html)
+* [Zebra](zebra.html)
+]]
+</div>

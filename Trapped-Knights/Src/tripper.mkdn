@@ -1,0 +1,8 @@
+# Tripper
+
+%% Template: piece_begin
+[[
+* The Tripper jumps to the third square diagonally.
+
+]]
+%% Template: piece_end

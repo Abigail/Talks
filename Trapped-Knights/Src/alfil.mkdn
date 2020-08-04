@@ -1,0 +1,14 @@
+# Alfil
+
+%% Template: piece_begin
+[[
+* The [Alfil][alfil] jumps to the second square diagonally.
+
+##### Alternative Names
+
+* Elephant/Hasti/Gaja (*[Chaturanga][chaturanga]*, 7th century)
+
+%% Link: CVp alfil
+%% Link: CV historic.dir/chaturanga
+]]
+%% Template: piece_end

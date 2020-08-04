@@ -1,0 +1,16 @@
+# Ferz
+
+%% Template: piece_begin
+[[
+* The [Ferz][ferz] steps one square diagonally.
+
+##### Alternative Names
+
+* Minister (*[Chaturanga][chaturanga]*, 7th century)
+* General (*[Shatranj][shatranj]*, 7th century)
+
+%% Link: CVp ferz
+%% Link: CV historic.dir/chaturanga
+%% Link: CV historic.dir/shatranj
+]]
+%% Template: piece_end

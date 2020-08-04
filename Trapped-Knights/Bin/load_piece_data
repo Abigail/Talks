@@ -55,7 +55,7 @@ my %piece_limits = (
     janggi_elephant         =>  {},
     janggi_soldier          =>  {max_moves         => 289},
 
-    wazir                   =>  {no_run            =>   1},
+    wazir                   =>  {max_bounding_box  =>  20},
     dabbaba                 =>  {max_bounding_box  =>  20},
     threeleaper             =>  {max_bounding_box  =>  20},
 );

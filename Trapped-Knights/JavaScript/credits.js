@@ -68,6 +68,11 @@ let sasr_info   = {
     title:     "Sassersson's Abstract Shape Representation",
 };
 
+let freepik_info = {
+    name:      'Freepik',
+    link:      'https://www.flaticon.com/authors/freepik',
+    title:     'Freepik',
+},
 
 let freeicons_info = {
     name:      'Free icons',
@@ -142,11 +147,7 @@ let credit_info = {
     janggi_elephant:              janggi_info,
     janggi_soldier:               janggi_info,
 
-    wazir: {
-        name:                    'Freepik',
-        link:                    'https://www.flaticon.com/authors/freepik',
-        title:                   'Freepik',
-    },
+    wazir:                        freeicons_info,
     dabbaba:                      freeicons_info,
     threeleaper:                  freeicons_info,
 };

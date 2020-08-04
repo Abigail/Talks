@@ -2,6 +2,9 @@
 
 %% Template: piece_begin
 [[
-* Jumps two squares orthogonally.
+* The [Dabbaba(h)][dabbabah] jumps two squares orthogonally.
+* Dates from 14th century, or earlier.
+
+%% Link: CVp dabbabah
 ]]
 %% Template: piece_end

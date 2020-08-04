@@ -1,0 +1,14 @@
+# Soldier (Janggi)
+
+%% Template: piece_begin
+[[
+* The Soldier moves one square orthogonally forward or sidewards.
+
+##### Alternative names
+* Xiangqi soldier/pawn (after crossing the river)
+* Drunken Soldier
+
+]]
+
+%% Template: piece_end
+

@@ -53,7 +53,7 @@ my %piece_limits = (
     horse                   =>  {},
 
     janggi_elephant         =>  {},
-
+    janggi_soldier          =>  {max_moves         => 289},
 );
 
 #

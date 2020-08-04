@@ -23,6 +23,11 @@ let licence_info = {
         title:  "Creative Commons Attribution-ShareAlike 4.0 International",
         link:   CC_ORG + "/licenses/by-sa/4.0/deed.en",
     },
+    'CC BY 4.0': {
+        name:   "CC BY 4.0",
+        title:  "Creative Commons Attribution 4.0 International",
+        link:   CC_ORG + "/licenses/by/4.0/deed.en",
+    },
     'GPL 3': {
         name:   'GPL Version 3',
         title:  'GNU General Public Licence Version 3',
@@ -56,6 +61,12 @@ let janggi_info = {
     name:      'Hari Seldon',
     title:     '(via Wikipedia)',
 }
+
+let sasr_info   = {
+    licence:   'CC BY 4.0',
+    name:      'Ola Sassersson',
+    title:     "Sassersson's Abstract Shape Representation",
+};
 
 let janggi_name_map = {
     elephant:  'Sang',
@@ -113,7 +124,6 @@ let credit_info = {
 
     horse:                        xboard_info,
 
-<<<<<<< HEAD
     janggi_elephant: {
         licence:                 'CC BY-SA 4.0',
         name:                    'Hari Seldon',
@@ -121,11 +131,11 @@ let credit_info = {
                                          'File:Red_Sang_(svg).svg',
         title:                   '(via Wikipedia)',
     },
-=======
+
     janggi_elephant:              janggi_info,
     janggi_soldier:               janggi_info,
 
-    wazir:                        xboard_info,
+    wazir:                        sasr_info,
     dabbada:                      xboard_info,
     threeleaper:                  xboard_info,
 };
@@ -137,7 +147,6 @@ for (name in janggi_name_map) {
                       `File:Red_${janggi_name}_(svg).svg`;
 
     credit_info [key] ["link"] = link;
->>>>>>> d7a13f2c8ee91ae2dd78433a9d59eb5539423a92
 }
 
 

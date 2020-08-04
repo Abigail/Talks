@@ -2,6 +2,6 @@
 
 %% Template: piece_begin
 [[
-* Slides along any axis.
+* Slides orthogonally.
 ]]
 %% Template: piece_end

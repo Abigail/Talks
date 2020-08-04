@@ -2,7 +2,7 @@
 
 %% Template: piece_begin
 [[
-* Slides along diagonals and axis.
-* Is a combined rook + bishop.
+* Slides orthogonally and diagonally.
+* Is a combined [Rook](rook.html) + [Bishop](bishop.html).
 ]]
 %% Template: piece_end

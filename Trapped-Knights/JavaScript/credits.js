@@ -68,6 +68,13 @@ let sasr_info   = {
     title:     "Sassersson's Abstract Shape Representation",
 };
 
+
+let freeicons_info = {
+    name:      'Free icons',
+    link:      'https://freeicons.io/',
+    title:     'Free icons',
+};
+
 let janggi_name_map = {
     elephant:  'Sang',
     soldier:   'Byung',
@@ -140,12 +147,8 @@ let credit_info = {
         link:                    'https://www.flaticon.com/authors/freepik',
         title:                   'Freepik',
     },
-    dabbaba: {
-        name:                    'Free icons',
-        link:                    'https://freeicons.io/',
-        title:                   'Free icons',
-    },
-    threeleaper:                  xboard_info,
+    dabbaba:                      freeicons_info,
+    threeleaper:                  freeicons_info,
 };
 
 

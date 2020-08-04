@@ -109,7 +109,7 @@ sub janggi {
         ['Cannon',   '',                           '5305', '5305'],
         ['[Horse](horse.html)',
                      'Knight<sup>&dagger;</sup>',  '99AC', '99AC'],
-        ['[Elephant](elephant.html)',
+        ['[Elephant](janggi_elephant.html)',
                      'Zebra<sup>&dagger;</sup>',   '8C61', '8C61'],
         ['[Soldier](janggi_soldier.html)',
                      '',                           '5175', '5352'],

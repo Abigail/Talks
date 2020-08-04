@@ -1,0 +1,13 @@
+# Elephant (Janggi)
+
+%% Template: piece_begin
+[[
+* The Elephant in Janggi moves like a [Zebra](zebra.html), but
+  doesn't jump.
+* First moves one square orthogonally, then two space diagonally outward.
+
+
+]]
+
+%% Template: piece_end
+

@@ -72,12 +72,18 @@ let freepik_info = {
     name:      'Freepik',
     link:      'https://www.flaticon.com/authors/freepik',
     title:     'Freepik',
-},
+};
 
 let freeicons_info = {
     name:      'Free icons',
     link:      'https://freeicons.io/',
     title:     'Free icons',
+};
+
+let svgrepo_info = {
+    licence:   'CC0 1.0',
+    name:      'SVG Repo',
+    link:      'https://www.svgrepo.com/',
 };
 
 // 
@@ -89,6 +95,23 @@ let janggi_name_map = {
     elephant:  'Sang',
     soldier:   'Byung',
 }
+
+function wiki_info (args = {}) {
+    let info = {
+        licence:   args ["licence"] || 'CC BY-SA 3.0',
+        title:     args ["title"]   || '(via Wikipedia)',
+    };
+    if (args ["file"]) {
+        info ["link"] = 'https://commons.wikimedia.org/wiki/' +
+                        `File:${args ["file"]}.svg`;
+    }
+    if (args ["name"]) {
+        info ["name"] = args ["name"];
+    }
+
+    return info;
+}
+
 
 //
 // Credit info
@@ -155,6 +178,12 @@ let credit_info = {
     wazir:                        freeicons_info,
     dabbaba:                      freeicons_info,
     threeleaper:                  freeicons_info,
+
+    camel:                        svgrepo_info,
+    zebra:                        wiki_info ({
+        file: "Chess_Zlt45",
+        name: "Cburnett & Francois-Pier",
+    }),
 };
 
 

@@ -1,0 +1,17 @@
+# Zebra
+
+%% Template: piece_begin
+[[
+* The [Zebra][zebra] moves one square orthogonally, then two squares
+  diagonally outwards, leaping over any occupied squares.
+* Dates from at least the 13th century.
+
+##### Alternative Names
+
+* Zaraffe/Giraffe (*[Grande Acedrex][acedrex]*, 13th century)
+* Bull (*Full Tamerlane chess*, 14th-15th century)
+
+%% Link: CVp zebra
+%% Link: CV historic.dir/acedrex
+]]
+%% Template: piece_end

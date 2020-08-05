@@ -1,0 +1,19 @@
+# Camel
+
+%% Template: piece_begin
+[[
+* The [Camel][camel] moves two squares orthogonally, then one square
+  diagonally outwards, leaping over any occupied squares.
+* Dates from at least the 14th century (*[Tamerlane chess][tamerlane]*).
+
+##### Alternative Names
+
+* Chevalier (*[Mideast Chess][mideast]*, 1971)
+* Light Cavelry (*[Napoleonic Chess][napoleonic]*)
+
+%% Link: CVp camel
+%% Link: CV historic.dir/tamerlane
+%% Link: CV large.dir/mideast
+%% Link: CV large.dir/contest/napoleonic
+]]
+%% Template: piece_end

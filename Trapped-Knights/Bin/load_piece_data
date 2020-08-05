@@ -62,6 +62,9 @@ my %piece_limits = (
     alfil                   =>  {max_bounding_box  =>  20},
     tripper                 =>  {max_bounding_box  =>  20},
 
+    camel                   =>  {},
+    zebra                   =>  {},
+
 );
 
 #

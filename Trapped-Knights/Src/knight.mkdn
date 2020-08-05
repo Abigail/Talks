@@ -2,8 +2,7 @@
 
 %% Template: piece_begin
 [[
-* Knights jump:
-    * Two squares along one axis
-    * One square along the other
+* Knight moves one square orthogonally, then one square diagonally
+  outward, jumping over any occupied squares.
 ]]
 %% Template: piece_end

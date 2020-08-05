@@ -627,6 +627,7 @@ class Piece extends Board {
                     //
                     let [old_x, old_y] = [target_x, target_y];
 
+
                     //
                     // Set the new target, and if we're moving
                     // off the board, stop (and continue with the 
@@ -707,18 +708,18 @@ class Piece extends Board {
                     }
 
                     //
-                    // We're now at the destination, so drop a circle.
-                    // We'll have to copy [target_x, target_y], as it's
-                    // defined in an outer scope, and may change by
-                    // the time it gets drawn.
+                    // If we're leaving a spot different from the
+                    // center, drop a circle.
                     //
-                    let [ttx, tty] = [target_x, target_y];
-                    element . animate ({duration: 200, delay: 100})
-                            . after (function () {
-                                  me . place_circle ({x: ttx,
-                                                      y: tty,
+                    if (old_x != 0 || old_y != 0) {
+                        element . animate ({duration: 1, delay: 0})
+                                . after (function () {
+                                  me . place_circle ({x: old_x,
+                                                      y: old_y,
                                                       class: "move"})
                               });
+                    }
+
                     move ++;
                     if (max_moves > 0 && move >= max_moves) {
                         break;
@@ -726,11 +727,19 @@ class Piece extends Board {
                 }
 
                 //
-                // Move the piece back to the center
+                // Move the piece back to the center, and drop a
+                // circle at the destination.
                 //
                 element . animate ({duration:   50,
                                     delay:     500,})
-                        . center (0, 0);
+                        . center (0, 0)
+                        . animate ({duration:    1,
+                                    delay:       0})
+                        . after (function () {
+                              me . place_circle ({x: target_x,
+                                                  y: target_y,
+                                                  class: "move"})
+                          });
             });
         }
     }

@@ -120,7 +120,8 @@ foreach my $name (keys %piece_limits) {
         $args {heading} = ${^POSTMATCH};
         $piece_name     = ${^PREMATCH};
     }
-    my $piece  = piece $piece_name, %args;
+    my $piece  = piece $piece_name, %args or
+        die "Failed to create the $piece_name piece.\n";
     my @rides  = sort_rides $piece -> rides;
     my $limits = $piece_limits {$name};
 

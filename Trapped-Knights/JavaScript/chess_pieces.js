@@ -12,6 +12,12 @@ let info = {
     horse:                  {path_args:     {delay: 200}},
     janggi_elephant:        {spiral_args:   {min_x: -4,  min_y: -8, size: 15},
                              path_args:     {delay: 200}},
+    wazir:                  {path_args:     {delay:  50}},
+    dabbaba:                {path_args:     {delay: 100}},
+    threeleaper:            {path_args:     {delay: 200}},
+    ferz:                   {path_args:     {delay:  50}},
+    alfil:                  {path_args:     {delay: 100}},
+    tripper:                {path_args:     {delay: 200}},
 };
 
 

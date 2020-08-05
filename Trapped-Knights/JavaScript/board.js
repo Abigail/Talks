@@ -616,6 +616,13 @@ class Piece extends Board {
 
                 while (1) {
                     //
+                    // If we have moved off the board, stop
+                    //
+                    if (!this . on_board ({x: target_x, y: target_y})) {
+                        break;
+                    }
+
+                    //
                     // old_x, old_y will be where the piece moves from.
                     //
                     let [old_x, old_y] = [target_x, target_y];
@@ -627,9 +634,6 @@ class Piece extends Board {
                     //
                     target_x += x;
                     target_y += y;
-                    if (!this . on_board ({x: target_x, y: target_y})) {
-                        break;
-                    }
 
                     //
                     // Create a step_list. These are the intermediate

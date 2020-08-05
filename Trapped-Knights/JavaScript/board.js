@@ -682,7 +682,7 @@ class Piece extends Board {
                         let [px, py] = step;
                         mx += px;
                         my += py;
-                        let delay = i == 0 ? 500 : 100;
+                        let delay = i == 0 ? 500 : 0;
 
                         element . animate ({duration: duration, delay: delay})
                                 . dmove (px * rect_size,

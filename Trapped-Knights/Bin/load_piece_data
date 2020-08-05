@@ -58,6 +58,10 @@ my %piece_limits = (
     wazir                   =>  {max_bounding_box  =>  20},
     dabbaba                 =>  {max_bounding_box  =>  20},
     threeleaper             =>  {max_bounding_box  =>  20},
+    ferz                    =>  {max_bounding_box  =>  20},
+    alfil                   =>  {max_bounding_box  =>  20},
+    tripper                 =>  {max_bounding_box  =>  20},
+
 );
 
 #

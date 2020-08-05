@@ -188,15 +188,54 @@ class Board {
         for (let i = 1; i < moves . length; i ++) {
             let [old_x, old_y] = this . positions ({value: moves [i - 1]});
             let [new_x, new_y] = this . positions ({value: moves [i]});
-            setTimeout (function () {
-                board . line     (old_x * rect_size, old_y * rect_size,
-                                  new_x * rect_size, new_y * rect_size) 
-                      . addClass ("path-line");
+
+            //
+            // Color gradient:
+            //      0%       25%       50%       75%      100%
+            //   0000FF -> 00FFFF -> 00FF00 -> FFFF00 -> FF0000
+            //    blue      cyan       green    yellow     red
+            //
+            //   red:     0 --  50%:  0
+            //           50 --  75%: FF * 4 * (% - 50)
+            //           75 -- 100%  FF
+            //   green:   0 --  25%: FF * 4 * (% - 25)
+            //           25 --  75%: FF
+            //           75 -- 100%: FF * 4 * (100 - %)
+            //   blue:    0 --  25%: FF
+            //           25 --  50%: FF * 4 * ( 50 - %)
+            //           50 --  75%:  0
+            //           75 -- 100%: FF * 4 * (% -  75)
+            //
+
+            let perc  = 100 * i / moves . length;
+            let red   = perc <= 50 ?   0
+                      : perc <= 75 ?   4 * (perc -  50)
+                      :              100;
+            let green = perc <= 25 ?   4 * (perc -   0)
+                      : perc <= 75 ? 100
+                      :                4 * (100 - perc);
+            let blue  = perc <= 25 ? 100
+                      : perc <= 50 ?   4 * ( 50 - perc)
+                      :                0;
+
+            let rgb_red   = Math . floor (255 * red   / 100);
+            let rgb_green = Math . floor (255 * green / 100);
+            let rgb_blue  = Math . floor (255 * blue  / 100);
+
+            let rgb = `rgb(${rgb_red},${rgb_green},${rgb_blue})`;
+
+            setTimeout (function (rgb) {
                 board . circle   (.3 * rect_size)
                       . center   (new_x * rect_size, new_y * rect_size)
-                      . addClass ("path-point")
+                      . addClass ("path-point");
+
+                board . line     (old_x * rect_size, old_y * rect_size,
+                                  new_x * rect_size, new_y * rect_size) 
+                      . stroke ({color: rgb})
+                      . addClass ("path-line");
+
                 $('#move-number') . html (i);
-            }, delay * i);
+            }, delay * i, rgb);
         }
 
         //
